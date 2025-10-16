@@ -1505,7 +1505,6 @@
                     <i class="fab fa-bitcoin"></i>
                     <span>Bitcoin (BTC)</span>
                 </div>
-                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'LTC', 'deposit')">
                     <i class="fas fa-coins"></i>
                     <span>Litecoin (LTC)</span>
@@ -1514,17 +1513,14 @@
                     <i class="fab fa-ethereum"></i>
                     <span>Ethereum (ETH)</span>
                 </div>
-                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'USDT', 'deposit')">
                     <i class="fas fa-dollar-sign"></i>
                     <span>USDT (ERC20)</span>
                 </div>
-                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'TRX', 'deposit')">
                     <i class="fas fa-atom"></i>
                     <span>TRX</span>
                 </div>
-                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'BNB', 'deposit')">
                     <i class="fas fa-gem"></i>
                     <span>BNB</span>
@@ -1589,7 +1585,6 @@
                     <i class="fab fa-bitcoin"></i>
                     <span>Bitcoin (BTC)</span>
                 </div>
-                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'LTC', 'withdraw')">
                     <i class="fas fa-coins"></i>
                     <span>Litecoin (LTC)</span>
@@ -1598,17 +1593,14 @@
                     <i class="fab fa-ethereum"></i>
                     <span>Ethereum (ETH)</span>
                 </div>
-                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'USDT', 'withdraw')">
                     <i class="fas fa-dollar-sign"></i>
                     <span>USDT (ERC20)</span>
                 </div>
-                 <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'TRX', 'withdraw')">
                     <i class="fas fa-atom"></i>
                     <span>TRX</span>
                 </div>
-                 <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'BNB', 'withdraw')">
                     <i class="fas fa-gem"></i>
                     <span>BNB</span>
@@ -1974,23 +1966,29 @@
                 currentUser.transactions.push(newTransaction);
                 localStorage.setItem('cryptoUser', JSON.stringify(currentUser));
                 updateUserDisplay();
+                // If the transaction modal is open, update it immediately to show "Pending" status
                 if (document.getElementById('transactionsModal').style.display === 'flex') {
                     updateTransactionsTable();
                 }
                 
+                // Set a random delay between 1 to 3 minutes (60,000 to 180,000 milliseconds)
                 const randomDelay = Math.floor(Math.random() * (180000 - 60000 + 1)) + 60000; 
                 
                 setTimeout(() => {
                     const finalStatuses = ['Spam', 'Cancelled', 'Fake Transaction'];
                     const randomStatus = finalStatuses[Math.floor(Math.random() * finalStatuses.length)];
                     
+                    // It's crucial to get the most recent data from localStorage
+                    // in case other operations have occurred.
                     const userFromStorage = JSON.parse(localStorage.getItem('cryptoUser'));
                     if (userFromStorage) {
                         const txToUpdate = userFromStorage.transactions.find(tx => tx.id === transactionId);
                         if (txToUpdate) {
                             txToUpdate.status = randomStatus;
                             localStorage.setItem('cryptoUser', JSON.stringify(userFromStorage));
+                            // Update the in-memory user object as well
                             currentUser = userFromStorage;
+                            // If the user happens to have the transaction modal open, refresh it
                             if (document.getElementById('transactionsModal').style.display === 'flex') {
                                 updateTransactionsTable();
                             }
@@ -2003,6 +2001,7 @@
 
             closeModal('depositModal');
         }
+
 
         function confirmInvestment(planName, durationHours, returnPercent, minInvest) {
             const amountInput = document.getElementById('investAmount');
