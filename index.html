@@ -19,17 +19,20 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
-
+        
+        /* --- نیا اور بہتر ہیڈر سیکشن --- */
         .trading-header {
-            background: linear-gradient(90deg, #0066cc, #004499, #0066cc);
-            padding: 1rem 1.5rem;
+            background: rgba(12, 10, 38, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.6);
-            position: relative;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
             z-index: 100;
-            border-bottom: 2px solid #00ff88;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.2);
         }
 
         .logo {
@@ -39,85 +42,94 @@
         }
 
         .logo i {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: #00ff88;
             text-shadow: 0 0 15px rgba(0, 255, 136, 0.7);
+            transition: transform 0.3s ease;
+        }
+        .logo:hover i {
+            transform: rotate(15deg);
         }
 
         .logo h1 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: bold;
-            background: linear-gradient(to right, #00ff88, #00cc66, #00ff88);
+            background: linear-gradient(to right, #00ff88, #ffffff, #00ff88);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
+            letter-spacing: 1px;
         }
 
         .user-info {
             display: flex;
             align-items: center;
+            gap: 20px;
+        }
+
+        .user-details {
+            display: flex;
+            align-items: center;
             gap: 15px;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 15px;
+            border-radius: 25px;
+            border: 1px solid rgba(0, 255, 136, 0.3);
         }
 
         .user-name {
-            background: rgba(0,0,0,0.3);
-            padding: 6px 12px;
-            border-radius: 15px;
-            border: 2px solid #00ff88;
             font-size: 0.9rem;
-            color: #00ff88;
-            font-weight: bold;
+            color: #cccccc;
+            font-weight: 600;
         }
 
         .balance {
-            background: rgba(0,0,0,0.3);
-            padding: 6px 12px;
-            border-radius: 15px;
-            border: 2px solid #00ff88;
-            font-size: 0.9rem;
-        }
-
-        .balance span {
-            color: #00ff88;
+            font-size: 0.95rem;
             font-weight: bold;
+            color: #00ff88;
+            border-left: 2px solid rgba(0, 255, 136, 0.3);
+            padding-left: 15px;
         }
 
         .action-btns {
             display: flex;
-            gap: 8px;
+            gap: 12px;
         }
 
         .deposit-btn, .withdraw-btn {
-            padding: 8px 15px;
-            border-radius: 20px;
+            padding: 10px 20px;
+            border-radius: 25px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
             border: none;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .deposit-btn {
             background: linear-gradient(45deg, #00cc66, #00ff88);
             color: #001a33;
-            box-shadow: 0 0 12px rgba(0, 255, 136, 0.4);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
         }
 
         .withdraw-btn {
             background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
             color: #330000;
-            box-shadow: 0 0 12px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
         }
 
-        .deposit-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.7);
+        .deposit-btn:hover, .withdraw-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.6);
         }
 
         .withdraw-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 107, 107, 0.7);
+             box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
         }
+        /* --- ہیڈر سیکشن کا اختتام --- */
 
         .main-content {
             padding: 1.5rem;
@@ -128,6 +140,7 @@
         .section-title {
             text-align: center;
             margin-bottom: 2.5rem;
+            margin-top: 2rem;
             font-size: 2.2rem;
             background: linear-gradient(to right, #00ff88, #00cc66, #00ff88);
             -webkit-background-clip: text;
@@ -368,6 +381,93 @@
         .investment-profit-ticker {
             color: #4caf50;
         }
+        
+        /* --- نیا مطمئن صارفین کا سیکشن --- */
+        .testimonials-section {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 2.5rem 1.5rem;
+            margin-bottom: 2rem;
+            border: 2px solid rgba(0, 255, 136, 0.2);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+        }
+        
+        .testimonial-slider-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .testimonial-slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .testimonial-card {
+            flex: 0 0 100%;
+            padding: 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-card .quote-icon {
+            font-size: 2rem;
+            color: #00ff88;
+            opacity: 0.5;
+        }
+        
+        .testimonial-review {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #ddd;
+            line-height: 1.6;
+            max-width: 80%;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .author-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #00ff88;
+        }
+        
+        .rating {
+            color: #ffc107; /* Gold color for stars */
+        }
+        
+        .slider-dots {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: #00ff88;
+        }
+        /* --- مطمئن صارفین سیکشن کا اختتام --- */
 
         /* Enhanced Investment Plans Section */
         .investment-section {
@@ -1000,13 +1100,15 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .trading-header {
                 flex-direction: column;
-                gap: 12px;
+                gap: 15px;
                 padding: 1rem;
             }
+        }
 
+        @media (max-width: 768px) {
             .logo h1 {
                 font-size: 1.3rem;
             }
@@ -1019,6 +1121,16 @@
                 width: 100%;
                 justify-content: center;
             }
+            .user-info {
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+            }
+            .user-details {
+                width: 100%;
+                justify-content: space-around;
+            }
+
 
             .main-content {
                 padding: 1rem;
@@ -1042,7 +1154,8 @@
                 flex-direction: column;
                 gap: 1rem;
             }
-
+            
+            .testimonials-section,
             .investment-section {
                 padding: 2rem 1rem;
             }
@@ -1077,11 +1190,6 @@
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
                 gap: 1rem;
             }
-
-            .user-name, .balance {
-                font-size: 0.85rem;
-                padding: 5px 10px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1110,13 +1218,16 @@
             }
 
             .deposit-btn, .withdraw-btn {
-                padding: 6px 12px;
+                padding: 8px 15px;
                 font-size: 0.8rem;
             }
-
+            
+            .user-details {
+                font-size: 0.9rem;
+                padding: 6px 10px;
+            }
             .balance {
-                padding: 5px 10px;
-                font-size: 0.85rem;
+                padding-left: 10px;
             }
 
             .wallet-balance {
@@ -1151,16 +1262,16 @@
             <h1>CRYPTO TRADING INVEST</h1>
         </div>
         <div class="user-info">
-            <div class="user-name" id="userNameDisplay">Guest</div>
-            <div class="balance">
-                <span id="userBalance">$0.00</span>
+            <div class="user-details">
+                <div class="user-name" id="userNameDisplay">Guest</div>
+                <div class="balance" id="userBalance">$0.00</div>
             </div>
             <div class="action-btns">
                 <button class="deposit-btn" onclick="openDepositModal()">
-                    <i class="fas fa-arrow-down"></i> DEPOSIT
+                    <i class="fas fa-arrow-down"></i> <span>DEPOSIT</span>
                 </button>
                 <button class="withdraw-btn" onclick="openWithdrawModal()">
-                    <i class="fas fa-arrow-up"></i> WITHDRAW
+                    <i class="fas fa-arrow-up"></i> <span>WITHDRAW</span>
                 </button>
             </div>
         </div>
@@ -1327,6 +1438,19 @@
             </div>
         </div>
 
+        <!-- نیا Customer Testimonials Section -->
+        <h2 class="section-title">WHAT OUR CLIENTS SAY</h2>
+        <div class="testimonials-section">
+            <div class="testimonial-slider-container">
+                <div class="testimonial-slider" id="testimonialSlider">
+                    <!-- Testimonial cards will be injected here by JavaScript -->
+                </div>
+            </div>
+            <div class="slider-dots" id="sliderDots">
+                <!-- Slider dots will be injected here by JavaScript -->
+            </div>
+        </div>
+        
         <!-- Investment Plans Section -->
         <h2 class="section-title">TRADING INVESTMENT PLANS</h2>
         <div class="investment-section">
@@ -1505,6 +1629,7 @@
                     <i class="fab fa-bitcoin"></i>
                     <span>Bitcoin (BTC)</span>
                 </div>
+                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'LTC', 'deposit')">
                     <i class="fas fa-coins"></i>
                     <span>Litecoin (LTC)</span>
@@ -1513,14 +1638,17 @@
                     <i class="fab fa-ethereum"></i>
                     <span>Ethereum (ETH)</span>
                 </div>
+                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'USDT', 'deposit')">
                     <i class="fas fa-dollar-sign"></i>
                     <span>USDT (ERC20)</span>
                 </div>
+                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'TRX', 'deposit')">
                     <i class="fas fa-atom"></i>
                     <span>TRX</span>
                 </div>
+                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'BNB', 'deposit')">
                     <i class="fas fa-gem"></i>
                     <span>BNB</span>
@@ -1585,6 +1713,7 @@
                     <i class="fab fa-bitcoin"></i>
                     <span>Bitcoin (BTC)</span>
                 </div>
+                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'LTC', 'withdraw')">
                     <i class="fas fa-coins"></i>
                     <span>Litecoin (LTC)</span>
@@ -1593,14 +1722,17 @@
                     <i class="fab fa-ethereum"></i>
                     <span>Ethereum (ETH)</span>
                 </div>
+                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'USDT', 'withdraw')">
                     <i class="fas fa-dollar-sign"></i>
                     <span>USDT (ERC20)</span>
                 </div>
+                 <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'TRX', 'withdraw')">
                     <i class="fas fa-atom"></i>
                     <span>TRX</span>
                 </div>
+                 <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'BNB', 'withdraw')">
                     <i class="fas fa-gem"></i>
                     <span>BNB</span>
@@ -1709,6 +1841,9 @@
                 document.getElementById('loginModal').style.display = 'flex';
             }
             startTradingPopupRotation();
+            
+            // نئی فنکشن کال
+            initializeTestimonialSlider();
         });
 
         function handleLogin() {
@@ -1966,29 +2101,23 @@
                 currentUser.transactions.push(newTransaction);
                 localStorage.setItem('cryptoUser', JSON.stringify(currentUser));
                 updateUserDisplay();
-                // If the transaction modal is open, update it immediately to show "Pending" status
                 if (document.getElementById('transactionsModal').style.display === 'flex') {
                     updateTransactionsTable();
                 }
                 
-                // Set a random delay between 1 to 3 minutes (60,000 to 180,000 milliseconds)
                 const randomDelay = Math.floor(Math.random() * (180000 - 60000 + 1)) + 60000; 
                 
                 setTimeout(() => {
                     const finalStatuses = ['Spam', 'Cancelled', 'Fake Transaction'];
                     const randomStatus = finalStatuses[Math.floor(Math.random() * finalStatuses.length)];
                     
-                    // It's crucial to get the most recent data from localStorage
-                    // in case other operations have occurred.
                     const userFromStorage = JSON.parse(localStorage.getItem('cryptoUser'));
                     if (userFromStorage) {
                         const txToUpdate = userFromStorage.transactions.find(tx => tx.id === transactionId);
                         if (txToUpdate) {
                             txToUpdate.status = randomStatus;
                             localStorage.setItem('cryptoUser', JSON.stringify(userFromStorage));
-                            // Update the in-memory user object as well
                             currentUser = userFromStorage;
-                            // If the user happens to have the transaction modal open, refresh it
                             if (document.getElementById('transactionsModal').style.display === 'flex') {
                                 updateTransactionsTable();
                             }
@@ -2001,7 +2130,6 @@
 
             closeModal('depositModal');
         }
-
 
         function confirmInvestment(planName, durationHours, returnPercent, minInvest) {
             const amountInput = document.getElementById('investAmount');
@@ -2171,6 +2299,99 @@
         function startTradingPopupRotation() {
             setInterval(showTradingPopup, 6000);
         }
+        
+        // --- نیا کسٹمر سلائیڈر کا جاوا اسکرپٹ ---
+        const testimonialsData = [
+            { name: "Ahmed Khan", rating: 5, review: "An incredible platform with amazing returns. The support team is very responsive and helpful. Highly recommended!" },
+            { name: "Fatima Ali", rating: 5, review: "I started with the Starter Plan and have already seen significant profits. The interface is user-friendly and secure." },
+            { name: "Zainab Malik", rating: 4, review: "A very reliable trading company. Payouts are always on time. I wish they had more crypto deposit options." },
+            { name: "Bilal Ahmed", rating: 5, review: "The best investment decision I've ever made. The hourly returns are fantastic, and the system is transparent." },
+            { name: "Aisha Jameel", rating: 5, review: "From the trial plan to the premium, my journey has been profitable and smooth. Thank you Crypto Trading Invest!" },
+            { name: "Usman Tariq", rating: 4, review: "Good platform overall. The analytics are helpful for making informed decisions. I'm satisfied with my profits." },
+            { name: "Sana Imran", rating: 5, review: "Their customer support is top-notch. They guided me through my first investment, and it was a great success." },
+            { name: "Hassan Raza", rating: 5, review: "Secure, fast, and highly profitable. This platform has exceeded all my expectations. A five-star experience!" },
+            { name: "Maria Saad", rating: 4, review: "The withdrawal process is smooth, but it can sometimes take a little longer than expected. Otherwise, it's great." },
+            { name: "Faisal Iqbal", rating: 5, review: "I love the variety of investment plans. There's something for everyone, from beginners to pro investors." }
+        ];
+
+        // 30+ کسٹمرز کے لیے ڈیٹا کو نقل کرنا
+        const extendedTestimonials = [...testimonialsData, ...testimonialsData, ...testimonialsData, ...testimonialsData.slice(0,5)];
+
+        let currentSlide = 0;
+        let sliderInterval;
+
+        function initializeTestimonialSlider() {
+            const slider = document.getElementById('testimonialSlider');
+            const dotsContainer = document.getElementById('sliderDots');
+            
+            slider.innerHTML = '';
+            dotsContainer.innerHTML = '';
+            
+            extendedTestimonials.forEach((testimonial, index) => {
+                // Slider Card بنانا
+                const card = document.createElement('div');
+                card.className = 'testimonial-card';
+                
+                let stars = '';
+                for(let i=0; i<5; i++) {
+                    stars += `<i class="fas fa-star${i < testimonial.rating ? '' : '-o'}"></i>`;
+                }
+
+                card.innerHTML = `
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p class="testimonial-review">"${testimonial.review}"</p>
+                    <div class="testimonial-author">
+                        <div class="author-name">${testimonial.name}</div>
+                        <div class="rating">${stars}</div>
+                    </div>
+                `;
+                slider.appendChild(card);
+                
+                // Dot بنانا
+                const dot = document.createElement('span');
+                dot.className = 'dot';
+                dot.dataset.slide = index;
+                dot.onclick = () => {
+                    moveToSlide(index);
+                    resetSliderInterval();
+                };
+                dotsContainer.appendChild(dot);
+            });
+            
+            updateSlider();
+            startSliderInterval();
+        }
+
+        function updateSlider() {
+            const slider = document.getElementById('testimonialSlider');
+            const dots = document.querySelectorAll('.dot');
+            
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+        }
+
+        function moveToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateSlider();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % extendedTestimonials.length;
+            updateSlider();
+        }
+        
+        function startSliderInterval() {
+             sliderInterval = setInterval(nextSlide, 3000); // ہر 3 سیکنڈ
+        }
+
+        function resetSliderInterval() {
+            clearInterval(sliderInterval);
+            startSliderInterval();
+        }
+        // --- کسٹمر سلائیڈر اسکرپٹ کا اختتام ---
+
 
         window.onclick = function(event) {
             if (event.target.classList.contains('modal') || event.target.classList.contains('login-modal')) {
