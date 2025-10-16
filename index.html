@@ -1469,15 +1469,17 @@
                     <div class="instructions-header">
                         <i class="fas fa-exclamation-triangle"></i> DEPOSIT INSTRUCTIONS
                     </div>
-                    <p style="text-align: center; margin-bottom: 20px; line-height: 1.6; font-size: 1rem;">
-                        Please send the amount to the following wallet address exactly as shown below:
-                    </p>
                     <div class="wallet-address-container">
                         <div class="wallet-label" id="depositWalletLabel">Wallet Address:</div>
                         <div class="wallet-address" id="depositWalletAddress"></div>
                         <button class="copy-btn" onclick="copyAddress('depositWalletAddress')">
                             <i class="fas fa-copy"></i> COPY ADDRESS
                         </button>
+                    </div>
+                    <!-- DEPOSIT AMOUNT INPUT ADDED HERE -->
+                    <div class="input-group">
+                        <label for="depositAmount">Deposit Amount ($)</label>
+                        <input type="number" id="depositAmount" placeholder="e.g., 50" min="1">
                     </div>
                     <div class="input-group">
                         <label for="depositTxId">Transaction ID (TXID)</label>
@@ -1497,20 +1499,14 @@
                             <i class="fas fa-info-circle"></i> Important Instructions
                         </div>
                         <ul class="instructions-list">
-                            <li>Send the exact amount you agreed upon to the address above.</li>
+                            <li>Send the exact amount you entered above to the wallet address.</li>
                             <li>Double-check the address before sending — cryptocurrency transactions are irreversible.</li>
-                            <li>After you complete the transfer, please upload a screenshot of your deposit and provide the transaction ID (TXID) for verification.</li>
-                            <li>Once we receive and confirm the transaction on the blockchain, we will notify you and complete the next steps.</li>
+                            <li>After you complete the transfer, upload a screenshot and provide the TXID.</li>
                         </ul>
                     </div>
                     <button class="copy-btn" style="margin-top: 20px; width: 100%;" onclick="submitDeposit()">
                         <i class="fas fa-check"></i> SUBMIT DEPOSIT
                     </button>
-                    <div class="support-info">
-                        If you have any questions or encounter any issues, reply to this message or contact our support team at
-                        <a href="mailto:support@2k26.space">support@2k26.space</a> or
-                        <a href="https://2k26.space/user/support-ticket/index" target="_blank">https://2k26.space/user/support-ticket/index</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1554,9 +1550,6 @@
                     <div class="instructions-header">
                         <i class="fas fa-exclamation-triangle"></i> WITHDRAWAL INSTRUCTIONS
                     </div>
-                    <p style="text-align: center; margin-bottom: 20px; line-height: 1.6; font-size: 1rem;">
-                        Please provide your wallet address for withdrawal:
-                    </p>
                     <div class="input-group">
                         <label for="withdrawAddress">Your Wallet Address:</label>
                         <input type="text" id="withdrawAddress" placeholder="Enter your wallet address">
@@ -1570,11 +1563,8 @@
                             <i class="fas fa-info-circle"></i> Important Instructions
                         </div>
                         <ul class="instructions-list">
-                            <li>Minimum withdrawal amount is $10</li>
-                            <li>Double-check your wallet address before submitting</li>
-                            <li>Withdrawals are processed within 24 hours</li>
-                            <li>Network fees may apply depending on the cryptocurrency</li>
-                            <li>Ensure your wallet supports the selected cryptocurrency</li>
+                            <li>Minimum withdrawal amount is $10.</li>
+                            <li>Withdrawals are processed within 24 hours.</li>
                         </ul>
                     </div>
                     <button class="copy-btn" style="background: linear-gradient(45deg, #ff6b6b, #ff8e8e); color: #330000; margin-top: 20px; width: 100%;" onclick="confirmWithdrawal()">
@@ -1614,61 +1604,23 @@
                 Select an investment plan to start earning
             </div>
             <div class="investment-plans" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
-                <!-- Plan 1: Starter -->
                 <div class="plan-card" style="padding: 1.5rem;">
                     <div class="plan-badge">BEST FOR BEGINNERS</div>
-                    <div class="plan-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
+                    <div class="plan-icon"><i class="fas fa-seedling"></i></div>
                     <div class="plan-name">STARTER PLAN</div>
                     <div class="plan-range">$10 - $30</div>
                     <div class="plan-return">+80%</div>
-                    <ul class="plan-features" style="font-size: 0.85rem;">
-                        <li>Daily Return: 2.0%</li>
-                        <li>Duration: 40 Days</li>
-                        <li>Minimum: $10</li>
-                        <li>Maximum: $30</li>
-                    </ul>
                     <button class="invest-btn" style="padding: 10px 20px; font-size: 0.9rem;" onclick="openInvestModal('STARTER PLAN', '$10 - $30', '+80%')">
                         <i class="fas fa-hand-holding-usd"></i> INVEST NOW
                     </button>
                 </div>
-
-                <!-- Plan 2: Basic -->
                 <div class="plan-card" style="padding: 1.5rem;">
                     <div class="plan-badge">MOST POPULAR</div>
-                    <div class="plan-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
+                    <div class="plan-icon"><i class="fas fa-chart-line"></i></div>
                     <div class="plan-name">BASIC PLAN</div>
                     <div class="plan-range">$50 - $100</div>
                     <div class="plan-return">+120%</div>
-                    <ul class="plan-features" style="font-size: 0.85rem;">
-                        <li>Daily Return: 2.5%</li>
-                        <li>Duration: 48 Days</li>
-                        <li>Minimum: $50</li>
-                        <li>Maximum: $100</li>
-                    </ul>
                     <button class="invest-btn" style="padding: 10px 20px; font-size: 0.9rem;" onclick="openInvestModal('BASIC PLAN', '$50 - $100', '+120%')">
-                        <i class="fas fa-hand-holding-usd"></i> INVEST NOW
-                    </button>
-                </div>
-
-                <!-- Plan 3: Standard -->
-                <div class="plan-card" style="padding: 1.5rem;">
-                    <div class="plan-icon">
-                        <i class="fas fa-medal"></i>
-                    </div>
-                    <div class="plan-name">STANDARD PLAN</div>
-                    <div class="plan-range">$150 - $500</div>
-                    <div class="plan-return">+180%</div>
-                    <ul class="plan-features" style="font-size: 0.85rem;">
-                        <li>Daily Return: 3.2%</li>
-                        <li>Duration: 56 Days</li>
-                        <li>Minimum: $150</li>
-                        <li>Maximum: $500</li>
-                    </ul>
-                    <button class="invest-btn" style="padding: 10px 20px; font-size: 0.9rem;" onclick="openInvestModal('STANDARD PLAN', '$150 - $500', '+180%')">
                         <i class="fas fa-hand-holding-usd"></i> INVEST NOW
                     </button>
                 </div>
@@ -1694,12 +1646,7 @@
                         </tr>
                     </thead>
                     <tbody id="transactionsTableBody">
-                        <tr>
-                            <td>2025-10-16 08:10:57</td>
-                            <td class="transaction-type deposit">Deposit</td>
-                            <td>$100.00</td>
-                            <td>Completed</td>
-                        </tr>
+                        <!-- Transactions will be loaded here by JavaScript -->
                     </tbody>
                 </table>
             </div>
@@ -1710,18 +1657,13 @@
     <div id="tradingPopup" class="trading-popup">
         <i class="fas fa-chart-line"></i>
         <div class="trading-popup-content" id="popupContent">
-            New deposit of $2,500 received! Withdrawal of $1,200 processed.
+            New deposit of $2,500 received!
         </div>
     </div>
 
-    <!-- Success Popup -->
+    <!-- Success/Info Popup -->
     <div id="successPopup" class="success-popup">
-        <i class="fas fa-check-circle"></i>
-        <div class="success-popup-content" id="successContent">
-            Deposit submitted successfully!
-        </div>
-        <div>Your deposit is now pending verification.</div>
-        <button class="success-popup-btn" onclick="closeSuccessPopup()">OK</button>
+        <!-- Content is generated dynamically by JavaScript -->
     </div>
 
     <script>
@@ -1736,12 +1678,10 @@
                 currentUser = JSON.parse(savedUser);
                 updateUserDisplay();
                 generateReferralLink();
-                showTradingPopup();
             } else {
                 // Show login modal
                 document.getElementById('loginModal').style.display = 'flex';
             }
-
             // Start trading popup rotation
             startTradingPopupRotation();
         });
@@ -1791,7 +1731,6 @@
             updateUserDisplay();
             generateReferralLink();
             document.getElementById('loginModal').style.display = 'none';
-            showTradingPopup();
         }
 
         function updateUserDisplay() {
@@ -1830,12 +1769,7 @@
                     const copyBtn = document.querySelector('.referral-section .copy-btn');
                     const originalText = copyBtn.innerHTML;
                     copyBtn.innerHTML = '<i class="fas fa-check"></i> COPIED!';
-
-                    setTimeout(() => {
-                        copyBtn.innerHTML = originalText;
-                    }, 2000);
-                }).catch(err => {
-                    alert('Failed to copy referral link.');
+                    setTimeout(() => { copyBtn.innerHTML = originalText; }, 2000);
                 });
             }
         }
@@ -1849,12 +1783,31 @@
             document.getElementById('depositModal').style.display = 'flex';
         }
 
+        // MODIFIED WITHDRAWAL LOGIC
         function openWithdrawModal() {
             if (!currentUser) {
                 document.getElementById('loginModal').style.display = 'flex';
                 return;
             }
-            document.getElementById('withdrawModal').style.display = 'flex';
+
+            if (currentUser.balance < 10) {
+                showInfoPopup(
+                    'ناکافی بیلنس', 
+                    'ود ڈرا کرنے کے لیے آپ کا بیلنس ناکافی ہے۔', 
+                    'fas fa-exclamation-triangle', 
+                    '#ff6b6b'
+                );
+            } else {
+                showInfoPopup(
+                    'شرط', 
+                    'ود ڈرا کرنے کے لیے، آپ کو کم از کم 10 ڈالر کی ایکٹو ڈپازٹ کرنا لازمی ہے۔', 
+                    'fas fa-info-circle', 
+                    '#2196F3'
+                );
+                // NOTE: We are showing the message and NOT opening the withdraw modal, as per the requirement.
+                // If you wanted to show the modal anyway, you would add this line:
+                // document.getElementById('withdrawModal').style.display = 'flex';
+            }
         }
 
         function openInvestModal(plan, range, returns) {
@@ -1862,13 +1815,10 @@
                 document.getElementById('loginModal').style.display = 'flex';
                 return;
             }
-
-            // Check if user has sufficient balance
             if (currentUser.balance < 10) {
                 showLowBalancePopup();
                 return;
             }
-
             document.getElementById('investPlanTitle').textContent = `INVEST IN ${plan}`;
             document.getElementById('investPlanRange').textContent = range;
             document.getElementById('investPlanReturn').textContent = returns;
@@ -1880,112 +1830,61 @@
                 document.getElementById('loginModal').style.display = 'flex';
                 return;
             }
-
-            // Check if user has sufficient balance
             if (currentUser.balance < 10) {
                 showLowBalancePopup();
                 return;
             }
-
             document.getElementById('investNowModal').style.display = 'flex';
         }
 
-        // Detailed Modals
         function openTransactionsModal() {
             if (!currentUser) return;
             updateTransactionsTable();
             document.getElementById('transactionsModal').style.display = 'flex';
         }
 
-        function openDepositDetailsModal() {
-            showInfoModal('Total Deposit', `Your total deposit amount is $${currentUser.totalDeposit.toFixed(2)}`, 'fas fa-wallet');
-        }
-
-        function openInvestmentDetailsModal() {
-            showInfoModal('Total Investment', `Your total investment amount is $${currentUser.totalInvestment.toFixed(2)}`, 'fas fa-chart-line');
-        }
-
-        function openProfitDetailsModal() {
-            showInfoModal('Total Profit', `Your total profit earned is $${currentUser.totalProfit.toFixed(2)}`, 'fas fa-coins');
-        }
-
-        function openTransferDetailsModal() {
-            showInfoModal('Total Transfer', `Your total transfer amount is $${currentUser.totalTransfer.toFixed(2)}`, 'fas fa-arrow-up');
-        }
-
-        function openWithdrawDetailsModal() {
-            showInfoModal('Total Withdraw', `Your total withdrawal amount is $${currentUser.totalWithdraw.toFixed(2)}`, 'fas fa-arrow-down');
-        }
-
-        function openReferralBonusModal() {
-            showInfoModal('Referral Bonus', `Your referral bonus earned is $${currentUser.referralBonus.toFixed(2)}`, 'fas fa-tag');
-        }
-
-        function openDepositBonusModal() {
-            showInfoModal('Deposit Bonus', `Your deposit bonus earned is $${currentUser.depositBonus.toFixed(2)}`, 'fas fa-gift');
-        }
-
-        function openInvestmentBonusModal() {
-            showInfoModal('Investment Bonus', `Your investment bonus earned is $${currentUser.investmentBonus.toFixed(2)}`, 'fas fa-medal');
-        }
-
-        function openReferralDetailsModal() {
-            showInfoModal('Total Referral', `You have referred ${currentUser.totalReferral} users`, 'fas fa-users');
-        }
-
-        function openRankDetailsModal() {
-            showInfoModal('Rank Achieved', `Your current rank is ${currentUser.rankAchieved}`, 'fas fa-trophy');
-        }
-
-        function openTicketDetailsModal() {
-            showInfoModal('Total Ticket', `You have ${currentUser.totalTicket} support tickets`, 'fas fa-ticket-alt');
-        }
-
+        // General Info Modal for Stats
         function showInfoModal(title, content, iconClass) {
-            document.getElementById('successContent').textContent = title;
-            document.getElementById('successPopup').innerHTML = `
-            <i class="${iconClass}" style="font-size: 2.5rem; margin-bottom: 15px; display: block;"></i>
-            <div class="success-popup-content">${title}</div>
-            <div>${content}</div>
-            <button class="success-popup-btn" onclick="closeSuccessPopup()">CLOSE</button>
-        `;
-            document.getElementById('successPopup').style.display = 'block';
+            const popup = document.getElementById('successPopup');
+            popup.innerHTML = `
+                <i class="${iconClass}" style="font-size: 2.5rem; margin-bottom: 15px; display: block;"></i>
+                <div class="success-popup-content">${title}</div>
+                <div>${content}</div>
+                <button class="success-popup-btn" onclick="closeSuccessPopup()">CLOSE</button>
+            `;
+            popup.style.display = 'block';
         }
 
+        // Specific Info Popup for Withdraw logic
+        function showInfoPopup(title, message, iconClass, iconColor) {
+            const popup = document.getElementById('successPopup');
+            popup.innerHTML = `
+                <i class="${iconClass}" style="color: ${iconColor}; font-size: 2.5rem; margin-bottom: 15px; display: block;"></i>
+                <div class="success-popup-content" style="color: ${iconColor};">${title}</div>
+                <div>${message}</div>
+                <button class="success-popup-btn" onclick="closeSuccessPopup()">ٹھیک ہے</button>
+            `;
+            popup.style.display = 'block';
+        }
+        
         function updateTransactionsTable() {
             const tbody = document.getElementById('transactionsTableBody');
             tbody.innerHTML = '';
-
             if (currentUser && currentUser.transactions.length > 0) {
                 currentUser.transactions.slice().reverse().forEach(transaction => {
                     const row = document.createElement('tr');
                     let typeClass = '';
-                    let typeText = '';
-
-                    switch(transaction.type) {
-                        case 'deposit':
-                            typeClass = 'deposit';
-                            typeText = 'Deposit';
-                            break;
-                        case 'withdrawal':
-                            typeClass = 'withdrawal';
-                            typeText = 'Withdrawal';
-                            break;
-                        case 'investment':
-                            typeClass = 'investment';
-                            typeText = 'Investment';
-                            break;
-                        default:
-                            typeClass = '';
-                            typeText = transaction.type.charAt(0).toUpperCase() + transaction.type.slice(1);
-                    }
-
+                    let typeText = transaction.type.charAt(0).toUpperCase() + transaction.type.slice(1);
+                    if (transaction.type === 'deposit') typeClass = 'deposit';
+                    if (transaction.type === 'withdrawal') typeClass = 'withdrawal';
+                    if (transaction.type === 'investment') typeClass = 'investment';
+                    
                     row.innerHTML = `
-                    <td>${transaction.date}</td>
-                    <td class="transaction-type ${typeClass}">${typeText}</td>
-                    <td>$${(transaction.amount || 0).toFixed(2)}</td>
-                    <td>${transaction.status || 'Completed'}</td>
-                `;
+                        <td>${transaction.date}</td>
+                        <td class="transaction-type ${typeClass}">${typeText}</td>
+                        <td>$${(transaction.amount || 0).toFixed(2)}</td>
+                        <td>${transaction.status || 'Completed'}</td>
+                    `;
                     tbody.appendChild(row);
                 });
             } else {
@@ -2001,55 +1900,29 @@
             document.getElementById('successPopup').style.display = 'none';
         }
 
-        // Crypto Selection with correct addresses
         function selectCrypto(element, crypto, type) {
-            // Remove active class from all options
-            const container = type === 'deposit' ? document.querySelectorAll('#depositModal .crypto-option') : document.querySelectorAll('#withdrawModal .crypto-option');
-            container.forEach(opt => {
-                opt.classList.remove('active');
-            });
-
-            // Add active class to selected option
+            const container = element.closest('.crypto-options');
+            container.querySelectorAll('.crypto-option').forEach(opt => opt.classList.remove('active'));
             element.classList.add('active');
 
             if (type === 'deposit') {
                 const cryptoDetails = {
-                    'BTC': {
-                        address: 'bc1qqfyxnxee2eyehllvnts8u4a4uzl4cellvd4kg5',
-                        label: 'Bitcoin (BTC) Wallet Address:'
-                    },
-                    'LTC': {
-                        address: 'ltc1q05vt7yaapz4pv9gnpe3pyffczcuqwrn2au4j5k',
-                        label: 'Litecoin (LTC) Wallet Address:'
-                    },
-                    'ETH': {
-                        address: '0xe94dc6f9bc47c9152c8b6722b072f8c696c380c2',
-                        label: 'ETH Wallet Address:'
-                    },
-                    'USDT': {
-                        address: '0xe94dc6f9bc47c9152c8b6722b072f8c696c380c2',
-                        label: 'USDT (ERC20) Wallet Address:'
-                    },
-                    'TRX': {
-                        address: 'TRX1q2w3e4r5t6y7u8i9o0p1a2s3d4f5g6h7j8k9l',
-                        label: 'TRX Wallet Address:'
-                    },
-                    'BNB': {
-                        address: 'bnb1jxfh2g85q3v0tdq56fnevx6xcxtcnhtsmcu64m',
-                        label: 'BNB Wallet Address:'
-                    }
+                    'BTC': { address: 'bc1qqfyxnxee2eyehllvnts8u4a4uzl4cellvd4kg5', label: 'Bitcoin (BTC) Wallet Address:' },
+                    'LTC': { address: 'ltc1q05vt7yaapz4pv9gnpe3pyffczcuqwrn2au4j5k', label: 'Litecoin (LTC) Wallet Address:' },
+                    'ETH': { address: '0xe94dc6f9bc47c9152c8b6722b072f8c696c380c2', label: 'ETH Wallet Address:' },
+                    'USDT': { address: '0xe94dc6f9bc47c9152c8b6722b072f8c696c380c2', label: 'USDT (ERC20) Wallet Address:' },
+                    'TRX': { address: 'TRX1q2w3e4r5t6y7u8i9o0p1a2s3d4f5g6h7j8k9l', label: 'TRX Wallet Address:' },
+                    'BNB': { address: 'bnb1jxfh2g85q3v0tdq56fnevx6xcxtcnhtsmcu64m', label: 'BNB Wallet Address:' }
                 };
-
-                const selectedCrypto = cryptoDetails[crypto];
-                document.getElementById('depositWalletAddress').textContent = selectedCrypto.address;
-                document.getElementById('depositWalletLabel').textContent = selectedCrypto.label;
+                const selected = cryptoDetails[crypto];
+                document.getElementById('depositWalletAddress').textContent = selected.address;
+                document.getElementById('depositWalletLabel').textContent = selected.label;
                 document.getElementById('depositDetails').style.display = 'block';
             } else {
                  document.getElementById('withdrawDetails').style.display = 'block';
             }
         }
 
-        // Copy Address Function
         function copyAddress(elementId) {
             const address = document.getElementById(elementId).textContent;
             if (address) {
@@ -2057,72 +1930,62 @@
                     const copyBtn = document.querySelector('#depositDetails .copy-btn');
                     const originalText = copyBtn.innerHTML;
                     copyBtn.innerHTML = '<i class="fas fa-check"></i> COPIED!';
-                    copyBtn.style.background = 'linear-gradient(45deg, #00cc66, #00ff88)';
-
-                    setTimeout(() => {
-                        copyBtn.innerHTML = originalText;
-                        copyBtn.style.background = 'linear-gradient(45deg, #00cc66, #00ff88)';
-                    }, 2000);
-                }).catch(err => {
-                    alert('Failed to copy address. Please copy manually.');
+                    setTimeout(() => { copyBtn.innerHTML = originalText; }, 2000);
                 });
             }
         }
 
-        // Deposit Functions (MODIFIED)
+        // DEPOSIT FUNCTION (MODIFIED WITH AMOUNT INPUT)
         function submitDeposit() {
+            const amountInput = document.getElementById('depositAmount');
+            const amount = parseFloat(amountInput.value);
             const txId = document.getElementById('depositTxId').value;
             const address = document.getElementById('depositWalletAddress').textContent;
 
+            if (!amount || amount <= 0) {
+                alert('Please enter a valid deposit amount.');
+                return;
+            }
             if (!txId || !address) {
-                alert('Please provide transaction ID and ensure an address is selected');
+                alert('Please provide a Transaction ID and select a wallet.');
                 return;
             }
 
             if (currentUser) {
-                // 1. Add to transaction history with PENDING status and a unique ID
                 const transactionId = 'txn_' + Date.now();
                 const newTransaction = {
                     id: transactionId,
                     type: 'deposit',
-                    amount: Math.floor(Math.random() * 991) + 10, // Mock amount for display
+                    amount: amount,
                     date: new Date().toLocaleString(),
                     status: 'Pending'
                 };
-
                 currentUser.transactions.push(newTransaction);
                 localStorage.setItem('cryptoUser', JSON.stringify(currentUser));
-                updateUserDisplay(); // Update stats like 'total transactions'
+                updateUserDisplay();
                 
                 if (document.getElementById('transactionsModal').style.display === 'flex') {
                     updateTransactionsTable();
                 }
 
-                // 2. Schedule the random status update (3 to 10 minutes)
-                const randomDelay = Math.floor(Math.random() * (600000 - 180000 + 1)) + 180000;
-                
+                const randomDelay = Math.floor(Math.random() * (600000 - 180000 + 1)) + 180000; // 3-10 minutes
                 setTimeout(() => {
-                    const finalStatuses = ['Spam', 'Cancelled', 'Fake Transaction', 'Incorrect'];
+                    const finalStatuses = ['Spam', 'Cancelled', 'Fake Transaction'];
                     const randomStatus = finalStatuses[Math.floor(Math.random() * finalStatuses.length)];
-
                     const userFromStorage = JSON.parse(localStorage.getItem('cryptoUser'));
                     if (userFromStorage) {
-                        const transactionToUpdate = userFromStorage.transactions.find(tx => tx.id === transactionId);
-                        if (transactionToUpdate) {
-                            transactionToUpdate.status = randomStatus;
+                        const txToUpdate = userFromStorage.transactions.find(tx => tx.id === transactionId);
+                        if (txToUpdate) {
+                            txToUpdate.status = randomStatus;
                             localStorage.setItem('cryptoUser', JSON.stringify(userFromStorage));
-                            
-                            currentUser = userFromStorage;
-
+                            currentUser = userFromStorage; // Sync local state
                             if (document.getElementById('transactionsModal').style.display === 'flex') {
                                 updateTransactionsTable();
                             }
-                            console.log(`Transaction ${transactionId} status updated to ${randomStatus}`);
                         }
                     }
                 }, randomDelay);
 
-                // 3. Show the specific "pending" popup
                 const successPopup = document.getElementById('successPopup');
                 successPopup.innerHTML = `
                     <i class="fas fa-check-circle"></i>
@@ -2131,134 +1994,62 @@
                     <button class="success-popup-btn" onclick="closeSuccessPopup()">ٹھیک ہے</button>
                 `;
                 successPopup.style.display = 'block';
-                
-                // 4. Balance is NOT updated here, fulfilling the requirement.
             }
 
-            // Close deposit modal and reset form
             closeModal('depositModal');
+            amountInput.value = '';
             document.getElementById('depositTxId').value = '';
             document.getElementById('depositScreenshot').value = '';
             document.getElementById('depositDetails').style.display = 'none';
-            document.querySelectorAll('#depositModal .crypto-option').forEach(opt => opt.classList.remove('active'));
-            const uploadBtn = document.querySelector('#depositModal .upload-btn');
-            uploadBtn.innerHTML = `<i class="fas fa-file-image"></i> SELECT SCREENSHOT`;
-            uploadBtn.style.background = 'linear-gradient(45deg, #2196F3, #1976D2)';
         }
 
-        function getCurrentSelectedCrypto(type) {
-            const container = type === 'deposit' ? document.querySelectorAll('#depositModal .crypto-option') : document.querySelectorAll('#withdrawModal .crypto-option');
-            for (let opt of container) {
-                if (opt.classList.contains('active')) {
-                    return opt.querySelector('span').textContent.split(' ')[0];
-                }
-            }
-            return 'BTC';
-        }
-
-        // Investment Functions
         function confirmInvestment() {
-            const amount = document.getElementById('investAmount').value;
-            const planTitle = document.getElementById('investPlanTitle').textContent;
-
-            if (!amount || parseFloat(amount) < 10) {
+            const amount = parseFloat(document.getElementById('investAmount').value);
+            if (!amount || amount < 10) {
                 alert('Minimum investment is $10');
                 return;
             }
 
-            if (currentUser && currentUser.balance >= parseFloat(amount)) {
-                currentUser.balance -= parseFloat(amount);
-                currentUser.totalInvestment += parseFloat(amount);
+            if (currentUser && currentUser.balance >= amount) {
+                currentUser.balance -= amount;
+                currentUser.totalInvestment += amount;
                 currentUser.transactions.push({
                     id: 'txn_' + Date.now(),
                     type: 'investment',
-                    amount: parseFloat(amount),
-                    plan: planTitle,
+                    amount: amount,
+                    plan: document.getElementById('investPlanTitle').textContent,
                     date: new Date().toLocaleString(),
                     status: 'Active'
                 });
                 localStorage.setItem('cryptoUser', JSON.stringify(currentUser));
                 updateUserDisplay();
-
-                // Show success popup
-                document.getElementById('successContent').textContent = `Investment of $${amount} in ${planTitle} confirmed!`;
-                 document.getElementById('successPopup').innerHTML = `
-                    <i class="fas fa-check-circle"></i>
-                    <div class="success-popup-content">Investment Confirmed!</div>
-                    <div>Your investment of $${amount} in ${planTitle} is now active.</div>
-                    <button class="success-popup-btn" onclick="closeSuccessPopup()">OK</button>
-                `;
-                document.getElementById('successPopup').style.display = 'block';
+                showInfoPopup('Investment Confirmed!', `Your investment of $${amount} is now active.`, 'fas fa-check-circle', '#00ff88');
             } else {
                 alert('Insufficient balance for investment');
                 return;
             }
-
             closeModal('investModal');
         }
 
-        // Withdrawal Functions
+        // Dummy function as it won't be reachable with the new logic
         function confirmWithdrawal() {
-            const address = document.getElementById('withdrawAddress').value;
-            const amount = document.getElementById('withdrawAmount').value;
-
-            if (!address || !amount || parseFloat(amount) < 10) {
-                alert('Please enter a valid wallet address and amount (minimum $10)');
-                return;
-            }
-
-            if (currentUser && currentUser.balance >= parseFloat(amount)) {
-                currentUser.balance -= parseFloat(amount);
-                currentUser.totalWithdraw += parseFloat(amount);
-                currentUser.transactions.push({
-                    id: 'txn_' + Date.now(),
-                    type: 'withdrawal',
-                    amount: parseFloat(amount),
-                    address: address,
-                    date: new Date().toLocaleString(),
-                    status: 'Processing'
-                });
-                localStorage.setItem('cryptoUser', JSON.stringify(currentUser));
-                updateUserDisplay();
-                alert(`Withdrawal request of $${amount} to your wallet has been submitted! Processing will take up to 24 hours.`);
-            } else {
-                alert('Insufficient balance for withdrawal');
-                return;
-            }
-
-            closeModal('withdrawModal');
+             alert("This action is currently unavailable based on the new rules.");
         }
 
-        // Low Balance Popup
         function showLowBalancePopup() {
-            document.getElementById('successPopup').innerHTML = `
-            <i class="fas fa-exclamation-triangle" style="color: #ff6b6b; font-size: 2.5rem; margin-bottom: 15px; display: block;"></i>
-            <div class="success-popup-content" style="color: #ff6b6b;">Insufficient Balance!</div>
-            <div>Your account balance is too low to invest. Please make a deposit first.</div>
-            <button class="success-popup-btn" onclick="closeSuccessPopup(); openDepositModal()">DEPOSIT NOW</button>
-        `;
-            document.getElementById('successPopup').style.display = 'block';
+            showInfoPopup('Insufficient Balance!', 'Your account balance is too low to invest. Please make a deposit first.', 'fas fa-exclamation-triangle', '#ff6b6b');
         }
 
-        // Trading Popup System
         const tradingNotifications = [
-            "New deposit of $2,500 received! Withdrawal of $1,200 processed.",
             "User JohnD completed investment in Premium Plan - $1,500",
             "Withdrawal of $3,400 processed successfully to BTC wallet",
             "New user registration - Investment of $500 in Basic Plan",
-            "Deposit of $8,750 received via ETH - Processing complete",
-            "User SarahM invested $10,000 in Elite Plan - Welcome!",
-            "Withdrawal of $7,800 confirmed - Funds sent to LTC wallet"
         ];
-
         let currentNotificationIndex = 0;
-        let popupInterval;
-
+        
         function showTradingPopup() {
             const popup = document.getElementById('tradingPopup');
-            const content = document.getElementById('popupContent');
-
-            content.textContent = tradingNotifications[currentNotificationIndex];
+            popup.querySelector('#popupContent').textContent = tradingNotifications[currentNotificationIndex];
             popup.style.display = 'block';
             popup.classList.add('show');
 
@@ -2272,17 +2063,15 @@
         }
 
         function startTradingPopupRotation() {
-            popupInterval = setInterval(showTradingPopup, 6000);
+            setInterval(showTradingPopup, 6000);
         }
 
-        // Close modals when clicking outside
         window.onclick = function(event) {
             if (event.target.classList.contains('modal') || event.target.classList.contains('login-modal')) {
                 event.target.style.display = 'none';
             }
         }
 
-        // Handle file selection for deposit screenshot
         document.getElementById('depositScreenshot').addEventListener('change', function(e) {
             if (e.target.files.length > 0) {
                 const fileName = e.target.files[0].name;
