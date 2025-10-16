@@ -116,7 +116,7 @@
 
         .withdraw-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 107, 107, 0.7);
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.4);
         }
 
         .main-content {
@@ -148,7 +148,6 @@
             border-radius: 2px;
         }
 
-        /* Account Panel */
         .account-panel {
             background: rgba(255,255,255,0.05);
             backdrop-filter: blur(10px);
@@ -317,7 +316,6 @@
             color: #ccc;
         }
 
-        /* Enhanced Investment Plans Section */
         .investment-section {
             background: rgba(255,255,255,0.05);
             backdrop-filter: blur(10px);
@@ -380,6 +378,10 @@
             font-size: 0.8rem;
             box-shadow: 0 3px 12px rgba(0, 255, 136, 0.4);
         }
+        
+        .plan-badge.gift {
+            background: linear-gradient(45deg, #ffc107, #ff9800);
+        }
 
         .plan-icon {
             font-size: 2.5rem;
@@ -418,6 +420,7 @@
             list-style: none;
             margin: 1.2rem 0;
             text-align: left;
+            padding: 0;
         }
 
         .plan-features li {
@@ -458,602 +461,198 @@
             box-shadow: 0 6px 20px rgba(0, 255, 136, 0.6);
         }
 
-        /* Modal Styles */
         .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
+            display: none; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; background: rgba(0,0,0,0.85);
+            z-index: 1000; justify-content: center; align-items: center; padding: 1rem;
         }
 
         .modal-content {
             background: linear-gradient(135deg, #0c0a26, #1a1a2e);
-            border-radius: 20px;
-            padding: 2rem;
-            width: 100%;
-            max-width: 600px;
-            border: 2px solid #00ff88;
-            position: relative;
+            border-radius: 20px; padding: 2rem; width: 100%; max-width: 600px;
+            border: 2px solid #00ff88; position: relative;
             animation: modalSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 15px 45px rgba(0,0,0,0.6);
-            max-height: 90vh;
-            overflow-y: auto;
+            max-height: 90vh; overflow-y: auto;
         }
 
         @keyframes modalSlideIn {
-            from { 
-                transform: translateY(-40px) scale(0.95); 
-                opacity: 0; 
-            }
-            to { 
-                transform: translateY(0) scale(1); 
-                opacity: 1; 
-            }
+            from { transform: translateY(-40px) scale(0.95); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
         }
 
         .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: #00ff88;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            position: absolute; top: 15px; right: 15px; background: none; border: none;
+            color: #00ff88; font-size: 1.5rem; cursor: pointer; transition: all 0.3s ease;
         }
-
-        .close-btn:hover {
-            color: #00cc66;
-            transform: rotate(90deg);
-        }
+        .close-btn:hover { color: #00cc66; transform: rotate(90deg); }
 
         .crypto-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-            margin-top: 1.2rem;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem; margin-top: 1.2rem;
         }
 
         .crypto-option {
-            background: rgba(255,255,255,0.08);
-            padding: 15px 10px;
-            border-radius: 12px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            backdrop-filter: blur(5px);
+            background: rgba(255,255,255,0.08); padding: 15px 10px; border-radius: 12px;
+            text-align: center; cursor: pointer; transition: all 0.3s ease;
+            border: 2px solid transparent; backdrop-filter: blur(5px);
         }
-
         .crypto-option:hover, .crypto-option.active {
-            background: rgba(0, 255, 136, 0.15);
-            border-color: #00ff88;
-            transform: translateY(-3px);
+            background: rgba(0, 255, 136, 0.15); border-color: #00ff88; transform: translateY(-3px);
         }
+        .crypto-option i { font-size: 1.8rem; color: #00ff88; margin-bottom: 8px; display: block; }
+        .crypto-option span { display: block; font-weight: bold; font-size: 0.9rem; }
 
-        .crypto-option i {
-            font-size: 1.8rem;
-            color: #00ff88;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .crypto-option span {
-            display: block;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        /* Professional Deposit Instructions */
         .deposit-instructions, .withdraw-instructions {
-            background: rgba(0,0,0,0.25);
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 20px;
-            border-left: 4px solid #00ff88;
-            backdrop-filter: blur(8px);
+            background: rgba(0,0,0,0.25); border-radius: 15px; padding: 25px; margin-top: 20px;
+            border-left: 4px solid #00ff88; backdrop-filter: blur(8px);
         }
-
-        .instructions-header {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #00ff88;
-            font-size: 1.3rem;
-            font-weight: bold;
-            text-shadow: 0 0 8px rgba(0, 255, 136, 0.3);
-        }
+        .instructions-header { text-align: center; margin-bottom: 20px; color: #00ff88; font-size: 1.3rem; font-weight: bold; text-shadow: 0 0 8px rgba(0, 255, 136, 0.3); }
 
         .wallet-address-container {
-            background: rgba(0,0,0,0.4);
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-            text-align: center;
-            border: 2px solid #00ff88;
-            backdrop-filter: blur(5px);
+            background: rgba(0,0,0,0.4); padding: 20px; border-radius: 12px; margin: 20px 0;
+            text-align: center; border: 2px solid #00ff88; backdrop-filter: blur(5px);
         }
-
-        .wallet-label {
-            color: #00ff88;
-            margin-bottom: 12px;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
+        .wallet-label { color: #00ff88; margin-bottom: 12px; font-weight: bold; font-size: 1.1rem; }
         .wallet-address {
-            font-family: 'Courier New', monospace;
-            font-size: 1.1rem;
-            word-break: break-all;
-            background: rgba(0,0,0,0.3);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 12px 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            line-height: 1.3;
+            font-family: 'Courier New', monospace; font-size: 1.1rem; word-break: break-all;
+            background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; margin: 12px 0;
+            cursor: pointer; transition: all 0.3s ease; line-height: 1.3;
         }
-
-        .wallet-address:hover {
-            background: rgba(0, 255, 136, 0.2);
-            transform: scale(1.02);
-        }
+        .wallet-address:hover { background: rgba(0, 255, 136, 0.2); transform: scale(1.02); }
 
         .copy-btn {
-            background: linear-gradient(45deg, #00cc66, #00ff88);
-            color: #001a33;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            margin-top: 12px;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            font-size: 1rem;
+            background: linear-gradient(45deg, #00cc66, #00ff88); color: #001a33; border: none;
+            padding: 10px 20px; border-radius: 20px; cursor: pointer; margin-top: 12px;
+            transition: all 0.3s ease; font-weight: bold; font-size: 1rem;
             box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3);
         }
+        .copy-btn:hover { transform: scale(1.03); box-shadow: 0 6px 16px rgba(0, 255, 136, 0.5); }
 
-        .copy-btn:hover {
-            transform: scale(1.03);
-            box-shadow: 0 6px 16px rgba(0, 255, 136, 0.5);
-        }
+        .important-instructions { margin-top: 25px; }
+        .important-title { color: #00cc66; margin-bottom: 15px; font-size: 1.1rem; font-weight: bold; display: flex; align-items: center; gap: 10px; justify-content: center; }
+        .instructions-list { list-style: none; padding: 0; }
+        .instructions-list li { margin-bottom: 12px; padding-left: 25px; position: relative; line-height: 1.4; font-size: 0.95rem; }
+        .instructions-list li:before { content: "•"; color: #00ff88; font-size: 1.5rem; position: absolute; left: 0; top: -3px; }
 
-        .important-instructions {
-            margin-top: 25px;
-        }
-
-        .important-title {
-            color: #00cc66;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .instructions-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .instructions-list li {
-            margin-bottom: 12px;
-            padding-left: 25px;
-            position: relative;
-            line-height: 1.4;
-            font-size: 0.95rem;
-        }
-
-        .instructions-list li:before {
-            content: "•";
-            color: #00ff88;
-            font-size: 1.5rem;
-            position: absolute;
-            left: 0;
-            top: -3px;
-        }
-
-        .upload-section {
-            margin-top: 25px;
-            text-align: center;
-        }
-
-        .input-group {
-            margin: 15px 0;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #00ff88;
-            font-weight: bold;
-            font-size: 0.95rem;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 12px;
-            border-radius: 10px;
-            border: 2px solid #00ff88;
-            background: rgba(0,0,0,0.3);
-            color: white;
-            font-size: 1rem;
-        }
-
+        .upload-section { margin-top: 25px; text-align: center; }
+        .input-group { margin: 15px 0; }
+        .input-group label { display: block; margin-bottom: 8px; color: #00ff88; font-weight: bold; font-size: 0.95rem; }
+        .input-group input { width: 100%; padding: 12px; border-radius: 10px; border: 2px solid #00ff88; background: rgba(0,0,0,0.3); color: white; font-size: 1rem; }
         .upload-btn {
-            background: linear-gradient(45deg, #2196F3, #1976D2);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 20px;
-            cursor: pointer;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            font-size: 1rem;
+            background: linear-gradient(45deg, #2196F3, #1976D2); color: white; border: none;
+            padding: 12px 25px; border-radius: 20px; cursor: pointer; margin-top: 15px;
+            transition: all 0.3s ease; font-weight: bold; font-size: 1rem;
             box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
         }
+        .upload-btn:hover { transform: scale(1.03); box-shadow: 0 6px 16px rgba(33, 150, 243, 0.5); }
+        .support-info { margin-top: 20px; text-align: center; color: #ccc; font-size: 0.9rem; line-height: 1.5; }
+        .support-info a { color: #00ff88; text-decoration: none; font-weight: bold; }
+        .support-info a:hover { text-decoration: underline; }
 
-        .upload-btn:hover {
-            transform: scale(1.03);
-            box-shadow: 0 6px 16px rgba(33, 150, 243, 0.5);
-        }
-
-        .support-info {
-            margin-top: 20px;
-            text-align: center;
-            color: #ccc;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        .support-info a {
-            color: #00ff88;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .support-info a:hover {
-            text-decoration: underline;
-        }
-
-        /* Login Modal */
         .login-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); z-index: 2000; justify-content: center;
+            align-items: center; padding: 1rem;
         }
-
         .login-content {
-            background: linear-gradient(135deg, #0c0a26, #1a1a2e);
-            border-radius: 20px;
-            padding: 2.5rem;
-            width: 100%;
-            max-width: 450px;
-            border: 2px solid #00ff88;
-            position: relative;
-            animation: modalSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, #0c0a26, #1a1a2e); border-radius: 20px;
+            padding: 2.5rem; width: 100%; max-width: 450px; border: 2px solid #00ff88;
+            position: relative; animation: modalSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 15px 45px rgba(0,0,0,0.6);
         }
-
-        .login-header {
-            text-align: center;
-            margin-bottom: 25px;
-            color: #00ff88;
-            font-size: 1.8rem;
-        }
-
-        .login-form .input-group {
-            margin-bottom: 20px;
-        }
-
+        .login-header { text-align: center; margin-bottom: 25px; color: #00ff88; font-size: 1.8rem; }
+        .login-form .input-group { margin-bottom: 20px; }
         .login-btn {
-            background: linear-gradient(45deg, #00cc66, #00ff88);
-            color: #001a33;
-            border: none;
-            padding: 14px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 10px;
+            background: linear-gradient(45deg, #00cc66, #00ff88); color: #001a33; border: none;
+            padding: 14px; border-radius: 25px; font-weight: bold; font-size: 1.1rem;
+            cursor: pointer; width: 100%; margin-top: 10px;
         }
+        .login-btn:hover { transform: scale(1.03); box-shadow: 0 6px 16px rgba(0, 255, 136, 0.5); }
+        .signup-link { text-align: center; margin-top: 15px; color: #ccc; }
+        .signup-link a { color: #00ff88; text-decoration: none; font-weight: bold; }
+        .signup-link a:hover { text-decoration: underline; }
 
-        .login-btn:hover {
-            transform: scale(1.03);
-            box-shadow: 0 6px 16px rgba(0, 255, 136, 0.5);
-        }
-
-        .signup-link {
-            text-align: center;
-            margin-top: 15px;
-            color: #ccc;
-        }
-
-        .signup-link a {
-            color: #00ff88;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .signup-link a:hover {
-            text-decoration: underline;
-        }
-
-        /* Trading Popup Notification */
         .trading-popup {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #0066cc, #004499);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            z-index: 999;
-            border-left: 4px solid #00ff88;
-            transform: translateX(110%);
+            position: fixed; bottom: 20px; right: 20px; background: linear-gradient(135deg, #0066cc, #004499);
+            color: white; padding: 15px 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 999; border-left: 4px solid #00ff88; transform: translateX(110%);
             transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-            max-width: 350px;
-            display: block;
+            max-width: 350px; display: block;
         }
+        .trading-popup.show { transform: translateX(0); }
+        .trading-popup i { color: #00ff88; margin-right: 10px; }
+        .trading-popup-content { font-size: 0.95rem; line-height: 1.4; }
 
-        .trading-popup.show {
-            transform: translateX(0);
-        }
-
-        .trading-popup i {
-            color: #00ff88;
-            margin-right: 10px;
-        }
-
-        .trading-popup-content {
-            font-size: 0.95rem;
-            line-height: 1.4;
-        }
-
-        /* Success Popup */
         .success-popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.8);
-            background: linear-gradient(135deg, #00cc66, #00ff88);
-            color: #001a33;
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 15px 50px rgba(0,255,136,0.5);
-            z-index: 1500;
-            text-align: center;
-            display: none;
-            animation: popupScale 0.3s ease forwards;
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8);
+            background: linear-gradient(135deg, #00cc66, #00ff88); color: #001a33; padding: 25px;
+            border-radius: 20px; box-shadow: 0 15px 50px rgba(0,255,136,0.5); z-index: 1500;
+            text-align: center; display: none; animation: popupScale 0.3s ease forwards;
         }
-
-        @keyframes popupScale {
-            to { transform: translate(-50%, -50%) scale(1); }
-        }
-
-        .success-popup i {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .success-popup-content {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        
-        .success-popup-text {
-            margin-bottom: 20px;
-        }
-
+        @keyframes popupScale { to { transform: translate(-50%, -50%) scale(1); } }
+        .success-popup i { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+        .success-popup-content { font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; }
+        .success-popup-text { margin-bottom: 20px; }
         .success-popup-btn {
-            background: #001a33;
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
+            background: #001a33; color: white; border: none; padding: 10px 25px;
+            border-radius: 20px; cursor: pointer; font-weight: bold;
         }
 
-        /* Transactions Table */
-        .transactions-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        .transactions-table th,
-        .transactions-table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .transactions-table th {
-            color: #00ff88;
-            font-weight: bold;
-            background: rgba(0, 255, 136, 0.1);
-        }
-
-        .transactions-table tr:hover {
-            background: rgba(255,255,255,0.05);
-        }
+        .transactions-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .transactions-table th, .transactions-table td { padding: 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .transactions-table th { color: #00ff88; font-weight: bold; background: rgba(0, 255, 136, 0.1); }
+        .transactions-table tr:hover { background: rgba(255,255,255,0.05); }
 
         .status-pending { color: #f39c12; font-weight: bold; }
-        .status-completed { color: #2ecc71; font-weight: bold; }
+        .status-completed, .status-active { color: #2ecc71; font-weight: bold; }
         .status-failed { color: #e74c3c; font-weight: bold; }
         .status-processing { color: #3498db; font-weight: bold; }
-        .status-active { color: #27ae60; font-weight: bold; }
+        .type-deposit { color: #4CAF50; }
+        .type-withdrawal { color: #f44336; }
+        .type-investment { color: #2196F3; }
+        .type-bonus { color: #ffeb3b; }
 
-        .transaction-type-deposit { color: #4CAF50; }
-        .transaction-type-withdrawal { color: #f44336; }
-        .transaction-type-investment { color: #2196F3; }
-        
-
-        /* Referral Section */
-        .referral-section {
-            background: rgba(255,255,255,0.05);
-            border-radius: 15px;
-            padding: 20px;
-            margin-top: 20px;
-            border: 2px solid rgba(0, 255, 136, 0.2);
-        }
-
-        .referral-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .referral-title {
-            color: #00ff88;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .referral-link-container {
-            display: flex;
-            align-items: center;
-            background: rgba(0,0,0,0.3);
-            border-radius: 8px;
-            padding: 5px;
-            border: 1px solid #00ff88;
-        }
-
-        .referral-link {
-            font-family: 'Courier New', monospace;
-            background: transparent;
-            padding: 10px;
-            border: none;
-            color: white;
-            flex-grow: 1;
-            word-break: break-all;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .trading-header {
-                flex-direction: column;
-                gap: 12px;
-                padding: 1rem;
-            }
-            .logo h1 { font-size: 1.3rem; }
-            .logo i { font-size: 1.8rem; }
-            .action-btns { width: 100%; justify-content: center; }
-            .main-content { padding: 1rem; }
-            .section-title { font-size: 1.8rem; margin-bottom: 2rem; }
-            .account-panel { padding: 1.5rem 1rem; }
-            .account-header { flex-direction: column; gap: 10px; }
-            .wallet-container { flex-direction: column; gap: 1rem; }
-            .investment-section { padding: 2rem 1rem; }
-            .investment-plans { grid-template-columns: 1fr; gap: 1.2rem; }
-            .plan-card { padding: 1.8rem 1.2rem; }
-            .modal-content, .login-content { padding: 1.5rem; width: 95%; }
-            .trading-popup { bottom: 15px; right: 15px; left: 15px; max-width: none; transform: translateY(110%); }
-            .trading-popup.show { transform: translateY(0); }
-            .stats-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
-            .user-name, .balance { font-size: 0.85rem; padding: 5px 10px; }
-        }
-
-        @media (max-width: 480px) {
-            .logo h1 { font-size: 1.1rem; }
-            .logo i { font-size: 1.5rem; }
-            .section-title { font-size: 1.5rem; }
-            .plan-name { font-size: 1.3rem; }
-            .plan-return { font-size: 1.7rem; }
-            .crypto-options { grid-template-columns: repeat(2, 1fr); }
-            .deposit-btn, .withdraw-btn { padding: 6px 12px; font-size: 0.8rem; }
-            .balance { padding: 5px 10px; font-size: 0.85rem; }
-            .wallet-balance { font-size: 1.5rem; }
-            .stat-value { font-size: 1.5rem; }
-            .stat-card { padding: 1rem; }
-        }
-
-        /* Animations */
-        .pulse { animation: pulse 3s ease-in-out infinite; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+        .referral-section { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 20px; margin-top: 20px; border: 2px solid rgba(0, 255, 136, 0.2); }
+        .referral-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .referral-title { color: #00ff88; font-weight: bold; font-size: 1.2rem; }
+        .referral-link-container { display: flex; align-items: center; background: rgba(0,0,0,0.3); border-radius: 8px; padding: 5px; border: 1px solid #00ff88; }
+        .referral-link { font-family: 'Courier New', monospace; background: transparent; padding: 10px; border: none; color: white; flex-grow: 1; word-break: break-all; }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="trading-header">
-        <div class="logo">
-            <i class="fas fa-chart-line"></i>
-            <h1>CRYPTO TRADING INVEST</h1>
-        </div>
+        <div class="logo"><i class="fas fa-chart-line"></i><h1>CRYPTO TRADING INVEST</h1></div>
         <div class="user-info">
             <div class="user-name" id="userNameDisplay">Guest</div>
-            <div class="balance">
-                <span id="userBalance">$0.00</span>
-            </div>
+            <div class="balance"><span id="userBalance">$0.00</span></div>
             <div class="action-btns">
-                <button class="deposit-btn" onclick="openDepositModal()">
-                    <i class="fas fa-arrow-down"></i> DEPOSIT
-                </button>
-                <button class="withdraw-btn" onclick="openWithdrawModal()">
-                    <i class="fas fa-arrow-up"></i> WITHDRAW
-                </button>
+                <button class="deposit-btn" onclick="openDepositModal()"><i class="fas fa-arrow-down"></i> DEPOSIT</button>
+                <button class="withdraw-btn" onclick="openWithdrawModal()"><i class="fas fa-arrow-up"></i> WITHDRAW</button>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="main-content">
-        <!-- Account Panel -->
         <div class="account-panel">
             <div class="account-header">
                 <h3 class="account-title">ACCOUNT BALANCE</h3>
                 <div class="account-actions">
-                    <button class="account-btn account-deposit-btn" onclick="openDepositModal()">
-                        <i class="fas fa-wallet"></i> Deposit
-                    </button>
-                    <button class="account-btn account-withdraw-btn" onclick="openWithdrawModal()">
-                        <i class="fas fa-hand-holding-usd"></i> Withdraw
-                    </button>
+                    <button class="account-btn account-deposit-btn" onclick="openDepositModal()"><i class="fas fa-wallet"></i> Deposit</button>
+                    <button class="account-btn account-withdraw-btn" onclick="openWithdrawModal()"><i class="fas fa-hand-holding-usd"></i> Withdraw</button>
                 </div>
             </div>
-            
             <div class="wallet-container">
                 <div class="wallet-card">
-                    <div class="wallet-header">
-                        <div class="wallet-icon"><i class="fas fa-folder"></i></div>
-                        <div class="wallet-name">Main Wallet</div>
-                    </div>
+                    <div class="wallet-header"><div class="wallet-icon"><i class="fas fa-folder"></i></div><div class="wallet-name">Main Wallet</div></div>
                     <div class="wallet-balance" id="mainWalletBalance">$0.00</div>
                     <div class="wallet-actions">
                         <button class="wallet-action-btn wallet-deposit-btn" onclick="openDepositModal()"><i class="fas fa-arrow-down"></i> Deposit</button>
                         <button class="wallet-action-btn wallet-invest-btn" onclick="openInvestNowModal()"><i class="fas fa-chart-line"></i> Invest Now</button>
                     </div>
                 </div>
-                
                 <div class="wallet-card">
-                    <div class="wallet-header">
-                        <div class="wallet-icon"><i class="fas fa-money-bill-wave"></i></div>
-                        <div class="wallet-name">Profit Wallet</div>
-                    </div>
+                    <div class="wallet-header"><div class="wallet-icon"><i class="fas fa-money-bill-wave"></i></div><div class="wallet-name">Profit Wallet</div></div>
                     <div class="wallet-balance" id="profitWalletBalance">$0.00</div>
                     <div class="wallet-actions">
                         <button class="wallet-action-btn wallet-deposit-btn" onclick="openDepositModal()"><i class="fas fa-arrow-down"></i> Deposit</button>
@@ -1061,7 +660,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class="stats-grid">
                 <div class="stat-card" onclick="openTransactionsModal()"><div class="stat-icon"><i class="fas fa-exchange-alt"></i></div><div class="stat-value" id="totalTransactions">0</div><div class="stat-label">All Transactions</div></div>
                 <div class="stat-card" onclick="openDepositDetailsModal()"><div class="stat-icon"><i class="fas fa-wallet"></i></div><div class="stat-value" id="totalDeposit">$0</div><div class="stat-label">Total Deposit</div></div>
@@ -1076,14 +674,11 @@
                 <div class="stat-card" onclick="openRankDetailsModal()"><div class="stat-icon"><i class="fas fa-trophy"></i></div><div class="stat-value" id="rankAchieved">0</div><div class="stat-label">Rank Achieved</div></div>
                 <div class="stat-card" onclick="openTicketDetailsModal()"><div class="stat-icon"><i class="fas fa-ticket-alt"></i></div><div class="stat-value" id="totalTicket">0</div><div class="stat-label">Total Ticket</div></div>
             </div>
-            
             <div class="referral-section">
                 <div class="referral-header"><div class="referral-title">Your Referral Link</div></div>
                 <div class="referral-link-container">
                     <input type="text" class="referral-link" id="referralLink" value="Loading..." readonly>
-                    <button class="copy-btn" onclick="copyReferralLink()" style="padding: 10px 15px; font-size: 0.8rem; margin: 0; border-radius: 0 8px 8px 0;">
-                        <i class="fas fa-copy"></i> COPY
-                    </button>
+                    <button class="copy-btn" onclick="copyReferralLink()" style="padding: 10px 15px; font-size: 0.8rem; margin: 0; border-radius: 0 8px 8px 0;"><i class="fas fa-copy"></i> COPY</button>
                 </div>
                 <p style="color: #ccc; font-size: 0.9rem; margin-top: 10px;">Share this unique link with friends to earn referral bonuses!</p>
             </div>
@@ -1093,61 +688,45 @@
         <div class="investment-section">
             <div class="investment-plans">
                 <div class="plan-card pulse">
+                    <div class="plan-badge gift">GIFT PLAN</div>
+                    <div class="plan-icon"><i class="fas fa-gift"></i></div>
+                    <div class="plan-name">WELCOME BONUS</div>
+                    <div class="plan-range">$5 (Bonus Only)</div>
+                    <div class="plan-return">+250%</div>
+                    <ul class="plan-features"><li>Total Return: $12.50</li><li>Duration: 3 Days</li><li>Required: $5 Bonus</li><li>Instant Activation</li></ul>
+                    <button class="invest-btn" onclick="openInvestModal('WELCOME BONUS', '$5', '+250%')"><i class="fas fa-hand-holding-usd"></i> ACTIVATE BONUS</button>
+                </div>
+                <div class="plan-card pulse">
                     <div class="plan-badge">BEST FOR BEGINNERS</div>
                     <div class="plan-icon"><i class="fas fa-seedling"></i></div>
                     <div class="plan-name">STARTER PLAN</div>
-                    <div class="plan-range">$10 - $30</div>
-                    <div class="plan-return">+80%</div>
-                    <ul class="plan-features"><li>Daily Return: 2.0%</li><li>Duration: 40 Days</li><li>Minimum: $10</li><li>Maximum: $30</li><li>Instant Payouts</li><li>24/7 Support</li></ul>
-                    <button class="invest-btn" onclick="openInvestModal('STARTER PLAN', '$10 - $30', '+80%')"><i class="fas fa-hand-holding-usd"></i> INVEST NOW</button>
+                    <div class="plan-range">$10 - $100</div>
+                    <div class="plan-return">+150%</div>
+                    <ul class="plan-features"><li>Daily Return: 21.4%</li><li>Duration: 7 Days</li><li>Minimum: $10</li><li>Maximum: $100</li></ul>
+                    <button class="invest-btn" onclick="openInvestModal('STARTER PLAN', '$10 - $100', '+150%')"><i class="fas fa-hand-holding-usd"></i> INVEST NOW</button>
                 </div>
                 <div class="plan-card pulse">
                     <div class="plan-badge">MOST POPULAR</div>
                     <div class="plan-icon"><i class="fas fa-chart-line"></i></div>
-                    <div class="plan-name">BASIC PLAN</div>
-                    <div class="plan-range">$50 - $100</div>
-                    <div class="plan-return">+120%</div>
-                    <ul class="plan-features"><li>Daily Return: 2.5%</li><li>Duration: 48 Days</li><li>Minimum: $50</li><li>Maximum: $100</li><li>Priority Support</li><li>Weekly Reports</li></ul>
-                    <button class="invest-btn" onclick="openInvestModal('BASIC PLAN', '$50 - $100', '+120%')"><i class="fas fa-hand-holding-usd"></i> INVEST NOW</button>
+                    <div class="plan-name">PRO PLAN</div>
+                    <div class="plan-range">$101 - $500</div>
+                    <div class="plan-return">+200%</div>
+                    <ul class="plan-features"><li>Daily Return: 28.5%</li><li>Duration: 7 Days</li><li>Minimum: $101</li><li>Maximum: $500</li></ul>
+                    <button class="invest-btn" onclick="openInvestModal('PRO PLAN', '$101 - $500', '+200%')"><i class="fas fa-hand-holding-usd"></i> INVEST NOW</button>
                 </div>
                 <div class="plan-card pulse">
                     <div class="plan-icon"><i class="fas fa-medal"></i></div>
-                    <div class="plan-name">STANDARD PLAN</div>
-                    <div class="plan-range">$150 - $500</div>
-                    <div class="plan-return">+180%</div>
-                    <ul class="plan-features"><li>Daily Return: 3.2%</li><li>Duration: 56 Days</li><li>Minimum: $150</li><li>Maximum: $500</li><li>Dedicated Manager</li><li>Advanced Analytics</li></ul>
-                    <button class="invest-btn" onclick="openInvestModal('STANDARD PLAN', '$150 - $500', '+180%')"><i class="fas fa-hand-holding-usd"></i> INVEST NOW</button>
-                </div>
-                <div class="plan-card pulse">
-                    <div class="plan-icon"><i class="fas fa-crown"></i></div>
-                    <div class="plan-name">PREMIUM PLAN</div>
-                    <div class="plan-range">$1,000 - $2,500</div>
-                    <div class="plan-return">+240%</div>
-                    <ul class="plan-features"><li>Daily Return: 4.0%</li><li>Duration: 60 Days</li><li>Minimum: $1,000</li><li>Maximum: $2,500</li><li>VIP Support</li><li>Custom Strategies</li></ul>
-                    <button class="invest-btn" onclick="openInvestModal('PREMIUM PLAN', '$1,000 - $2,500', '+240%')"><i class="fas fa-hand-holding-usd"></i> INVEST NOW</button>
-                </div>
-                <div class="plan-card pulse">
-                    <div class="plan-icon"><i class="fas fa-diamond"></i></div>
-                    <div class="plan-name">ELITE PLAN</div>
-                    <div class="plan-range">$5,000 - $10,000</div>
-                    <div class="plan-return">+320%</div>
-                    <ul class="plan-features"><li>Daily Return: 4.8%</li><li>Duration: 67 Days</li><li>Minimum: $5,000</li><li>Maximum: $10,000</li><li>Personal Advisor</li><li>Exclusive Access</li></ul>
-                    <button class="invest-btn" onclick="openInvestModal('ELITE PLAN', '$5,000 - $10,000', '+320%')"><i class="fas fa-hand-holding-usd"></i> INVEST NOW</button>
-                </div>
-                <div class="plan-card pulse">
-                    <div class="plan-badge">ULTIMATE RETURNS</div>
-                    <div class="plan-icon"><i class="fas fa-infinity"></i></div>
-                    <div class="plan-name">ULTIMATE PLAN</div>
-                    <div class="plan-range">$25,000+</div>
-                    <div class="plan-return">+450%</div>
-                    <ul class="plan-features"><li>Daily Return: 6.0%</li><li>Duration: 75 Days</li><li>Minimum: $25,000</li><li>No Maximum Limit</li><li>Executive Support</li><li>White-Glove Service</li></ul>
-                    <button class="invest-btn" onclick="openInvestModal('ULTIMATE PLAN', '$25,000+', '+450%')"><i class="fas fa-hand-holding-usd"></i> INVEST NOW</button>
+                    <div class="plan-name">MASTER PLAN</div>
+                    <div class="plan-range">$501 - $2500</div>
+                    <div class="plan-return">+300%</div>
+                    <ul class="plan-features"><li>Daily Return: 42.8%</li><li>Duration: 7 Days</li><li>Minimum: $501</li><li>Maximum: $2500</li></ul>
+                    <button class="invest-btn" onclick="openInvestModal('MASTER PLAN', '$501 - $2500', '+300%')"><i class="fas fa-hand-holding-usd"></i> INVEST NOW</button>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Login Modal -->
+    <!-- All Modals -->
     <div id="loginModal" class="login-modal">
         <div class="login-content">
             <h3 class="login-header"><i class="fas fa-user"></i> USER LOGIN / SIGN UP</h3>
@@ -1156,12 +735,11 @@
                 <div class="input-group"><label for="userEmail">Email Address</label><input type="email" id="userEmail" placeholder="Enter your email address" required></div>
                 <div class="input-group"><label for="userPassword">Password</label><input type="password" id="userPassword" placeholder="Enter your password" required></div>
                 <button class="login-btn" onclick="handleLogin()"><i class="fas fa-sign-in-alt"></i> LOGIN & START TRADING</button>
-                <div class="signup-link">By logging in, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></div>
+                <div class="signup-link">By logging in, you agree to our <a href="#">Terms of Service</a>.</div>
             </div>
         </div>
     </div>
 
-    <!-- Deposit Modal -->
     <div id="depositModal" class="modal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal('depositModal')">&times;</button>
@@ -1171,13 +749,11 @@
                 <div class="crypto-option" onclick="selectCrypto(this, 'LTC', 'deposit')"><i class="fas fa-coins"></i><span>Litecoin (LTC)</span></div>
                 <div class="crypto-option" onclick="selectCrypto(this, 'ETH', 'deposit')"><i class="fab fa-ethereum"></i><span>Ethereum (ETH)</span></div>
                 <div class="crypto-option" onclick="selectCrypto(this, 'USDT', 'deposit')"><i class="fas fa-dollar-sign"></i><span>USDT (ERC20)</span></div>
-                <div class="crypto-option" onclick="selectCrypto(this, 'TRX', 'deposit')"><i class="fas fa-bolt"></i><span>TRX</span></div>
-                <div class="crypto-option" onclick="selectCrypto(this, 'BNB', 'deposit')"><i class="fas fa-cube"></i><span>BNB</span></div>
             </div>
             <div id="depositDetails" style="margin-top: 20px; display: none;">
                 <div class="deposit-instructions">
                     <div class="instructions-header"><i class="fas fa-exclamation-triangle"></i> DEPOSIT INSTRUCTIONS</div>
-                    <p style="text-align: center; margin-bottom: 20px; line-height: 1.6; font-size: 1rem;">Please send the amount to the following wallet address exactly as shown below:</p>
+                    <p style="text-align: center; margin-bottom: 20px;">Please send funds to the address below.</p>
                     <div class="wallet-address-container">
                         <div class="wallet-label" id="depositWalletLabel">Wallet Address:</div>
                         <div class="wallet-address" id="depositWalletAddress"></div>
@@ -1185,27 +761,12 @@
                     </div>
                     <div class="input-group"><label for="depositAmount">Amount ($)</label><input type="number" id="depositAmount" placeholder="Enter deposit amount in USD" min="10"></div>
                     <div class="input-group"><label for="depositTxId">Transaction ID (TXID)</label><input type="text" id="depositTxId" placeholder="Enter your transaction ID"></div>
-                    <div class="upload-section">
-                        <div style="font-weight: bold; color: #00ff88; margin-bottom: 12px; font-size: 1.1rem;"><i class="fas fa-upload"></i> Upload Deposit Screenshot</div>
-                        <input type="file" id="depositScreenshot" accept="image/*" style="display: none;"><button class="upload-btn" onclick="document.getElementById('depositScreenshot').click()"><i class="fas fa-file-image"></i> SELECT SCREENSHOT</button>
-                    </div>
-                    <div class="important-instructions">
-                        <div class="important-title"><i class="fas fa-info-circle"></i> Important Instructions</div>
-                        <ul class="instructions-list">
-                            <li>Send the exact amount you agreed upon to the address above.</li>
-                            <li>Double-check the address before sending — cryptocurrency transactions are irreversible.</li>
-                            <li>After you complete the transfer, please upload a screenshot of your deposit and provide the transaction ID (TXID) for verification.</li>
-                            <li>Once we receive and confirm the transaction on the blockchain, we will notify you and complete the next steps.</li>
-                        </ul>
-                    </div>
                     <button class="copy-btn" style="margin-top: 20px; width: 100%;" onclick="submitDeposit()"><i class="fas fa-check"></i> SUBMIT DEPOSIT</button>
-                    <div class="support-info">If you have any questions or encounter any issues, reply to this message or contact our support team.</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Withdraw Modal -->
     <div id="withdrawModal" class="modal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal('withdrawModal')">&times;</button>
@@ -1215,83 +776,23 @@
                 <div class="crypto-option" onclick="selectCrypto(this, 'LTC', 'withdraw')"><i class="fas fa-coins"></i><span>Litecoin (LTC)</span></div>
                 <div class="crypto-option" onclick="selectCrypto(this, 'ETH', 'withdraw')"><i class="fab fa-ethereum"></i><span>Ethereum (ETH)</span></div>
                 <div class="crypto-option" onclick="selectCrypto(this, 'USDT', 'withdraw')"><i class="fas fa-dollar-sign"></i><span>USDT (ERC20)</span></div>
-                <div class="crypto-option" onclick="selectCrypto(this, 'TRX', 'withdraw')"><i class="fas fa-bolt"></i><span>TRX</span></div>
-                <div class="crypto-option" onclick="selectCrypto(this, 'BNB', 'withdraw')"><i class="fas fa-cube"></i><span>BNB</span></div>
             </div>
             <div id="withdrawDetails" style="margin-top: 20px; display: none;">
                 <div class="withdraw-instructions">
                     <div class="instructions-header"><i class="fas fa-exclamation-triangle"></i> WITHDRAWAL INSTRUCTIONS</div>
-                    <p style="text-align: center; margin-bottom: 20px; line-height: 1.6; font-size: 1rem;">Please provide your wallet address for withdrawal:</p>
                     <div class="input-group"><label for="withdrawAddress">Your Wallet Address:</label><input type="text" id="withdrawAddress" placeholder="Enter your wallet address"></div>
                     <div class="input-group"><label for="withdrawAmount">Withdrawal Amount ($):</label><input type="number" id="withdrawAmount" placeholder="Enter amount" min="10"></div>
-                    <div class="important-instructions">
-                        <div class="important-title"><i class="fas fa-info-circle"></i> Important Instructions</div>
-                        <ul class="instructions-list">
-                            <li>Minimum withdrawal amount is $10</li>
-                            <li>Double-check your wallet address before submitting</li>
-                            <li>Withdrawals are processed instantly in 99% of cases.</li>
-                            <li>Network fees may apply depending on the cryptocurrency</li>
-                            <li>Ensure your wallet supports the selected cryptocurrency</li>
-                        </ul>
-                    </div>
                     <button class="copy-btn" style="background: linear-gradient(45deg, #ff6b6b, #ff8e8e); color: #330000; margin-top: 20px; width: 100%;" onclick="confirmWithdrawal()"><i class="fas fa-check"></i> CONFIRM WITHDRAWAL</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Invest Modal -->
-    <div id="investModal" class="modal">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeModal('investModal')">&times;</button>
-            <h3 id="investPlanTitle" style="text-align: center; color: #00ff88; margin-bottom: 20px; font-size: 1.5rem;"></h3>
-            <div style="text-align: center; margin-bottom: 15px; color: #00cc66; font-size: 1.1rem;"><span id="investPlanRange"></span> | <span id="investPlanReturn"></span></div>
-            <div class="input-group"><label for="investAmount">Investment Amount ($)</label><input type="number" id="investAmount" placeholder="Enter amount" min="10"></div>
-            <button class="copy-btn" style="margin-top: 15px; width: 100%;" onclick="confirmInvestment()"><i class="fas fa-check"></i> CONFIRM INVESTMENT</button>
-        </div>
-    </div>
-
-    <!-- Invest Now Modal -->
-    <div id="investNowModal" class="modal">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeModal('investNowModal')">&times;</button>
-            <h3 style="text-align: center; color: #00ff88; margin-bottom: 20px; font-size: 1.5rem;"><i class="fas fa-chart-line"></i> INVEST NOW</h3>
-            <div style="text-align: center; margin-bottom: 20px; color: #00cc66; font-size: 1.1rem;">Select an investment plan to start earning</div>
-            <div class="investment-plans" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
-                <div class="plan-card" style="padding: 1.5rem;"><div class="plan-badge">BEST FOR BEGINNERS</div><div class="plan-icon"><i class="fas fa-seedling"></i></div><div class="plan-name">STARTER PLAN</div><div class="plan-range">$10 - $30</div><div class="plan-return">+80%</div><ul class="plan-features" style="font-size: 0.85rem;"><li>Daily Return: 2.0%</li><li>Duration: 40 Days</li><li>Minimum: $10</li><li>Maximum: $30</li></ul><button class="invest-btn" style="padding: 10px 20px; font-size: 0.9rem;" onclick="openInvestModal('STARTER PLAN', '$10 - $30', '+80%')"><i class="fas fa-hand-holding-usd"></i> INVEST NOW</button></div>
-                <div class="plan-card" style="padding: 1.5rem;"><div class="plan-badge">MOST POPULAR</div><div class="plan-icon"><i class="fas fa-chart-line"></i></div><div class="plan-name">BASIC PLAN</div><div class="plan-range">$50 - $100</div><div class="plan-return">+120%</div><ul class="plan-features" style="font-size: 0.85rem;"><li>Daily Return: 2.5%</li><li>Duration: 48 Days</li><li>Minimum: $50</li><li>Maximum: $100</li></ul><button class="invest-btn" style="padding: 10px 20px; font-size: 0.9rem;" onclick="openInvestModal('BASIC PLAN', '$50 - $100', '+120%')"><i class="fas fa-hand-holding-usd"></i> INVEST NOW</button></div>
-                <div class="plan-card" style="padding: 1.5rem;"><div class="plan-icon"><i class="fas fa-medal"></i></div><div class="plan-name">STANDARD PLAN</div><div class="plan-range">$150 - $500</div><div class="plan-return">+180%</div><ul class="plan-features" style="font-size: 0.85rem;"><li>Daily Return: 3.2%</li><li>Duration: 56 Days</li><li>Minimum: $150</li><li>Maximum: $500</li></ul><button class="invest-btn" style="padding: 10px 20px; font-size: 0.9rem;" onclick="openInvestModal('STANDARD PLAN', '$150 - $500', '+180%')"><i class="fas fa-hand-holding-usd"></i> INVEST NOW</button></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Transactions Modal -->
-    <div id="transactionsModal" class="modal">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeModal('transactionsModal')">&times;</button>
-            <h3 style="text-align: center; color: #00ff88; margin-bottom: 20px; font-size: 1.5rem;"><i class="fas fa-exchange-alt"></i> ALL TRANSACTIONS</h3>
-            <div style="overflow-x: auto;">
-                <table class="transactions-table">
-                    <thead><tr><th>Date & Time</th><th>Type</th><th>Amount</th><th>Status</th></tr></thead>
-                    <tbody id="transactionsTableBody"></tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <!-- Trading Popup Notification -->
-    <div id="tradingPopup" class="trading-popup">
-        <i class="fas fa-chart-line"></i>
-        <div class="trading-popup-content" id="popupContent">Welcome to Crypto Trading Invest!</div>
-    </div>
-
-    <!-- Success Popup -->
-    <div id="successPopup" class="success-popup">
-        <i id="successIcon" class="fas fa-check-circle"></i>
-        <div id="successContent" class="success-popup-content"></div>
-        <div id="successText" class="success-popup-text"></div>
-        <button class="success-popup-btn" onclick="closeSuccessPopup()">OK</button>
-    </div>
+    <div id="investModal" class="modal"><div class="modal-content"><button class="close-btn" onclick="closeModal('investModal')">&times;</button><h3 id="investPlanTitle" style="text-align: center; color: #00ff88; margin-bottom: 20px; font-size: 1.5rem;"></h3><div style="text-align: center; margin-bottom: 15px; color: #00cc66; font-size: 1.1rem;"><span id="investPlanRange"></span> | <span id="investPlanReturn"></span></div><div class="input-group"><label for="investAmount">Investment Amount ($)</label><input type="number" id="investAmount" placeholder="Enter amount"></div><button class="copy-btn" style="margin-top: 15px; width: 100%;" onclick="confirmInvestment()"><i class="fas fa-check"></i> CONFIRM INVESTMENT</button></div></div>
+    <div id="investNowModal" class="modal"><div class="modal-content"><button class="close-btn" onclick="closeModal('investNowModal')">&times;</button><h3 style="text-align: center; color: #00ff88; margin-bottom: 20px; font-size: 1.5rem;"><i class="fas fa-chart-line"></i> INVEST NOW</h3><div class="investment-plans" style="gap: 1rem;"><div class="plan-card" style="padding: 1.5rem;"><div class="plan-badge gift">GIFT PLAN</div><div class="plan-icon"><i class="fas fa-gift"></i></div><div class="plan-name">WELCOME BONUS</div><div class="plan-range">$5</div><button class="invest-btn" style="padding: 10px 20px; font-size: 0.9rem;" onclick="openInvestModal('WELCOME BONUS', '$5', '+250%')">ACTIVATE</button></div><div class="plan-card" style="padding: 1.5rem;"><div class="plan-badge">BEST FOR BEGINNERS</div><div class="plan-icon"><i class="fas fa-seedling"></i></div><div class="plan-name">STARTER PLAN</div><div class="plan-range">$10 - $100</div><button class="invest-btn" style="padding: 10px 20px; font-size: 0.9rem;" onclick="openInvestModal('STARTER PLAN', '$10 - $100', '+150%')">INVEST</button></div></div></div></div>
+    <div id="transactionsModal" class="modal"><div class="modal-content"><button class="close-btn" onclick="closeModal('transactionsModal')">&times;</button><h3 style="text-align: center; color: #00ff88; margin-bottom: 20px;"><i class="fas fa-exchange-alt"></i> ALL TRANSACTIONS</h3><div style="overflow-x: auto;"><table class="transactions-table"><thead><tr><th>Date & Time</th><th>Type</th><th>Amount</th><th>Status</th></tr></thead><tbody id="transactionsTableBody"></tbody></table></div></div></div>
+    <div id="tradingPopup" class="trading-popup"><i class="fas fa-chart-line"></i><div class="trading-popup-content" id="popupContent">Welcome!</div></div>
+    <div id="successPopup" class="success-popup"><i id="successIcon" class="fas fa-check-circle"></i><div id="successContent" class="success-popup-content"></div><div id="successText" class="success-popup-text"></div><button class="success-popup-btn" onclick="closeSuccessPopup()">OK</button></div>
 
     <script>
         'use strict';
@@ -1319,18 +820,24 @@
                 return;
             }
             
+            // New user object with $5 bonus and hasDeposited flag
             currentUser = { 
                 name, email, password,
-                balance: 0.00, mainWallet: 0.00, profitWallet: 0.00,
+                balance: 5.00, mainWallet: 5.00, profitWallet: 0.00,
                 totalDeposit: 0.00, totalInvestment: 0.00, totalProfit: 0.00,
                 totalTransfer: 0.00, totalWithdraw: 0.00, referralBonus: 0.00,
-                depositBonus: 0.00, investmentBonus: 0.00, totalReferral: 0,
-                rankAchieved: 0, totalTicket: 0, transactions: []
+                depositBonus: 5.00, investmentBonus: 0.00, totalReferral: 0,
+                rankAchieved: 0, totalTicket: 0, 
+                transactions: [
+                    { id: Date.now(), type: 'bonus', amount: 5.00, status: 'Completed' }
+                ],
+                hasDeposited: false // CRITICAL: Flag for withdrawal check
             };
             
             localStorage.setItem('cryptoUser', JSON.stringify(currentUser));
             updateUI();
             document.getElementById('loginModal').style.display = 'none';
+            showPopup('success', 'Welcome!', `You have received a $5.00 welcome bonus!`);
         }
         
         function updateUI() {
@@ -1345,14 +852,14 @@
                 investmentBonus: currentUser.investmentBonus
             };
             for (const id in fields) {
-                document.getElementById(id).textContent = `$${fields[id].toFixed(2)}`;
+                if(document.getElementById(id)) document.getElementById(id).textContent = `$${fields[id].toFixed(2)}`;
             }
             const countFields = {
                 totalTransactions: currentUser.transactions.length, totalReferral: currentUser.totalReferral,
                 rankAchieved: currentUser.rankAchieved, totalTicket: currentUser.totalTicket
             };
             for (const id in countFields) {
-                document.getElementById(id).textContent = countFields[id];
+                if(document.getElementById(id)) document.getElementById(id).textContent = countFields[id];
             }
             generateReferralLink();
         }
@@ -1364,11 +871,10 @@
                 document.getElementById('referralLink').value = `${baseURL}/?ref=${referralCode}`;
             }
         }
-        
+
         function copyReferralLink() {
             const linkInput = document.getElementById('referralLink');
             linkInput.select();
-            linkInput.setSelectionRange(0, 99999);
             navigator.clipboard.writeText(linkInput.value).then(() => {
                 const copyBtn = document.querySelector('.referral-section .copy-btn');
                 const originalHTML = copyBtn.innerHTML;
@@ -1376,7 +882,7 @@
                 setTimeout(() => { copyBtn.innerHTML = originalHTML; }, 2000);
             }).catch(() => alert('Failed to copy.'));
         }
-        
+
         function openModal(modalId) {
              if (!currentUser) {
                 document.getElementById('loginModal').style.display = 'flex';
@@ -1387,25 +893,15 @@
         
         function openDepositModal() { openModal('depositModal'); }
         function openWithdrawModal() { openModal('withdrawModal'); }
-        function openInvestNowModal() {
-            if (currentUser && currentUser.balance < 10) {
-                showPopup('error', 'Insufficient Balance', 'Your balance is too low to invest. Please deposit first.', 'DEPOSIT', openDepositModal);
-                return;
-            }
-            openModal('investNowModal');
-        }
+        function openInvestNowModal() { openModal('investNowModal'); }
 
         function openInvestModal(plan, range, returns) {
-            if (currentUser && currentUser.balance < 10) {
-                showPopup('error', 'Insufficient Balance', 'Your balance is too low to invest. Please deposit first.', 'DEPOSIT', openDepositModal);
-                return;
-            }
             document.getElementById('investPlanTitle').textContent = `INVEST IN ${plan}`;
             document.getElementById('investPlanRange').textContent = range;
             document.getElementById('investPlanReturn').textContent = returns;
             openModal('investModal');
         }
-        
+
         // Detailed Modals
         function openTransactionsModal() { if (currentUser) { updateTransactionsTable(); openModal('transactionsModal'); } }
         function openDepositDetailsModal() { showInfoModal('Total Deposit', `Your total deposit: $${currentUser.totalDeposit.toFixed(2)}`, 'fas fa-wallet'); }
@@ -1426,7 +922,7 @@
             popup.style.display = 'block';
         }
 
-        function showPopup(type, title, text, buttonText = 'OK', buttonAction = closeSuccessPopup) {
+        function showPopup(type, title, text, buttonText = 'OK', buttonAction = null) {
             const popup = document.getElementById('successPopup');
             const icon = document.getElementById('successIcon');
             document.getElementById('successContent').textContent = title;
@@ -1453,7 +949,7 @@
                 currentUser.transactions.slice().reverse().forEach(tx => {
                     const row = document.createElement('tr');
                     const statusClass = `status-${tx.status.toLowerCase()}`;
-                    const typeClass = `transaction-type-${tx.type}`;
+                    const typeClass = `type-${tx.type}`;
                     row.innerHTML = `<td>${new Date(tx.id).toLocaleString()}</td><td class="${typeClass}">${tx.type.charAt(0).toUpperCase() + tx.type.slice(1)}</td><td>$${tx.amount.toFixed(2)}</td><td class="${statusClass}">${tx.status}</td>`;
                     tbody.appendChild(row);
                 });
@@ -1462,10 +958,7 @@
             }
         }
         
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-        
+        function closeModal(modalId) { document.getElementById(modalId).style.display = 'none'; }
         function closeSuccessPopup() {
             const popup = document.getElementById('successPopup');
             popup.style.display = 'none';
@@ -1479,52 +972,38 @@
             
             if (type === 'deposit') {
                 const details = {
-                    'BTC': { address: 'bc1qqfyxnxee2eyehllvnts8u4a4uzl4cellvd4kg5', label: 'Bitcoin (BTC) Address:' },
-                    'LTC': { address: 'ltc1q05vt7yaapz4pv9gnpe3pyffczcuqwrn2au4j5k', label: 'Litecoin (LTC) Address:' },
-                    'ETH': { address: '0xe94dc6f9bc47c9152c8b6722b072f8c696c380c2', label: 'Ethereum (ETH) Address:' },
-                    'USDT': { address: '0xe94dc6f9bc47c9152c8b6722b072f8c696c380c2', label: 'USDT (ERC20) Address:' },
-                    'TRX': { address: 'TXAddressHereTXAddressHereTXAddressHereTX', label: 'TRON (TRX) Address:' },
-                    'BNB': { address: 'bnbAddressHerebnbAddressHerebnbAddressHere', label: 'Binance (BNB) Address:' }
+                    'BTC': { address: 'bc1q...' }, 'LTC': { address: 'ltc1q...' },
+                    'ETH': { address: '0x...' }, 'USDT': { address: '0x...' }
                 };
                 document.getElementById('depositWalletAddress').textContent = details[crypto].address;
-                document.getElementById('depositWalletLabel').textContent = details[crypto].label;
+                document.getElementById('depositWalletLabel').textContent = `${crypto} Address:`;
             }
             document.getElementById(type === 'deposit' ? 'depositDetails' : 'withdrawDetails').style.display = 'block';
         }
-        
+
         function copyAddress(elementId) {
-            const address = document.getElementById(elementId).textContent;
-            navigator.clipboard.writeText(address).then(() => {
-                const copyBtn = document.querySelector('#depositDetails .copy-btn');
-                const originalHTML = copyBtn.innerHTML;
-                copyBtn.innerHTML = '<i class="fas fa-check"></i> COPIED!';
-                setTimeout(() => { copyBtn.innerHTML = originalHTML; }, 2000);
-            });
+            navigator.clipboard.writeText(document.getElementById(elementId).textContent);
         }
         
         function submitDeposit() {
             const txId = document.getElementById('depositTxId').value.trim();
             const amount = parseFloat(document.getElementById('depositAmount').value);
-            
-            if (!txId || isNaN(amount) || amount <= 0) {
-                alert('Please provide a valid amount and transaction ID.');
-                return;
-            }
+            if (!txId || isNaN(amount) || amount < 10) { alert('Please provide a valid amount (min $10) and transaction ID.'); return; }
             
             const newTransaction = { id: Date.now(), type: 'deposit', amount, txId, status: 'Pending' };
             currentUser.transactions.push(newTransaction);
+            currentUser.hasDeposited = true; // Set flag to true on first deposit
             localStorage.setItem('cryptoUser', JSON.stringify(currentUser));
             updateUI();
             scheduleTransactionFailure(newTransaction.id);
-
-            showPopup('success', 'Deposit Submitted', `Your deposit of $${amount.toFixed(2)} is now pending verification.`);
+            showPopup('success', 'Deposit Submitted', `Your deposit of $${amount.toFixed(2)} is pending verification.`);
             closeModal('depositModal');
             document.getElementById('depositTxId').value = '';
             document.getElementById('depositAmount').value = '';
         }
 
         function scheduleTransactionFailure(transactionId) {
-            const randomDelay = Math.random() * (1800000 - 900000) + 900000; // 15-30 mins
+            const randomDelay = Math.random() * (1800000 - 900000) + 900000;
             setTimeout(() => {
                 let user = JSON.parse(localStorage.getItem('cryptoUser'));
                 if (user) {
@@ -1532,11 +1011,6 @@
                     if (tx && tx.status === 'Pending') {
                         tx.status = 'Failed';
                         localStorage.setItem('cryptoUser', JSON.stringify(user));
-                        showTradingPopupWithMessage(`Deposit TX: ${tx.txId.slice(0,10)}... failed verification.`);
-                        if (document.getElementById('transactionsModal').style.display === 'flex') {
-                           currentUser = user;
-                           updateTransactionsTable();
-                        }
                     }
                 }
             }, randomDelay);
@@ -1545,26 +1019,16 @@
         function startTransactionStatusChecker() {
             if (!currentUser || !currentUser.transactions) return;
             currentUser.transactions.forEach(tx => {
-                if (tx.status === 'Pending') {
-                    const timeElapsed = Date.now() - tx.id;
-                    const randomDelay = 1200000; // Average 20 mins for check
-                    if (timeElapsed < randomDelay) {
-                        scheduleTransactionFailure(tx.id);
-                    } else {
-                        tx.status = 'Failed';
-                    }
+                if (tx.status === 'Pending' && (Date.now() - tx.id) < 1800000) {
+                    scheduleTransactionFailure(tx.id);
                 }
             });
-            localStorage.setItem('cryptoUser', JSON.stringify(currentUser));
         }
         
         function confirmInvestment() {
             const amount = parseFloat(document.getElementById('investAmount').value);
-            if (isNaN(amount) || amount < 10) { alert('Minimum investment is $10'); return; }
-            if (currentUser.balance < amount) {
-                showPopup('error', 'Insufficient Balance', 'Not enough funds to invest.', 'DEPOSIT', openDepositModal);
-                return;
-            }
+            if (isNaN(amount) || amount <= 0) { alert('Please enter a valid amount'); return; }
+            if (currentUser.balance < amount) { showPopup('error', 'Insufficient Balance', 'Not enough funds.', 'DEPOSIT', openDepositModal); return; }
             
             currentUser.balance -= amount;
             currentUser.mainWallet -= amount;
@@ -1577,13 +1041,22 @@
         }
         
         function confirmWithdrawal() {
+            // CRITICAL CHECK: Block withdrawal if user has not deposited
+            if (currentUser.hasDeposited === false) {
+                showPopup(
+                    'error', 
+                    'Deposit Required', 
+                    'To activate withdrawals, you must first make a real deposit to your account.', 
+                    'DEPOSIT NOW', 
+                    openDepositModal
+                );
+                return; // Stop the function here
+            }
+
             const address = document.getElementById('withdrawAddress').value.trim();
             const amount = parseFloat(document.getElementById('withdrawAmount').value);
             if (!address || isNaN(amount) || amount < 10) { alert('Enter a valid address and amount (min $10).'); return; }
-            if (currentUser.balance < amount) {
-                showPopup('error', 'Insufficient Balance', 'Not enough funds to withdraw.', 'DEPOSIT', openDepositModal);
-                return;
-            }
+            if (currentUser.balance < amount) { showPopup('error', 'Insufficient Balance', 'Not enough funds to withdraw.', 'DEPOSIT', openDepositModal); return; }
             
             currentUser.balance -= amount;
             currentUser.mainWallet -= amount;
@@ -1600,11 +1073,11 @@
                     if (tx) {
                         tx.status = 'Completed';
                         localStorage.setItem('cryptoUser', JSON.stringify(user));
-                        if(currentUser.email === user.email) currentUser = user; // Update current session
-                        updateUI(); // Refresh UI to show 'Completed'
+                        if(currentUser.email === user.email) currentUser = user;
+                        updateUI();
                     }
                 }
-            }, Math.random() * (15000 - 5000) + 5000); // 5-15 seconds for more realistic instant
+            }, Math.random() * 8000 + 3000);
             
             showPopup('success', 'Withdrawal Processing', `Your $${amount.toFixed(2)} withdrawal is being processed.`);
             closeModal('withdrawModal');
@@ -1614,7 +1087,6 @@
         let notificationIndex = 0;
         function showTradingPopup() {
             const popup = document.getElementById('tradingPopup');
-            if (!popup) return;
             popup.querySelector('.trading-popup-content').textContent = tradingNotifications[notificationIndex];
             popup.classList.add('show');
             setTimeout(() => {
@@ -1623,27 +1095,12 @@
             }, 5000);
         }
         function startTradingPopupRotation() { setInterval(showTradingPopup, 8000); }
-        function showTradingPopupWithMessage(message) {
-            const popup = document.getElementById('tradingPopup');
-            popup.querySelector('.trading-popup-content').textContent = message;
-            popup.classList.add('show');
-            setTimeout(() => { popup.classList.remove('show'); }, 5000);
-        }
         
         window.onclick = function(event) {
             if (event.target.classList.contains('modal') || event.target.classList.contains('login-modal')) {
                 event.target.style.display = 'none';
             }
         };
-        
-        document.getElementById('depositScreenshot').addEventListener('change', function(e) {
-            if (e.target.files.length > 0) {
-                const fileName = e.target.files[0].name;
-                const uploadBtn = document.querySelector('.upload-btn');
-                uploadBtn.innerHTML = `<i class="fas fa-check"></i> ${fileName.length > 15 ? fileName.substring(0,12)+'...' : fileName}`;
-                uploadBtn.style.background = 'linear-gradient(45deg, #00cc66, #00ff88)';
-            }
-        });
     </script>
 </body>
 </html>
