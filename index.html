@@ -1016,8 +1016,8 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             z-index: 999;
             border-left: 4px solid #00ff88;
-            transform: translateX(200%);
-            transition: transform 0.3s ease;
+            transform: translateX(120%);
+            transition: transform 0.5s ease-in-out;
             max-width: 350px;
             display: none;
         }
@@ -1210,7 +1210,6 @@
                 gap: 1rem;
             }
             
-            .testimonials-section,
             .investment-section {
                 padding: 2rem 1rem;
             }
@@ -1240,7 +1239,7 @@
                 right: 15px;
                 left: 15px;
                 max-width: none;
-                transform: translateY(100px);
+                transform: translateY(120%);
             }
 
             .trading-popup.show {
@@ -2341,27 +2340,48 @@
             updateActiveInvestmentsDisplay();
         }
 
-        const tradingNotifications = [
-            "User JohnD completed investment in Premium Plan - $1,500",
-            "Withdrawal of $3,400 processed successfully to BTC wallet",
-            "New user registration - Investment of $500 in Basic Plan",
+        // --- نیا اور بہتر ٹریڈنگ پاپ اپ نوٹیفکیشن ---
+        const randomNames = [
+            "Ahmed Khan", "Fatima Ali", "Zainab Malik", "Bilal Ahmed", "Aisha Jameel", "Usman Tariq", "Sana Imran", "Hassan Raza", "Rohan Gupta", "Priya Sharma", "Amit Singh", "Anjali Verma", "Vikram Rathore", "Sunita Devi", "Rajesh Kumar", "Pooja Patel", "Imran Syed", "Nida Yasir", "Fawad Chaudhry", "Sania Mirza", "Arjun Reddy", "Meera Chopra", "Karan Johar", "Alia Bhatt", "John Smith", "Emily Johnson", "Michael Williams", "Jessica Brown", "David Jones", "Sarah Garcia", "James Miller", "Linda Davis", "Robert Rodriguez", "Mary Martinez", "William Hernandez", "Patricia Lopez", "Richard Gonzalez", "Jennifer Wilson", "Charles Anderson", "Elizabeth Thomas", "Daniel Taylor", "Susan Moore", "Matthew Jackson", "Karen Martin", "Anthony Lee", "Nancy Perez", "Mark Thompson", "Lisa White", "Budi Santoso", "Siti Aminah", "Eko Wijoyo", "Dewi Lestari", "Agus Susanto", "Fitriani Hasanah", "Joko Prasetyo", "Ratna Sari", "Hendra Gunawan", "Maya Indah", "Rizky Pratama", "Lina Marlina", "Surya Dharma", "Wulan Anggraini", "Adi Nugroho", "Nurhayati Siregar", "Chen Wei", "Yuki Tanaka", "Olga Petrova", "Hans Müller", "Javier Fernandez", "Fatou Diallo", "Liam O'Connell", "Sofia Rossi", "Aarav Sharma", "Vivaan Singh", "Aditya Gupta", "Ishaan Patel", "Ayaan Kumar", "Reyansh Verma", "Muhammad Ali", "Vihaan Shah", "Krishna Rao", "Sai Prasad", "Rohan Mehra", "Shaan Malhotra", "Kabir Khan", "Zayn Malik", "Sameer Ahmed", "Ayesha Khan", "Saanvi Patel", "Myra Singh", "Anaya Sharma", "Diya Gupta", "Pari Verma", "Iqra Ahmed", "Noor Fatima", "Liam Smith", "Noah Johnson", "Oliver Williams", "Elijah Brown", "James Jones", "William Garcia", "Benjamin Miller", "Lucas Davis"
         ];
-        let currentNotificationIndex = 0;
+
+        const randomActions = [
+            "just made a new deposit of",
+            "successfully withdrew profits of",
+            "completed an investment for",
+            "earned a referral bonus of",
+            "just joined and made a first investment of",
+            "upgraded to the Premium Plan with"
+        ];
         
         function showTradingPopup() {
+            const randomName = randomNames[Math.floor(Math.random() * randomNames.length)];
+            const randomAction = randomActions[Math.floor(Math.random() * randomActions.length)];
+            const randomAmount = Math.floor(Math.random() * (5000 - 50 + 1)) + 50;
+
+            const popupContent = `${randomName} ${randomAction} $${randomAmount.toLocaleString()}.`;
+            
             const popup = document.getElementById('tradingPopup');
-            popup.querySelector('#popupContent').textContent = tradingNotifications[currentNotificationIndex];
+            popup.querySelector('#popupContent').textContent = popupContent;
             popup.style.display = 'block';
-            popup.classList.add('show');
+            
+            requestAnimationFrame(() => {
+                popup.classList.add('show');
+            });
+
             setTimeout(() => {
                 popup.classList.remove('show');
-                setTimeout(() => { popup.style.display = 'none'; }, 300);
-            }, 3000);
-            currentNotificationIndex = (currentNotificationIndex + 1) % tradingNotifications.length;
+                setTimeout(() => { 
+                    if (!popup.classList.contains('show')) {
+                        popup.style.display = 'none';
+                    }
+                }, 500); // CSS transition duration
+            }, 3500); // 3.5 سیکنڈ کے لیے نظر آئے گا
         }
 
         function startTradingPopupRotation() {
-            setInterval(showTradingPopup, 6000);
+            setTimeout(showTradingPopup, 2000); // پہلا پاپ اپ 2 سیکنڈ بعد
+            setInterval(showTradingPopup, 4500); // ہر 4.5 سیکنڈ بعد نیا پاپ اپ
         }
         
         // --- نیا، بہتر، اور رسپانسیو کسٹمر سلائیڈر کا جاوا اسکرپٹ ---
@@ -2450,7 +2470,7 @@
             const sliderContainer = document.getElementById('testimonialSliderContainer');
             const dots = document.querySelectorAll('.dot');
             
-            if (!sliderContainer) return; // اگر عنصر موجود نہ ہو تو فنکشن روک دیں
+            if (!sliderContainer) return; 
             
             const containerWidth = sliderContainer.offsetWidth;
             
@@ -2496,7 +2516,6 @@
             }
         });
         
-        // اس بات کو یقینی بنائیں کہ ونڈو کا سائز تبدیل ہونے پر سلائیڈر اپ ڈیٹ ہو
         window.addEventListener('resize', updateSlider);
 
     </script>
