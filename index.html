@@ -382,19 +382,13 @@
             color: #4caf50;
         }
         
-        /* --- نیا مطمئن صارفین کا سیکشن --- */
+        /* --- نیا اور بہتر مطمئن صارفین کا سیکشن --- */
         .testimonials-section {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 25px;
             padding: 2.5rem 1.5rem;
             margin-bottom: 2rem;
-            border: 2px solid rgba(0, 255, 136, 0.2);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
         }
         
         .testimonial-slider-container {
-            width: 100%;
             max-width: 900px;
             margin: 0 auto;
             overflow: hidden;
@@ -408,49 +402,102 @@
         
         .testimonial-card {
             flex: 0 0 100%;
+            background: linear-gradient(145deg, #1a1a3e, #0f0f24);
+            border-radius: 20px;
             padding: 2rem;
-            text-align: center;
+            margin: 0 1rem; /* کارڈز کے درمیان فاصلہ */
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
-        }
-
-        .testimonial-card .quote-icon {
-            font-size: 2rem;
-            color: #00ff88;
-            opacity: 0.5;
-        }
-        
-        .testimonial-review {
-            font-size: 1.1rem;
-            font-style: italic;
-            color: #ddd;
-            line-height: 1.6;
-            max-width: 80%;
+            gap: 1.5rem;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         
         .testimonial-author {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
+            gap: 15px;
+            width: 100%;
         }
-        
+
+        .author-avatar img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #00ff88;
+            object-fit: cover;
+        }
+
+        .author-details {
+            text-align: left;
+        }
+
         .author-name {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: bold;
             color: #00ff88;
         }
         
         .rating {
-            color: #ffc107; /* Gold color for stars */
+            color: #ffc107;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-review {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #ddd;
+            line-height: 1.6;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            position: relative;
+        }
+        .testimonial-review::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: rgba(0, 255, 136, 0.4);
+            font-size: 1.5rem;
+            position: absolute;
+            top: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
         }
         
+        .testimonial-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            background: rgba(0,0,0,0.2);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+        .stat-item .label {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .stat-item .value {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .stat-item .value.deposit { color: #ff8e8e; }
+        .stat-item .value.withdrawal { color: #4CAF50; }
+
         .slider-dots {
             text-align: center;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
 
         .dot {
@@ -460,12 +507,13 @@
             background-color: rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             display: inline-block;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
-        .dot.active {
+        .dot.active, .dot:hover {
             background-color: #00ff88;
+            transform: scale(1.2);
         }
         /* --- مطمئن صارفین سیکشن کا اختتام --- */
 
@@ -1159,6 +1207,10 @@
             .investment-section {
                 padding: 2rem 1rem;
             }
+            .testimonial-card {
+                padding: 1.5rem;
+                margin: 0 0.5rem;
+            }
 
             .investment-plans {
                 grid-template-columns: 1fr;
@@ -1240,6 +1292,17 @@
 
             .stat-card {
                 padding: 1rem;
+            }
+            .testimonial-author {
+                flex-direction: column;
+                text-align: center;
+            }
+            .author-details {
+                text-align: center;
+            }
+            .testimonial-stats {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
 
@@ -1438,7 +1501,7 @@
             </div>
         </div>
 
-        <!-- نیا Customer Testimonials Section -->
+        <!-- نیا اور بہتر Customer Testimonials Section -->
         <h2 class="section-title">WHAT OUR CLIENTS SAY</h2>
         <div class="testimonials-section">
             <div class="testimonial-slider-container">
@@ -1629,7 +1692,6 @@
                     <i class="fab fa-bitcoin"></i>
                     <span>Bitcoin (BTC)</span>
                 </div>
-                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'LTC', 'deposit')">
                     <i class="fas fa-coins"></i>
                     <span>Litecoin (LTC)</span>
@@ -1638,17 +1700,14 @@
                     <i class="fab fa-ethereum"></i>
                     <span>Ethereum (ETH)</span>
                 </div>
-                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'USDT', 'deposit')">
                     <i class="fas fa-dollar-sign"></i>
                     <span>USDT (ERC20)</span>
                 </div>
-                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'TRX', 'deposit')">
                     <i class="fas fa-atom"></i>
                     <span>TRX</span>
                 </div>
-                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'BNB', 'deposit')">
                     <i class="fas fa-gem"></i>
                     <span>BNB</span>
@@ -1713,7 +1772,6 @@
                     <i class="fab fa-bitcoin"></i>
                     <span>Bitcoin (BTC)</span>
                 </div>
-                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'LTC', 'withdraw')">
                     <i class="fas fa-coins"></i>
                     <span>Litecoin (LTC)</span>
@@ -1722,17 +1780,14 @@
                     <i class="fab fa-ethereum"></i>
                     <span>Ethereum (ETH)</span>
                 </div>
-                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'USDT', 'withdraw')">
                     <i class="fas fa-dollar-sign"></i>
                     <span>USDT (ERC20)</span>
                 </div>
-                 <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'TRX', 'withdraw')">
                     <i class="fas fa-atom"></i>
                     <span>TRX</span>
                 </div>
-                 <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'BNB', 'withdraw')">
                     <i class="fas fa-gem"></i>
                     <span>BNB</span>
@@ -1913,9 +1968,12 @@
         }
 
         function generateReferralLink() {
-            if (currentUser) {
-                const email = currentUser.email;
-                const referralLink = `https://yourdomain.com?ref=${encodeURIComponent(email)}`;
+            if (currentUser && currentUser.email) {
+                // Get the base URL of the current page (without any query parameters)
+                const baseUrl = window.location.origin + window.location.pathname;
+                // Encode the email using base64 for a cleaner look
+                const referralCode = btoa(currentUser.email);
+                const referralLink = `${baseUrl}?ref=${referralCode}`;
                 document.getElementById('referralLink').textContent = referralLink;
             }
         }
@@ -2300,18 +2358,18 @@
             setInterval(showTradingPopup, 6000);
         }
         
-        // --- نیا کسٹمر سلائیڈر کا جاوا اسکرپٹ ---
+        // --- نیا اور بہتر کسٹمر سلائیڈر کا جاوا اسکرپٹ ---
         const testimonialsData = [
-            { name: "Ahmed Khan", rating: 5, review: "An incredible platform with amazing returns. The support team is very responsive and helpful. Highly recommended!" },
-            { name: "Fatima Ali", rating: 5, review: "I started with the Starter Plan and have already seen significant profits. The interface is user-friendly and secure." },
-            { name: "Zainab Malik", rating: 4, review: "A very reliable trading company. Payouts are always on time. I wish they had more crypto deposit options." },
-            { name: "Bilal Ahmed", rating: 5, review: "The best investment decision I've ever made. The hourly returns are fantastic, and the system is transparent." },
-            { name: "Aisha Jameel", rating: 5, review: "From the trial plan to the premium, my journey has been profitable and smooth. Thank you Crypto Trading Invest!" },
-            { name: "Usman Tariq", rating: 4, review: "Good platform overall. The analytics are helpful for making informed decisions. I'm satisfied with my profits." },
-            { name: "Sana Imran", rating: 5, review: "Their customer support is top-notch. They guided me through my first investment, and it was a great success." },
-            { name: "Hassan Raza", rating: 5, review: "Secure, fast, and highly profitable. This platform has exceeded all my expectations. A five-star experience!" },
-            { name: "Maria Saad", rating: 4, review: "The withdrawal process is smooth, but it can sometimes take a little longer than expected. Otherwise, it's great." },
-            { name: "Faisal Iqbal", rating: 5, review: "I love the variety of investment plans. There's something for everyone, from beginners to pro investors." }
+            { name: "Ahmed Khan", rating: 5, deposit: 500, withdrawal: 8500, review: "An incredible platform with amazing returns. The support team is very responsive and helpful. Highly recommended!" },
+            { name: "Fatima Ali", rating: 5, deposit: 100, withdrawal: 2500, review: "I started with the Starter Plan and have already seen significant profits. The interface is user-friendly and secure." },
+            { name: "Zainab Malik", rating: 4, deposit: 1500, withdrawal: 15000, review: "A very reliable trading company. Payouts are always on time. I wish they had more crypto deposit options." },
+            { name: "Bilal Ahmed", rating: 5, deposit: 30, withdrawal: 950, review: "The best investment decision I've ever made. The hourly returns are fantastic, and the system is transparent." },
+            { name: "Aisha Jameel", rating: 5, deposit: 5000, withdrawal: 55000, review: "From the trial plan to the premium, my journey has been profitable and smooth. Thank you Crypto Trading Invest!" },
+            { name: "Usman Tariq", rating: 4, deposit: 250, withdrawal: 4000, review: "Good platform overall. The analytics are helpful for making informed decisions. I'm satisfied with my profits." },
+            { name: "Sana Imran", rating: 5, deposit: 80, withdrawal: 1800, review: "Their customer support is top-notch. They guided me through my first investment, and it was a great success." },
+            { name: "Hassan Raza", rating: 5, deposit: 10000, withdrawal: 120000, review: "Secure, fast, and highly profitable. This platform has exceeded all my expectations. A five-star experience!" },
+            { name: "Maria Saad", rating: 4, deposit: 600, withdrawal: 9000, review: "The withdrawal process is smooth, but it can sometimes take a little longer than expected. Otherwise, it's great." },
+            { name: "Faisal Iqbal", rating: 5, deposit: 3000, withdrawal: 42000, review: "I love the variety of investment plans. There's something for everyone, from beginners to pro investors." }
         ];
 
         // 30+ کسٹمرز کے لیے ڈیٹا کو نقل کرنا
@@ -2328,21 +2386,34 @@
             dotsContainer.innerHTML = '';
             
             extendedTestimonials.forEach((testimonial, index) => {
-                // Slider Card بنانا
                 const card = document.createElement('div');
                 card.className = 'testimonial-card';
                 
                 let stars = '';
                 for(let i=0; i<5; i++) {
-                    stars += `<i class="fas fa-star${i < testimonial.rating ? '' : '-o'}"></i>`;
+                    stars += `<i class="fa-solid fa-star${i < testimonial.rating ? '' : '-half-stroke'}"></i>`;
                 }
 
                 card.innerHTML = `
-                    <i class="fas fa-quote-left quote-icon"></i>
-                    <p class="testimonial-review">"${testimonial.review}"</p>
                     <div class="testimonial-author">
-                        <div class="author-name">${testimonial.name}</div>
-                        <div class="rating">${stars}</div>
+                        <div class="author-avatar">
+                            <img src="https://i.pravatar.cc/150?u=${testimonial.name.replace(/\s/g, '')}" alt="${testimonial.name}">
+                        </div>
+                        <div class="author-details">
+                            <div class="author-name">${testimonial.name}</div>
+                            <div class="rating">${stars}</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-review">"${testimonial.review}"</p>
+                    <div class="testimonial-stats">
+                        <div class="stat-item">
+                            <div class="label"><i class="fas fa-arrow-down"></i> Deposit</div>
+                            <div class="value deposit">$${testimonial.deposit.toLocaleString()}</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="label"><i class="fas fa-arrow-up"></i> Withdrawal</div>
+                            <div class="value withdrawal">$${testimonial.withdrawal.toLocaleString()}</div>
+                        </div>
                     </div>
                 `;
                 slider.appendChild(card);
@@ -2365,8 +2436,9 @@
         function updateSlider() {
             const slider = document.getElementById('testimonialSlider');
             const dots = document.querySelectorAll('.dot');
+            const cardWidth = slider.querySelector('.testimonial-card').offsetWidth;
             
-            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            slider.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
             
             dots.forEach(dot => dot.classList.remove('active'));
             dots[currentSlide].classList.add('active');
@@ -2407,6 +2479,9 @@
                 uploadBtn.style.background = 'linear-gradient(45deg, #00cc66, #00ff88)';
             }
         });
+        
+        window.addEventListener('resize', updateSlider);
+
     </script>
 </body>
 </html>
