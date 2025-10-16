@@ -382,13 +382,14 @@
             color: #4caf50;
         }
         
-        /* --- نیا اور بہتر مطمئن صارفین کا سیکشن --- */
+        /* --- نیا، بہتر، اور رسپانسیو مطمئن صارفین کا سیکشن --- */
         .testimonials-section {
-            padding: 2.5rem 1.5rem;
+            padding: 2.5rem 0; /* سائیڈ سے پیڈنگ ختم کر دی */
             margin-bottom: 2rem;
         }
         
         .testimonial-slider-container {
+            width: 100%; /* پوری چوڑائی استعمال کریں */
             max-width: 900px;
             margin: 0 auto;
             overflow: hidden;
@@ -400,18 +401,24 @@
             transition: transform 0.5s ease-in-out;
         }
         
+        .testimonial-card-wrapper {
+            flex: 0 0 100%; /* ہر کارڈ ریپر 100% چوڑائی لے گا */
+            width: 100%;
+            padding: 0 1rem; /* کارڈز کے درمیان فاصلہ پیدا کرنے کے لیے */
+            box-sizing: border-box;
+        }
+        
         .testimonial-card {
-            flex: 0 0 100%;
             background: linear-gradient(145deg, #1a1a3e, #0f0f24);
             border-radius: 20px;
             padding: 2rem;
-            margin: 0 1rem; /* کارڈز کے درمیان فاصلہ */
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 1.5rem;
             border: 1px solid rgba(0, 255, 136, 0.3);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            width: 100%; /* اس بات کو یقینی بنائیں کہ کارڈ ریپر کے اندر پورا پھیلے */
         }
         
         .testimonial-author {
@@ -1207,9 +1214,11 @@
             .investment-section {
                 padding: 2rem 1rem;
             }
+             .testimonials-section {
+                padding: 2.5rem 0;
+            }
             .testimonial-card {
                 padding: 1.5rem;
-                margin: 0 0.5rem;
             }
 
             .investment-plans {
@@ -1504,7 +1513,7 @@
         <!-- نیا اور بہتر Customer Testimonials Section -->
         <h2 class="section-title">WHAT OUR CLIENTS SAY</h2>
         <div class="testimonials-section">
-            <div class="testimonial-slider-container">
+            <div class="testimonial-slider-container" id="testimonialSliderContainer">
                 <div class="testimonial-slider" id="testimonialSlider">
                     <!-- Testimonial cards will be injected here by JavaScript -->
                 </div>
@@ -1897,7 +1906,6 @@
             }
             startTradingPopupRotation();
             
-            // نئی فنکشن کال
             initializeTestimonialSlider();
         });
 
@@ -1969,10 +1977,8 @@
 
         function generateReferralLink() {
             if (currentUser && currentUser.email) {
-                // Get the base URL of the current page (without any query parameters)
                 const baseUrl = window.location.origin + window.location.pathname;
-                // Encode the email using base64 for a cleaner look
-                const referralCode = btoa(currentUser.email);
+                const referralCode = btoa(currentUser.email); // Base64 encoding for a cleaner link
                 const referralLink = `${baseUrl}?ref=${referralCode}`;
                 document.getElementById('referralLink').textContent = referralLink;
             }
@@ -2358,21 +2364,20 @@
             setInterval(showTradingPopup, 6000);
         }
         
-        // --- نیا اور بہتر کسٹمر سلائیڈر کا جاوا اسکرپٹ ---
+        // --- نیا، بہتر، اور رسپانسیو کسٹمر سلائیڈر کا جاوا اسکرپٹ ---
         const testimonialsData = [
             { name: "Ahmed Khan", rating: 5, deposit: 500, withdrawal: 8500, review: "An incredible platform with amazing returns. The support team is very responsive and helpful. Highly recommended!" },
             { name: "Fatima Ali", rating: 5, deposit: 100, withdrawal: 2500, review: "I started with the Starter Plan and have already seen significant profits. The interface is user-friendly and secure." },
-            { name: "Zainab Malik", rating: 4, deposit: 1500, withdrawal: 15000, review: "A very reliable trading company. Payouts are always on time. I wish they had more crypto deposit options." },
+            { name: "Zainab Malik", rating: 4.5, deposit: 1500, withdrawal: 15000, review: "A very reliable trading company. Payouts are always on time. I wish they had more crypto deposit options." },
             { name: "Bilal Ahmed", rating: 5, deposit: 30, withdrawal: 950, review: "The best investment decision I've ever made. The hourly returns are fantastic, and the system is transparent." },
             { name: "Aisha Jameel", rating: 5, deposit: 5000, withdrawal: 55000, review: "From the trial plan to the premium, my journey has been profitable and smooth. Thank you Crypto Trading Invest!" },
             { name: "Usman Tariq", rating: 4, deposit: 250, withdrawal: 4000, review: "Good platform overall. The analytics are helpful for making informed decisions. I'm satisfied with my profits." },
             { name: "Sana Imran", rating: 5, deposit: 80, withdrawal: 1800, review: "Their customer support is top-notch. They guided me through my first investment, and it was a great success." },
             { name: "Hassan Raza", rating: 5, deposit: 10000, withdrawal: 120000, review: "Secure, fast, and highly profitable. This platform has exceeded all my expectations. A five-star experience!" },
-            { name: "Maria Saad", rating: 4, deposit: 600, withdrawal: 9000, review: "The withdrawal process is smooth, but it can sometimes take a little longer than expected. Otherwise, it's great." },
+            { name: "Maria Saad", rating: 4.5, deposit: 600, withdrawal: 9000, review: "The withdrawal process is smooth, but it can sometimes take a little longer than expected. Otherwise, it's great." },
             { name: "Faisal Iqbal", rating: 5, deposit: 3000, withdrawal: 42000, review: "I love the variety of investment plans. There's something for everyone, from beginners to pro investors." }
         ];
 
-        // 30+ کسٹمرز کے لیے ڈیٹا کو نقل کرنا
         const extendedTestimonials = [...testimonialsData, ...testimonialsData, ...testimonialsData, ...testimonialsData.slice(0,5)];
 
         let currentSlide = 0;
@@ -2386,39 +2391,46 @@
             dotsContainer.innerHTML = '';
             
             extendedTestimonials.forEach((testimonial, index) => {
-                const card = document.createElement('div');
-                card.className = 'testimonial-card';
+                const cardWrapper = document.createElement('div');
+                cardWrapper.className = 'testimonial-card-wrapper';
                 
                 let stars = '';
-                for(let i=0; i<5; i++) {
-                    stars += `<i class="fa-solid fa-star${i < testimonial.rating ? '' : '-half-stroke'}"></i>`;
+                for(let i = 1; i <= 5; i++) {
+                    if (i <= testimonial.rating) {
+                        stars += `<i class="fas fa-star"></i>`;
+                    } else if (i - 0.5 === testimonial.rating) {
+                        stars += `<i class="fas fa-star-half-alt"></i>`;
+                    } else {
+                        stars += `<i class="far fa-star"></i>`;
+                    }
                 }
-
-                card.innerHTML = `
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://i.pravatar.cc/150?u=${testimonial.name.replace(/\s/g, '')}" alt="${testimonial.name}">
+                
+                cardWrapper.innerHTML = `
+                    <div class="testimonial-card">
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://i.pravatar.cc/150?u=${testimonial.name.replace(/\s/g, '')}" alt="${testimonial.name}">
+                            </div>
+                            <div class="author-details">
+                                <div class="author-name">${testimonial.name}</div>
+                                <div class="rating">${stars}</div>
+                            </div>
                         </div>
-                        <div class="author-details">
-                            <div class="author-name">${testimonial.name}</div>
-                            <div class="rating">${stars}</div>
-                        </div>
-                    </div>
-                    <p class="testimonial-review">"${testimonial.review}"</p>
-                    <div class="testimonial-stats">
-                        <div class="stat-item">
-                            <div class="label"><i class="fas fa-arrow-down"></i> Deposit</div>
-                            <div class="value deposit">$${testimonial.deposit.toLocaleString()}</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="label"><i class="fas fa-arrow-up"></i> Withdrawal</div>
-                            <div class="value withdrawal">$${testimonial.withdrawal.toLocaleString()}</div>
+                        <p class="testimonial-review">"${testimonial.review}"</p>
+                        <div class="testimonial-stats">
+                            <div class="stat-item">
+                                <div class="label"><i class="fas fa-arrow-down"></i> Deposit</div>
+                                <div class="value deposit">$${testimonial.deposit.toLocaleString()}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="label"><i class="fas fa-arrow-up"></i> Withdrawal</div>
+                                <div class="value withdrawal">$${testimonial.withdrawal.toLocaleString()}</div>
+                            </div>
                         </div>
                     </div>
                 `;
-                slider.appendChild(card);
+                slider.appendChild(cardWrapper);
                 
-                // Dot بنانا
                 const dot = document.createElement('span');
                 dot.className = 'dot';
                 dot.dataset.slide = index;
@@ -2435,13 +2447,19 @@
 
         function updateSlider() {
             const slider = document.getElementById('testimonialSlider');
+            const sliderContainer = document.getElementById('testimonialSliderContainer');
             const dots = document.querySelectorAll('.dot');
-            const cardWidth = slider.querySelector('.testimonial-card').offsetWidth;
             
-            slider.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+            if (!sliderContainer) return; // اگر عنصر موجود نہ ہو تو فنکشن روک دیں
+            
+            const containerWidth = sliderContainer.offsetWidth;
+            
+            slider.style.transform = `translateX(-${currentSlide * containerWidth}px)`;
             
             dots.forEach(dot => dot.classList.remove('active'));
-            dots[currentSlide].classList.add('active');
+            if(dots[currentSlide]) {
+                dots[currentSlide].classList.add('active');
+            }
         }
 
         function moveToSlide(slideIndex) {
@@ -2455,15 +2473,13 @@
         }
         
         function startSliderInterval() {
-             sliderInterval = setInterval(nextSlide, 3000); // ہر 3 سیکنڈ
+             sliderInterval = setInterval(nextSlide, 3000);
         }
 
         function resetSliderInterval() {
             clearInterval(sliderInterval);
             startSliderInterval();
         }
-        // --- کسٹمر سلائیڈر اسکرپٹ کا اختتام ---
-
 
         window.onclick = function(event) {
             if (event.target.classList.contains('modal') || event.target.classList.contains('login-modal')) {
@@ -2480,6 +2496,7 @@
             }
         });
         
+        // اس بات کو یقینی بنائیں کہ ونڈو کا سائز تبدیل ہونے پر سلائیڈر اپ ڈیٹ ہو
         window.addEventListener('resize', updateSlider);
 
     </script>
