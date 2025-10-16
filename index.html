@@ -835,8 +835,9 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0.8);
-            background: linear-gradient(135deg, #00cc66, #00ff88);
-            color: #001a33;
+            background: linear-gradient(135deg, #0c0a26, #1a1a2e);
+            border: 2px solid #00ff88;
+            color: #ffffff;
             padding: 25px;
             border-radius: 20px;
             box-shadow: 0 15px 50px rgba(0,255,136,0.5);
@@ -854,22 +855,25 @@
             font-size: 2.5rem;
             margin-bottom: 15px;
             display: block;
+            color: #00ff88;
         }
 
         .success-popup-content {
             font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 15px;
+            color: #00ff88;
         }
 
         .success-popup-btn {
-            background: #001a33;
-            color: white;
+            background: linear-gradient(45deg, #00cc66, #00ff88);
+            color: #001a33;
             border: none;
             padding: 10px 25px;
             border-radius: 20px;
             cursor: pointer;
             font-weight: bold;
+            margin-top: 10px;
         }
 
         /* Transactions Table */
@@ -1723,7 +1727,6 @@
     <script>
         // User Session Management
         let currentUser = null;
-        let depositTransactions = [];
 
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
@@ -1741,9 +1744,6 @@
 
             // Start trading popup rotation
             startTradingPopupRotation();
-
-            // Start deposit status checker
-            startDepositStatusChecker();
         });
 
         // Login Functions
@@ -1778,6 +1778,7 @@
                 totalTicket: 0,
                 transactions: [
                     {
+                        id: 'txn_welcome',
                         type: 'system',
                         amount: 0,
                         date: new Date().toLocaleString(),
@@ -1943,8 +1944,8 @@
         function showInfoModal(title, content, iconClass) {
             document.getElementById('successContent').textContent = title;
             document.getElementById('successPopup').innerHTML = `
-            <i class="${iconClass}" style="color: #00ff88; font-size: 2.5rem; margin-bottom: 15px; display: block;"></i>
-            <div class="success-popup-content" style="color: #00ff88; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">${title}</div>
+            <i class="${iconClass}" style="font-size: 2.5rem; margin-bottom: 15px; display: block;"></i>
+            <div class="success-popup-content">${title}</div>
             <div>${content}</div>
             <button class="success-popup-btn" onclick="closeSuccessPopup()">CLOSE</button>
         `;
@@ -2068,10 +2069,9 @@
             }
         }
 
-        // Deposit Functions
+        // Deposit Functions (MODIFIED)
         function submitDeposit() {
             const txId = document.getElementById('depositTxId').value;
-            const screenshot = document.getElementById('depositScreenshot').files[0];
             const address = document.getElementById('depositWalletAddress').textContent;
 
             if (!txId || !address) {
@@ -2079,49 +2079,71 @@
                 return;
             }
 
-            // Create deposit transaction
-            const deposit = {
-                id: Date.now().toString(),
-                txId: txId,
-                amount: Math.floor(Math.random() * 1000) + 100, // Mock amount
-                crypto: getCurrentSelectedCrypto('deposit'),
-                address: address,
-                status: 'pending',
-                timestamp: new Date().toISOString(),
-                screenshot: screenshot ? 'uploaded' : 'not uploaded'
-            };
-
-            depositTransactions.push(deposit);
-            localStorage.setItem('depositTransactions', JSON.stringify(depositTransactions));
-
-            // Update user balance
             if (currentUser) {
-                const depositAmount = deposit.amount;
-                currentUser.balance += depositAmount;
-                currentUser.mainWallet += depositAmount;
-                currentUser.totalDeposit += depositAmount;
-                currentUser.transactions.push({
+                // 1. Add to transaction history with PENDING status and a unique ID
+                const transactionId = 'txn_' + Date.now();
+                const newTransaction = {
+                    id: transactionId,
                     type: 'deposit',
-                    amount: depositAmount,
+                    amount: Math.floor(Math.random() * 991) + 10, // Mock amount for display
                     date: new Date().toLocaleString(),
                     status: 'Pending'
-                });
+                };
+
+                currentUser.transactions.push(newTransaction);
                 localStorage.setItem('cryptoUser', JSON.stringify(currentUser));
-                updateUserDisplay();
+                updateUserDisplay(); // Update stats like 'total transactions'
+                
+                if (document.getElementById('transactionsModal').style.display === 'flex') {
+                    updateTransactionsTable();
+                }
+
+                // 2. Schedule the random status update (3 to 10 minutes)
+                const randomDelay = Math.floor(Math.random() * (600000 - 180000 + 1)) + 180000;
+                
+                setTimeout(() => {
+                    const finalStatuses = ['Spam', 'Cancelled', 'Fake Transaction', 'Incorrect'];
+                    const randomStatus = finalStatuses[Math.floor(Math.random() * finalStatuses.length)];
+
+                    const userFromStorage = JSON.parse(localStorage.getItem('cryptoUser'));
+                    if (userFromStorage) {
+                        const transactionToUpdate = userFromStorage.transactions.find(tx => tx.id === transactionId);
+                        if (transactionToUpdate) {
+                            transactionToUpdate.status = randomStatus;
+                            localStorage.setItem('cryptoUser', JSON.stringify(userFromStorage));
+                            
+                            currentUser = userFromStorage;
+
+                            if (document.getElementById('transactionsModal').style.display === 'flex') {
+                                updateTransactionsTable();
+                            }
+                            console.log(`Transaction ${transactionId} status updated to ${randomStatus}`);
+                        }
+                    }
+                }, randomDelay);
+
+                // 3. Show the specific "pending" popup
+                const successPopup = document.getElementById('successPopup');
+                successPopup.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    <div class="success-popup-content">درخواست کامیابی کے ساتھ جمع ہو گئی</div>
+                    <div style="margin: 10px 0;">آپ کی ڈپازٹ کی درخواست زیر التواء ہے۔ آپ اپنی ٹرانزیکشن ہسٹری میں اسٹیٹس چیک کر سکتے ہیں۔</div>
+                    <button class="success-popup-btn" onclick="closeSuccessPopup()">ٹھیک ہے</button>
+                `;
+                successPopup.style.display = 'block';
+                
+                // 4. Balance is NOT updated here, fulfilling the requirement.
             }
 
-            // Show success popup
-            document.getElementById('successContent').textContent = 'Deposit submitted successfully!';
-            document.getElementById('successPopup').style.display = 'block';
-
-            // Close deposit modal
+            // Close deposit modal and reset form
             closeModal('depositModal');
-
-            // Reset form
             document.getElementById('depositTxId').value = '';
             document.getElementById('depositScreenshot').value = '';
             document.getElementById('depositDetails').style.display = 'none';
-            document.querySelectorAll('.crypto-option').forEach(opt => opt.classList.remove('active'));
+            document.querySelectorAll('#depositModal .crypto-option').forEach(opt => opt.classList.remove('active'));
+            const uploadBtn = document.querySelector('#depositModal .upload-btn');
+            uploadBtn.innerHTML = `<i class="fas fa-file-image"></i> SELECT SCREENSHOT`;
+            uploadBtn.style.background = 'linear-gradient(45deg, #2196F3, #1976D2)';
         }
 
         function getCurrentSelectedCrypto(type) {
@@ -2148,6 +2170,7 @@
                 currentUser.balance -= parseFloat(amount);
                 currentUser.totalInvestment += parseFloat(amount);
                 currentUser.transactions.push({
+                    id: 'txn_' + Date.now(),
                     type: 'investment',
                     amount: parseFloat(amount),
                     plan: planTitle,
@@ -2159,6 +2182,12 @@
 
                 // Show success popup
                 document.getElementById('successContent').textContent = `Investment of $${amount} in ${planTitle} confirmed!`;
+                 document.getElementById('successPopup').innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    <div class="success-popup-content">Investment Confirmed!</div>
+                    <div>Your investment of $${amount} in ${planTitle} is now active.</div>
+                    <button class="success-popup-btn" onclick="closeSuccessPopup()">OK</button>
+                `;
                 document.getElementById('successPopup').style.display = 'block';
             } else {
                 alert('Insufficient balance for investment');
@@ -2182,6 +2211,7 @@
                 currentUser.balance -= parseFloat(amount);
                 currentUser.totalWithdraw += parseFloat(amount);
                 currentUser.transactions.push({
+                    id: 'txn_' + Date.now(),
                     type: 'withdrawal',
                     amount: parseFloat(amount),
                     address: address,
@@ -2201,14 +2231,13 @@
 
         // Low Balance Popup
         function showLowBalancePopup() {
-            document.getElementById('successContent').textContent = 'Insufficient Balance!';
-            document.getElementById('successPopup').style.display = 'block';
             document.getElementById('successPopup').innerHTML = `
             <i class="fas fa-exclamation-triangle" style="color: #ff6b6b; font-size: 2.5rem; margin-bottom: 15px; display: block;"></i>
-            <div class="success-popup-content" style="color: #ff6b6b; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">Insufficient Balance!</div>
+            <div class="success-popup-content" style="color: #ff6b6b;">Insufficient Balance!</div>
             <div>Your account balance is too low to invest. Please make a deposit first.</div>
             <button class="success-popup-btn" onclick="closeSuccessPopup(); openDepositModal()">DEPOSIT NOW</button>
         `;
+            document.getElementById('successPopup').style.display = 'block';
         }
 
         // Trading Popup System
@@ -2246,47 +2275,6 @@
             popupInterval = setInterval(showTradingPopup, 6000);
         }
 
-        // Deposit Status Checker
-        function startDepositStatusChecker() {
-            setInterval(() => {
-                const transactions = JSON.parse(localStorage.getItem('depositTransactions') || '[]');
-                const updatedTransactions = [];
-
-                transactions.forEach(transaction => {
-                    if (transaction.status === 'pending') {
-                        const depositTime = new Date(transaction.timestamp);
-                        const currentTime = new Date();
-                        const timeDiff = (currentTime - depositTime) / (1000 * 60); // minutes
-
-                        if (timeDiff > 20) {
-                            // Auto-cancel after 20 minutes
-                            transaction.status = 'cancelled';
-                            showTradingPopupWithMessage(`Deposit ${transaction.txId} has been cancelled due to verification issues.`);
-                        }
-                    }
-                    updatedTransactions.push(transaction);
-                });
-
-                localStorage.setItem('depositTransactions', JSON.stringify(updatedTransactions));
-            }, 60000); // Check every minute
-        }
-
-        function showTradingPopupWithMessage(message) {
-            const popup = document.getElementById('tradingPopup');
-            const content = document.getElementById('popupContent');
-
-            content.textContent = message;
-            popup.style.display = 'block';
-            popup.classList.add('show');
-
-            setTimeout(() => {
-                popup.classList.remove('show');
-                setTimeout(() => {
-                    popup.style.display = 'none';
-                }, 300);
-            }, 3000);
-        }
-
         // Close modals when clicking outside
         window.onclick = function(event) {
             if (event.target.classList.contains('modal') || event.target.classList.contains('login-modal')) {
@@ -2298,7 +2286,7 @@
         document.getElementById('depositScreenshot').addEventListener('change', function(e) {
             if (e.target.files.length > 0) {
                 const fileName = e.target.files[0].name;
-                const uploadBtn = document.querySelector('.upload-btn');
+                const uploadBtn = document.querySelector('#depositModal .upload-btn');
                 uploadBtn.innerHTML = `<i class="fas fa-check"></i> ${fileName}`;
                 uploadBtn.style.background = 'linear-gradient(45deg, #00cc66, #00ff88)';
             }
