@@ -1505,24 +1505,28 @@
                     <i class="fab fa-bitcoin"></i>
                     <span>Bitcoin (BTC)</span>
                 </div>
+                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'LTC', 'deposit')">
-                    <i class="fab fa-litecoin"></i>
+                    <i class="fas fa-coins"></i>
                     <span>Litecoin (LTC)</span>
                 </div>
                 <div class="crypto-option" onclick="selectCrypto(this, 'ETH', 'deposit')">
                     <i class="fab fa-ethereum"></i>
                     <span>Ethereum (ETH)</span>
                 </div>
+                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'USDT', 'deposit')">
-                    <i class="fab fa-tether"></i>
+                    <i class="fas fa-dollar-sign"></i>
                     <span>USDT (ERC20)</span>
                 </div>
+                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'TRX', 'deposit')">
-                    <i class="fab fa-tron"></i>
+                    <i class="fas fa-atom"></i>
                     <span>TRX</span>
                 </div>
+                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'BNB', 'deposit')">
-                    <i class="fab fa-binance"></i>
+                    <i class="fas fa-gem"></i>
                     <span>BNB</span>
                 </div>
             </div>
@@ -1585,24 +1589,28 @@
                     <i class="fab fa-bitcoin"></i>
                     <span>Bitcoin (BTC)</span>
                 </div>
+                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'LTC', 'withdraw')">
-                    <i class="fab fa-litecoin"></i>
+                    <i class="fas fa-coins"></i>
                     <span>Litecoin (LTC)</span>
                 </div>
                 <div class="crypto-option" onclick="selectCrypto(this, 'ETH', 'withdraw')">
                     <i class="fab fa-ethereum"></i>
                     <span>Ethereum (ETH)</span>
                 </div>
+                <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'USDT', 'withdraw')">
-                    <i class="fab fa-tether"></i>
+                    <i class="fas fa-dollar-sign"></i>
                     <span>USDT (ERC20)</span>
                 </div>
+                 <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'TRX', 'withdraw')">
-                    <i class="fab fa-tron"></i>
+                    <i class="fas fa-atom"></i>
                     <span>TRX</span>
                 </div>
+                 <!-- ICON FIX: Replaced non-existent icon with a suitable one -->
                 <div class="crypto-option" onclick="selectCrypto(this, 'BNB', 'withdraw')">
-                    <i class="fab fa-binance"></i>
+                    <i class="fas fa-gem"></i>
                     <span>BNB</span>
                 </div>
             </div>
@@ -1724,23 +1732,13 @@
             const initialBalance = 5;
 
             currentUser = {
-                name,
-                email,
-                password,
+                name, email, password,
                 balance: initialBalance,
                 mainWallet: initialBalance,
-                profitWallet: 0,
-                totalDeposit: 0,
-                totalInvestment: 0,
-                totalProfit: 0,
-                totalTransfer: 0,
-                totalWithdraw: 0,
-                referralBonus: 0,
-                depositBonus: initialBalance,
-                investmentBonus: 0,
-                totalReferral: 0,
-                rankAchieved: 0,
-                totalTicket: 0,
+                profitWallet: 0, totalDeposit: 0, totalInvestment: 0,
+                totalProfit: 0, totalTransfer: 0, totalWithdraw: 0,
+                referralBonus: 0, depositBonus: initialBalance, investmentBonus: 0,
+                totalReferral: 0, rankAchieved: 0, totalTicket: 0,
                 activeInvestments: [], 
                 transactions: [
                     {
@@ -1790,7 +1788,7 @@
         function generateReferralLink() {
             if (currentUser) {
                 const email = currentUser.email;
-                const referralLink = `https://2k26.space?ref=${encodeURIComponent(email)}`;
+                const referralLink = `https://yourdomain.com?ref=${encodeURIComponent(email)}`;
                 document.getElementById('referralLink').textContent = referralLink;
             }
         }
@@ -1820,21 +1818,10 @@
                 document.getElementById('loginModal').style.display = 'flex';
                 return;
             }
-
             if (currentUser.balance < 10) {
-                showInfoPopup(
-                    'Insufficient Balance', 
-                    'Your balance is insufficient to make a withdrawal.', 
-                    'fas fa-exclamation-triangle', 
-                    '#ff6b6b'
-                );
+                showInfoPopup('Insufficient Balance', 'Your balance is too low to make a withdrawal.', 'fas fa-exclamation-triangle', '#ff6b6b');
             } else {
-                showInfoPopup(
-                    'Condition', 
-                    'To withdraw, you must have an active deposit of at least $10.', 
-                    'fas fa-info-circle', 
-                    '#2196F3'
-                );
+                showInfoPopup('Condition', 'To withdraw, you must have an active deposit of at least $10.', 'fas fa-info-circle', '#2196F3');
             }
         }
         
@@ -1865,7 +1852,6 @@
             confirmBtn.parentNode.replaceChild(newConfirmBtn, confirmBtn);
             
             newConfirmBtn.onclick = () => confirmInvestment(plan, durationHours, returnPercent, minInvest);
-
             document.getElementById('investModal').style.display = 'flex';
         }
         
@@ -1881,12 +1867,10 @@
                 <i class="${iconClass}" style="color: ${iconColor}; font-size: 2.5rem; margin-bottom: 15px; display: block;"></i>
                 <div class="success-popup-content" style="color: ${iconColor};">${title}</div>
                 <div>${message}</div>
-                <button class="success-popup-btn" onclick="closeSuccessPopup()">OK</button>
-            `;
+                <button class="success-popup-btn" onclick="closeSuccessPopup()">OK</button>`;
             popup.style.display = 'block';
         }
         
-        // --- MODIFIED --- updateTransactionsTable now adds a visual marker for failed transactions
         function updateTransactionsTable() {
             const tbody = document.getElementById('transactionsTableBody');
             tbody.innerHTML = '';
@@ -1898,13 +1882,13 @@
                     let typeClass = '';
                     let typeText = transaction.type.charAt(0).toUpperCase() + transaction.type.slice(1);
                     if (transaction.type === 'deposit') typeClass = 'deposit';
-                    if (transaction.type === 'withdrawal') typeClass = 'withdrawal';
-                    if (transaction.type === 'investment') typeClass = 'investment';
-                    if (transaction.type === 'bonus') typeClass = 'bonus';
+                    else if (transaction.type === 'withdrawal') typeClass = 'withdrawal';
+                    else if (transaction.type === 'investment') typeClass = 'investment';
+                    else if (transaction.type === 'bonus') typeClass = 'bonus';
                     
                     let statusHtml;
                     if (failedStatuses.includes(transaction.status)) {
-                        statusHtml = `<span title="This transaction was flagged as invalid by our system." style="color: #f44336;">${transaction.status} <i class="fas fa-exclamation-triangle"></i></span>`;
+                        statusHtml = `<span title="This transaction was flagged as invalid by our system." style="color: #f44336; cursor: help;">${transaction.status} <i class="fas fa-exclamation-triangle"></i></span>`;
                     } else {
                         statusHtml = transaction.status || 'Completed';
                     }
@@ -1913,8 +1897,7 @@
                         <td>${transaction.date}</td>
                         <td class="transaction-type ${typeClass}">${typeText}</td>
                         <td>$${(transaction.amount || 0).toFixed(2)}</td>
-                        <td>${statusHtml}</td>
-                    `;
+                        <td>${statusHtml}</td>`;
                     tbody.appendChild(row);
                 });
             } else {
@@ -1965,7 +1948,6 @@
             }
         }
 
-        // --- MODIFIED --- submitDeposit now has a shorter, 1-3 minute rejection timer
         function submitDeposit() {
             const amountInput = document.getElementById('depositAmount');
             const amount = parseFloat(amountInput.value);
@@ -1992,9 +1974,10 @@
                 currentUser.transactions.push(newTransaction);
                 localStorage.setItem('cryptoUser', JSON.stringify(currentUser));
                 updateUserDisplay();
-                updateTransactionsTable();
+                if (document.getElementById('transactionsModal').style.display === 'flex') {
+                    updateTransactionsTable();
+                }
                 
-                // --- MODIFIED TIMER: 1 to 3 minutes ---
                 const randomDelay = Math.floor(Math.random() * (180000 - 60000 + 1)) + 60000; 
                 
                 setTimeout(() => {
@@ -2007,8 +1990,10 @@
                         if (txToUpdate) {
                             txToUpdate.status = randomStatus;
                             localStorage.setItem('cryptoUser', JSON.stringify(userFromStorage));
-                            currentUser = userFromStorage; // Sync local state
-                            updateTransactionsTable(); // Refresh the table to show the new status
+                            currentUser = userFromStorage;
+                            if (document.getElementById('transactionsModal').style.display === 'flex') {
+                                updateTransactionsTable();
+                            }
                         }
                     }
                 }, randomDelay);
@@ -2040,25 +2025,19 @@
 
                 const transactionId = 'txn_' + Date.now();
                 const startTime = Date.now();
-                const durationMilliseconds = durationHours * 60 * 60 * 1000;
-                const endTime = startTime + durationMilliseconds;
+                const endTime = startTime + (durationHours * 60 * 60 * 1000);
                 const totalProfit = amount * returnPercent;
 
                 const newInvestment = {
-                    id: transactionId,
-                    planName: planName,
-                    amount: amount,
-                    startTime: startTime,
-                    endTime: endTime,
-                    totalProfit: totalProfit
+                    id: transactionId, planName, amount,
+                    startTime, endTime, totalProfit
                 };
                 currentUser.activeInvestments.push(newInvestment);
 
                 currentUser.transactions.push({
                     id: transactionId,
                     type: 'investment',
-                    amount: amount,
-                    plan: planName,
+                    amount, plan: planName,
                     date: new Date().toLocaleString(),
                     status: 'Active'
                 });
@@ -2080,13 +2059,11 @@
         }
 
         function showLowBalancePopup(minInvest) {
-            showInfoPopup('Insufficient Balance!', `Your balance is too low. A minimum of $${minInvest} is required to invest in this plan.`, 'fas fa-exclamation-triangle', '#ff6b6b');
+            showInfoPopup('Insufficient Balance!', `Your balance is too low. A minimum of $${minInvest} is required to invest.`, 'fas fa-exclamation-triangle', '#ff6b6b');
         }
 
         function startInvestmentTimers() {
-            if (investmentTimerInterval) {
-                clearInterval(investmentTimerInterval);
-            }
+            if (investmentTimerInterval) clearInterval(investmentTimerInterval);
             investmentTimerInterval = setInterval(updateActiveInvestmentsDisplay, 1000);
             updateActiveInvestmentsDisplay();
         }
@@ -2095,7 +2072,7 @@
             const container = document.getElementById('activeInvestmentsContainer');
             if (!currentUser || !currentUser.activeInvestments || currentUser.activeInvestments.length === 0) {
                 container.innerHTML = '<p style="text-align:center; color: #ccc;">No active investments.</p>';
-                clearInterval(investmentTimerInterval);
+                if (investmentTimerInterval) clearInterval(investmentTimerInterval);
                 investmentTimerInterval = null;
                 return;
             }
@@ -2116,7 +2093,7 @@
                 const elapsedTime = now - investment.startTime;
                 const profitEarned = (elapsedTime / totalDuration) * investment.totalProfit;
 
-                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const hours = Math.floor(timeLeft / (1000 * 60 * 60));
                 const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
                 const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
@@ -2141,8 +2118,7 @@
                                 <div class="value">$${(investment.amount + investment.totalProfit).toFixed(2)}</div>
                             </div>
                         </div>
-                    </div>
-                `;
+                    </div>`;
             });
             
             container.innerHTML = html;
@@ -2161,22 +2137,16 @@
             currentUser.totalProfit += investment.totalProfit;
             
             const transaction = currentUser.transactions.find(tx => tx.id === investment.id);
-            if (transaction) {
-                transaction.status = 'Completed';
-            }
+            if (transaction) transaction.status = 'Completed';
             
             currentUser.activeInvestments.splice(investmentIndex, 1);
             localStorage.setItem('cryptoUser', JSON.stringify(currentUser));
             updateUserDisplay();
-            updateTransactionsTable(); 
+            if (document.getElementById('transactionsModal').style.display === 'flex') {
+                updateTransactionsTable();
+            }
             
-            showInfoPopup(
-                'Investment Completed!',
-                `Your investment in ${investment.planName} has finished. $${totalReturn.toFixed(2)} has been added to your balance.`,
-                'fas fa-check-circle',
-                '#00ff88'
-            );
-            
+            showInfoPopup('Investment Completed!', `Your investment in ${investment.planName} has finished. $${totalReturn.toFixed(2)} has been added to your balance.`, 'fas fa-check-circle', '#00ff88');
             updateActiveInvestmentsDisplay();
         }
 
@@ -2192,14 +2162,11 @@
             popup.querySelector('#popupContent').textContent = tradingNotifications[currentNotificationIndex];
             popup.style.display = 'block';
             popup.classList.add('show');
-
             setTimeout(() => {
                 popup.classList.remove('show');
-                setTimeout(() => {
-                    popup.style.display = 'none';
-                    currentNotificationIndex = (currentNotificationIndex + 1) % tradingNotifications.length;
-                }, 300);
+                setTimeout(() => { popup.style.display = 'none'; }, 300);
             }, 3000);
+            currentNotificationIndex = (currentNotificationIndex + 1) % tradingNotifications.length;
         }
 
         function startTradingPopupRotation() {
