@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -382,6 +383,81 @@
             color: #4caf50;
         }
         
+        /* --- Help & Support Section --- */
+        .support-section {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 2px solid rgba(0, 255, 136, 0.2);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .support-card {
+            background: linear-gradient(145deg, #0a0a1a, #0d0d22);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .support-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            border-color: #00ff88;
+        }
+
+        .support-icon {
+            font-size: 2.5rem;
+            min-width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+        }
+
+        .support-icon.whatsapp-icon {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: #fff;
+        }
+
+        .support-icon.email-icon {
+            background: linear-gradient(45deg, #2196F3, #1976D2);
+            color: #fff;
+        }
+
+        .support-icon.faq-icon {
+            background: linear-gradient(45deg, #ffc107, #ff9800);
+            color: #fff;
+        }
+
+        .support-details h3 {
+            font-size: 1.3rem;
+            color: #00ff88;
+            margin-bottom: 5px;
+        }
+
+        .support-details p {
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
         /* --- نیا، بہتر، اور رسپانسیو مطمئن صارفین کا سیکشن --- */
         .testimonials-section {
             padding: 2.5rem 0; /* سائیڈ سے پیڈنگ ختم کر دی */
@@ -1153,6 +1229,46 @@
             word-break: break-all;
             margin: 10px 0;
         }
+        
+        /* --- Floating WhatsApp Button --- */
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: fab-pulse 2s infinite;
+        }
+
+        .whatsapp-fab:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+            animation-play-state: paused;
+        }
+
+        @keyframes fab-pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
 
         /* Responsive Design */
         @media (max-width: 992px) {
@@ -1208,6 +1324,16 @@
             .wallet-container {
                 flex-direction: column;
                 gap: 1rem;
+            }
+            
+            .support-section {
+                padding: 2rem 1.5rem;
+            }
+            .support-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                padding: 1.5rem;
             }
             
             .testimonials-section,
@@ -1312,6 +1438,14 @@
             .testimonial-stats {
                 flex-direction: column;
                 gap: 1rem;
+            }
+            
+            .whatsapp-fab {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
             }
         }
 
@@ -1507,6 +1641,40 @@
                 <p style="color: #ccc; font-size: 0.9rem; margin-top: 10px;">
                     Share this unique link with friends to earn referral bonuses!
                 </p>
+            </div>
+        </div>
+
+        <!-- NEW: Help & Support Section -->
+        <h2 class="section-title">HELP & SUPPORT</h2>
+        <div class="support-section">
+            <div class="support-grid">
+                <a href="https://wa.me/1675262722828" target="_blank" class="support-card">
+                    <div class="support-icon whatsapp-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="support-details">
+                        <h3>Chat on WhatsApp</h3>
+                        <p>+14504993174</p>
+                    </div>
+                </a>
+                <a href="mailto:ustradinghubs.uk@gmail.com" class="support-card">
+                    <div class="support-icon email-icon">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <div class="support-details">
+                        <h3>Email Support</h3>
+                        <p>ustradinghubs.uk@gmail.com</p>
+                    </div>
+                </a>
+                <div class="support-card">
+                     <div class="support-icon faq-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="support-details">
+                        <h3>FAQ & Guides</h3>
+                        <p>Find answers instantly</p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1887,10 +2055,655 @@
     <div id="successPopup" class="success-popup">
         <!-- Content is generated dynamically by JavaScript -->
     </div>
+    
+    <!-- NEW: Floating WhatsApp Button -->
+    <a href="https://wa.me/1675262722828" class="whatsapp-fab" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
+        let investmentTimerInterval = null;
+        let currentUser = null;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedUser = localStorage.getItem('cryptoUser');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                updateUserDisplay();
+                generateReferralLink();
+                if (currentUser.activeInvestments && currentUser.activeInvestments.length > 0) {
+                    startInvestmentTimers();
+                }
+            } else {
+                document.getElementById('loginModal').style.display = 'flex';
+            }
+            startTradingPopupRotation();
+            
+            initializeTestimonialSlider();
+        });
+
+        function handleLogin() {
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+            const password = document.getElementById('userPassword').value;
+
+            if (!name || !email || !password) {
+                alert('Please enter all fields');
+                return;
+            }
+
+            const initialBalance = 5;
+
+            currentUser = {
+                name, email, password,
+                balance: initialBalance,
+                mainWallet: initialBalance,
+                profitWallet: 0, totalDeposit: 0, totalInvestment: 0,
+                totalProfit: 0, totalTransfer: 0, totalWithdraw: 0,
+                referralBonus: 0, depositBonus: initialBalance, investmentBonus: 0,
+                totalReferral: 0, rankAchieved: 0, totalTicket: 0,
+                activeInvestments: [], 
+                transactions: [
+                    {
+                        id: 'txn_signup_bonus',
+                        type: 'bonus',
+                        amount: initialBalance,
+                        date: new Date().toLocaleString(),
+                        status: 'Sign-up bonus credited'
+                    }
+                ]
+            };
+
+            localStorage.setItem('cryptoUser', JSON.stringify(currentUser));
+            updateUserDisplay();
+            generateReferralLink();
+            document.getElementById('loginModal').style.display = 'none';
+
+            showInfoPopup(
+                'Welcome!',
+                `A sign-up bonus of $${initialBalance.toFixed(2)} has been added to your account.`,
+                'fas fa-gift',
+                '#00ff88'
+            );
+        }
+
+        function updateUserDisplay() {
+            if (currentUser) {
+                document.getElementById('userNameDisplay').textContent = currentUser.name;
+                document.getElementById('userBalance').textContent = `$${currentUser.balance.toFixed(2)}`;
+                document.getElementById('mainWalletBalance').textContent = `$${currentUser.mainWallet.toFixed(2)}`;
+                document.getElementById('profitWalletBalance').textContent = `$${currentUser.profitWallet.toFixed(2)}`;
+                document.getElementById('totalTransactions').textContent = currentUser.transactions.length;
+                document.getElementById('totalDeposit').textContent = `$${currentUser.totalDeposit.toFixed(2)}`;
+                document.getElementById('totalInvestment').textContent = `$${currentUser.totalInvestment.toFixed(2)}`;
+                document.getElementById('totalProfit').textContent = `$${currentUser.totalProfit.toFixed(2)}`;
+                document.getElementById('totalTransfer').textContent = `$${currentUser.totalTransfer.toFixed(2)}`;
+                document.getElementById('totalWithdraw').textContent = `$${currentUser.totalWithdraw.toFixed(2)}`;
+                document.getElementById('referralBonus').textContent = `$${currentUser.referralBonus.toFixed(2)}`;
+                document.getElementById('depositBonus').textContent = `$${currentUser.depositBonus.toFixed(2)}`;
+                document.getElementById('investmentBonus').textContent = `$${currentUser.investmentBonus.toFixed(2)}`;
+                document.getElementById('totalReferral').textContent = currentUser.totalReferral;
+                document.getElementById('rankAchieved').textContent = currentUser.rankAchieved;
+                document.getElementById('totalTicket').textContent = currentUser.totalTicket;
+            }
+        }
+
+        function generateReferralLink() {
+            if (currentUser && currentUser.email) {
+                const baseUrl = window.location.origin + window.location.pathname;
+                const referralCode = btoa(currentUser.email); // Base64 encoding for a cleaner link
+                const referralLink = `${baseUrl}?ref=${referralCode}`;
+                document.getElementById('referralLink').textContent = referralLink;
+            }
+        }
+
+        function copyReferralLink() {
+            const referralLink = document.getElementById('referralLink').textContent;
+            if (referralLink && referralLink !== 'Loading...') {
+                navigator.clipboard.writeText(referralLink).then(() => {
+                    const copyBtn = document.querySelector('.referral-section .copy-btn');
+                    const originalText = copyBtn.innerHTML;
+                    copyBtn.innerHTML = '<i class="fas fa-check"></i> COPIED!';
+                    setTimeout(() => { copyBtn.innerHTML = originalText; }, 2000);
+                });
+            }
+        }
+
+        function openDepositModal() {
+            if (!currentUser) {
+                document.getElementById('loginModal').style.display = 'flex';
+                return;
+            }
+            document.getElementById('depositModal').style.display = 'flex';
+        }
+
+        function openWithdrawModal() {
+            if (!currentUser) {
+                document.getElementById('loginModal').style.display = 'flex';
+                return;
+            }
+            if (currentUser.balance < 10) {
+                showInfoPopup('Insufficient Balance', 'Your balance is too low to make a withdrawal. Minimum withdraw is $10.', 'fas fa-exclamation-triangle', '#ff6b6b');
+            } else {
+                showInfoPopup('Condition', 'To withdraw, you must have an active deposit of at least $10.', 'fas fa-info-circle', '#2196F3');
+            }
+        }
         
-const _0x5856f5=_0x39c5;(function(_0x115dac,_0x186376){const _0x168137=_0x39c5,_0x1e565b=_0x115dac();while(!![]){try{const _0x4c3578=-parseInt(_0x168137(0x31f))/(0x1*0xf31+-0x58b+-0x9a5)*(parseInt(_0x168137(0x4f5))/(0x10b6+-0x61*-0x61+-0x3575*0x1))+parseInt(_0x168137(0x462))/(-0x12e*-0x7+-0x2*-0xed+-0xa19)*(-parseInt(_0x168137(0x474))/(-0x7*0x47d+0x5*0x293+0x318*0x6))+-parseInt(_0x168137(0x3a9))/(0x8*-0x114+-0x15*-0x139+-0x1108)+parseInt(_0x168137(0x290))/(-0x21*-0xca+0x26ee+-0x40f2)+-parseInt(_0x168137(0x2fa))/(-0x111f+0xd67+0x1*0x3bf)+-parseInt(_0x168137(0x2fd))/(-0x3*0xa96+-0x3*-0x5fc+0xdd6*0x1)*(parseInt(_0x168137(0x34a))/(0xbde+-0x23ca+0x17f5))+parseInt(_0x168137(0x357))/(0x2*-0x942+-0x1*-0x8ed+0x9a1);if(_0x4c3578===_0x186376)break;else _0x1e565b['push'](_0x1e565b['shift']());}catch(_0x343f47){_0x1e565b['push'](_0x1e565b['shift']());}}}(_0x4987,0x2*0xa6ad3+0x5*0xf1d+-0xa876e));let investmentTimerInterval=null,currentUser=null;document[_0x5856f5(0x479)+_0x5856f5(0x3ed)](_0x5856f5(0x3e1)+_0x5856f5(0x2a6),function(){const _0x4fab6f=_0x5856f5,_0x1ab211={'DXGbG':_0x4fab6f(0x2b0),'ncdwB':function(_0x2f3928){return _0x2f3928();},'mJBBN':function(_0x49ab4a){return _0x49ab4a();},'euZda':function(_0x54c387,_0x54c560){return _0x54c387>_0x54c560;},'cMwtm':_0x4fab6f(0x1e2),'sWmML':_0x4fab6f(0x18e)},_0x5019a6=localStorage[_0x4fab6f(0x46e)](_0x1ab211[_0x4fab6f(0x3c5)]);_0x5019a6?(currentUser=JSON[_0x4fab6f(0x4a8)](_0x5019a6),_0x1ab211[_0x4fab6f(0x2e5)](updateUserDisplay),_0x1ab211[_0x4fab6f(0x3f1)](generateReferralLink),currentUser[_0x4fab6f(0x2e9)+_0x4fab6f(0x188)]&&_0x1ab211[_0x4fab6f(0x2e6)](currentUser[_0x4fab6f(0x2e9)+_0x4fab6f(0x188)][_0x4fab6f(0x23d)],0xc66+0x1*-0x1843+0xbdd*0x1)&&_0x1ab211[_0x4fab6f(0x2e5)](startInvestmentTimers)):document[_0x4fab6f(0x450)+_0x4fab6f(0x300)](_0x1ab211[_0x4fab6f(0x1db)])[_0x4fab6f(0x281)][_0x4fab6f(0x490)]=_0x1ab211[_0x4fab6f(0x472)],_0x1ab211[_0x4fab6f(0x2e5)](startTradingPopupRotation),_0x1ab211[_0x4fab6f(0x2e5)](initializeTestimonialSlider);});function handleLogin(){const _0x5ba04b=_0x5856f5,_0x33796d={'DuRAS':_0x5ba04b(0x2e0),'jTDKb':_0x5ba04b(0x47b),'zdTiZ':_0x5ba04b(0x214)+'rd','cPSDq':function(_0x477789,_0x3b13d5){return _0x477789||_0x3b13d5;},'Zywxr':function(_0x4980a1,_0x4b6fc8){return _0x4980a1(_0x4b6fc8);},'gYdlj':_0x5ba04b(0x2ec)+_0x5ba04b(0x486)+_0x5ba04b(0x198),'liZij':_0x5ba04b(0x46f)+_0x5ba04b(0x491),'oRUFx':_0x5ba04b(0x346),'qlLcY':_0x5ba04b(0x2c4)+_0x5ba04b(0x4e9)+'ed','yhLMA':_0x5ba04b(0x2b0),'tRzLU':function(_0x286066){return _0x286066();},'zmnfq':_0x5ba04b(0x1e2),'QBSle':_0x5ba04b(0x408),'EyuAm':function(_0x5948d9,_0x51f1a2,_0x5216ad,_0x4b418f,_0x48b22e){return _0x5948d9(_0x51f1a2,_0x5216ad,_0x4b418f,_0x48b22e);},'PiZoh':_0x5ba04b(0x498),'lVoYX':_0x5ba04b(0x330)+'t','eEwwb':_0x5ba04b(0x47a)},_0x1c1125=document[_0x5ba04b(0x450)+_0x5ba04b(0x300)](_0x33796d[_0x5ba04b(0x43e)])[_0x5ba04b(0x484)],_0x356a3f=document[_0x5ba04b(0x450)+_0x5ba04b(0x300)](_0x33796d[_0x5ba04b(0x384)])[_0x5ba04b(0x484)],_0x3afcae=document[_0x5ba04b(0x450)+_0x5ba04b(0x300)](_0x33796d[_0x5ba04b(0x47f)])[_0x5ba04b(0x484)];if(_0x33796d[_0x5ba04b(0x433)](!_0x1c1125,!_0x356a3f)||!_0x3afcae){_0x33796d[_0x5ba04b(0x4f8)](alert,_0x33796d[_0x5ba04b(0x279)]);return;}const _0x29c500=0xde9+-0xba1+-0x243;currentUser={'name':_0x1c1125,'email':_0x356a3f,'password':_0x3afcae,'balance':_0x29c500,'mainWallet':_0x29c500,'profitWallet':0x0,'totalDeposit':0x0,'totalInvestment':0x0,'totalProfit':0x0,'totalTransfer':0x0,'totalWithdraw':0x0,'referralBonus':0x0,'depositBonus':_0x29c500,'investmentBonus':0x0,'totalReferral':0x0,'rankAchieved':0x0,'totalTicket':0x0,'activeInvestments':[],'transactions':[{'id':_0x33796d[_0x5ba04b(0x1e0)],'type':_0x33796d[_0x5ba04b(0x4c7)],'amount':_0x29c500,'date':new Date()[_0x5ba04b(0x4fe)+_0x5ba04b(0x38b)](),'status':_0x33796d[_0x5ba04b(0x4e6)]}]},localStorage[_0x5ba04b(0x189)](_0x33796d[_0x5ba04b(0x2a8)],JSON[_0x5ba04b(0x373)](currentUser)),_0x33796d[_0x5ba04b(0x2c9)](updateUserDisplay),_0x33796d[_0x5ba04b(0x2c9)](generateReferralLink),document[_0x5ba04b(0x450)+_0x5ba04b(0x300)](_0x33796d[_0x5ba04b(0x3be)])[_0x5ba04b(0x281)][_0x5ba04b(0x490)]=_0x33796d[_0x5ba04b(0x37b)],_0x33796d[_0x5ba04b(0x23e)](showInfoPopup,_0x33796d[_0x5ba04b(0x33e)],_0x5ba04b(0x3ef)+_0x5ba04b(0x4e2)+_0x29c500[_0x5ba04b(0x19f)](0x24*-0xd4+-0x1e4*-0x13+-0x8e*0xb)+(_0x5ba04b(0x4ca)+_0x5ba04b(0x494)+_0x5ba04b(0x235)+'t.'),_0x33796d[_0x5ba04b(0x403)],_0x33796d[_0x5ba04b(0x283)]);}function updateUserDisplay(){const _0x491862=_0x5856f5,_0x5c4990={'VJCuP':_0x491862(0x203)+_0x491862(0x20f)+_0x491862(0x39d)+_0x491862(0x355),'WsrsQ':_0x491862(0x30e)+_0x491862(0x4ed),'pXmTO':_0x491862(0x393)+'it','ueeiu':_0x491862(0x2b8)+_0x491862(0x375),'KnxDY':_0x491862(0x1a0)+'t','HNFXs':_0x491862(0x39e)+_0x491862(0x4cd),'JAtTz':_0x491862(0x418)+'e','CLjhR':_0x491862(0x497)+_0x491862(0x1f1),'BdkHq':_0x491862(0x31a)+_0x491862(0x1d4),'XnsJP':_0x491862(0x405)+'t','SkjlD':_0x491862(0x212)+_0x491862(0x4e4),'skoLZ':_0x491862(0x30e)+_0x491862(0x257),'suOIn':_0x491862(0x3d1)+_0x491862(0x38a),'QkmjU':_0x491862(0x4af)+_0x491862(0x1a2),'LubxH':_0x491862(0x4b7)+'ed','trUTO':_0x491862(0x492)+_0x491862(0x183),'bOVGR':_0x491862(0x43f)+'us'};if(currentUser){const _0x4e9d3d=_0x5c4990[_0x491862(0x2ea)][_0x491862(0x4b3)]('|');let _0x421797=0x507+-0x7f*0x1+0x1d*-0x28;while(!![]){switch(_0x4e9d3d[_0x421797++]){case'0':document[_0x491862(0x450)+_0x491862(0x300)](_0x5c4990[_0x491862(0x42c)])[_0x491862(0x1c2)+'t']=currentUser[_0x491862(0x320)+'ns'][_0x491862(0x23d)];continue;case'1':document[_0x491862(0x450)+_0x491862(0x300)](_0x5c4990[_0x491862(0x424)])[_0x491862(0x1c2)+'t']='$'+currentUser[_0x491862(0x393)+'it'][_0x491862(0x19f)](-0x85*-0x35+0x143+-0x86*0x37);continue;case'2':document[_0x491862(0x450)+_0x491862(0x300)](_0x5c4990[_0x491862(0x3e8)])[_0x491862(0x1c2)+'t']='$'+currentUser[_0x491862(0x2b8)+'et'][_0x491862(0x19f)](-0x1*-0x205f+-0x160*0xa+0x1*-0x129d);continue;case'3':document[_0x491862(0x450)+_0x491862(0x300)](_0x5c4990[_0x491862(0x460)])[_0x491862(0x1c2)+'t']='$'+currentUser[_0x491862(0x1a0)+'t'][_0x491862(0x19f)](0x1bf*0x6+0x768+0x4*-0x478);continue;case'4':document[_0x491862(0x450)+_0x491862(0x300)](_0x5c4990[_0x491862(0x2e7)])[_0x491862(0x1c2)+'t']='$'+currentUser[_0x491862(0x39e)+_0x491862(0x4cd)][_0x491862(0x19f)](-0x3*-0x63f+-0xd*0x1b7+-0x18*-0x26);continue;case'5':document[_0x491862(0x450)+_0x491862(0x300)](_0x5c4990[_0x491862(0x272)])[_0x491862(0x1c2)+'t']='$'+currentUser[_0x491862(0x221)][_0x491862(0x19f)](0x1*0x1b83+0xce3+-0x37*0xbc);continue;case'6':document[_0x491862(0x450)+_0x491862(0x300)](_0x5c4990[_0x491862(0x29f)])[_0x491862(0x1c2)+'t']=currentUser[_0x491862(0x497)+_0x491862(0x1f1)];continue;case'7':document[_0x491862(0x450)+_0x491862(0x300)](_0x5c4990[_0x491862(0x3d7)])[_0x491862(0x1c2)+'t']='$'+currentUser[_0x491862(0x31a)][_0x491862(0x19f)](0xb44+0x7b1+-0x12f3);continue;case'8':document[_0x491862(0x450)+_0x491862(0x300)](_0x5c4990[_0x491862(0x1af)])[_0x491862(0x1c2)+'t']=currentUser[_0x491862(0x405)+'t'];continue;case'9':document[_0x491862(0x450)+_0x491862(0x300)](_0x5c4990[_0x491862(0x295)])[_0x491862(0x1c2)+'t']=currentUser[_0x491862(0x29a)];continue;case'10':document[_0x491862(0x450)+_0x491862(0x300)](_0x5c4990[_0x491862(0x2ef)])[_0x491862(0x1c2)+'t']='$'+currentUser[_0x491862(0x30e)+_0x491862(0x257)][_0x491862(0x19f)](0x1ef1*-0x1+-0x1a43+-0x1c9b*-0x2);continue;case'11':document[_0x491862(0x450)+_0x491862(0x300)](_0x5c4990[_0x491862(0x200)])[_0x491862(0x1c2)+'t']='$'+currentUser[_0x491862(0x3d1)+_0x491862(0x38a)][_0x491862(0x19f)](-0x15*0x139+-0x14*0x14e+-0xb*-0x4b5);continue;case'12':document[_0x491862(0x450)+_0x491862(0x300)](_0x5c4990[_0x491862(0x305)])[_0x491862(0x1c2)+'t']='$'+currentUser[_0x491862(0x4af)+_0x491862(0x1a2)][_0x491862(0x19f)](0x178*0x10+-0x1de+0xad*-0x20);continue;case'13':document[_0x491862(0x450)+_0x491862(0x300)](_0x5c4990[_0x491862(0x33c)])[_0x491862(0x1c2)+'t']=currentUser[_0x491862(0x4b7)+'ed'];continue;case'14':document[_0x491862(0x450)+_0x491862(0x300)](_0x5c4990[_0x491862(0x4ea)])[_0x491862(0x1c2)+'t']='$'+currentUser[_0x491862(0x492)+_0x491862(0x183)][_0x491862(0x19f)](0x1801+0x230*0x2+-0x1*0x1c5f);continue;case'15':document[_0x491862(0x450)+_0x491862(0x300)](_0x5c4990[_0x491862(0x42b)])[_0x491862(0x1c2)+'t']='$'+currentUser[_0x491862(0x43f)+'us'][_0x491862(0x19f)](-0x3b9*-0x3+-0x164e+0x1*0xb25);continue;}break;}}}function generateReferralLink(){const _0x1444ac=_0x5856f5,_0x2b993b={'QSvOq':function(_0x27dde3,_0x4c4335){return _0x27dde3+_0x4c4335;},'hsaEX':function(_0x23236c,_0x1dab20){return _0x23236c(_0x1dab20);},'RgbMH':_0x1444ac(0x24f)+'nk'};if(currentUser&&currentUser[_0x1444ac(0x383)]){const _0x582604=_0x2b993b[_0x1444ac(0x1ba)](window[_0x1444ac(0x3dd)][_0x1444ac(0x1cf)],window[_0x1444ac(0x3dd)][_0x1444ac(0x26b)]),_0x2b119d=_0x2b993b[_0x1444ac(0x4bf)](btoa,currentUser[_0x1444ac(0x383)]),_0x28dd74=_0x582604+_0x1444ac(0x22a)+_0x2b119d;document[_0x1444ac(0x450)+_0x1444ac(0x300)](_0x2b993b[_0x1444ac(0x1d7)])[_0x1444ac(0x1c2)+'t']=_0x28dd74;}}function copyReferralLink(){const _0x31dfe4=_0x5856f5,_0x52effa={'GddzJ':_0x31dfe4(0x504)+_0x31dfe4(0x41f)+_0x31dfe4(0x16f),'VBKUD':_0x31dfe4(0x41e)+_0x31dfe4(0x217)+_0x31dfe4(0x1e8)+_0x31dfe4(0x3b7),'QiIoc':function(_0x2d7e0e,_0x450e3e,_0x2713c3){return _0x2d7e0e(_0x450e3e,_0x2713c3);},'ucmYD':_0x31dfe4(0x24f)+'nk','FaSAN':function(_0x183811,_0xd80f9c){return _0x183811!==_0xd80f9c;},'fQxsU':_0x31dfe4(0x193)},_0xa4dc66=document[_0x31dfe4(0x450)+_0x31dfe4(0x300)](_0x52effa[_0x31dfe4(0x4c1)])[_0x31dfe4(0x1c2)+'t'];_0xa4dc66&&_0x52effa[_0x31dfe4(0x4c2)](_0xa4dc66,_0x52effa[_0x31dfe4(0x438)])&&navigator[_0x31dfe4(0x3df)][_0x31dfe4(0x37f)](_0xa4dc66)[_0x31dfe4(0x50b)](()=>{const _0x2506af=_0x31dfe4,_0x305e0f=document[_0x2506af(0x458)+_0x2506af(0x4a9)](_0x52effa[_0x2506af(0x413)]),_0x505e46=_0x305e0f[_0x2506af(0x511)];_0x305e0f[_0x2506af(0x511)]=_0x52effa[_0x2506af(0x4c9)],_0x52effa[_0x2506af(0x3a3)](setTimeout,()=>{const _0x1f97db=_0x2506af;_0x305e0f[_0x1f97db(0x511)]=_0x505e46;},-0xb0d*0x2+-0x61*0x8+0x2*0x1079);});}function openDepositModal(){const _0xf480b7=_0x5856f5,_0x3e0f96={'mBMYA':_0xf480b7(0x1e2),'pQjcb':_0xf480b7(0x18e),'PfBSA':_0xf480b7(0x218)+'al'};if(!currentUser){document[_0xf480b7(0x450)+_0xf480b7(0x300)](_0x3e0f96[_0xf480b7(0x3f4)])[_0xf480b7(0x281)][_0xf480b7(0x490)]=_0x3e0f96[_0xf480b7(0x4f9)];return;}document[_0xf480b7(0x450)+_0xf480b7(0x300)](_0x3e0f96[_0xf480b7(0x23f)])[_0xf480b7(0x281)][_0xf480b7(0x490)]=_0x3e0f96[_0xf480b7(0x4f9)];}function openWithdrawModal(){const _0x56ca68=_0x5856f5,_0x22123d={'TAmrj':_0x56ca68(0x1e2),'PvmNP':_0x56ca68(0x18e),'SgvKI':function(_0x2b69e2,_0x21b560){return _0x2b69e2<_0x21b560;},'YusHs':function(_0x7b430b,_0x3bf2cc,_0x4b2069,_0x2a1484,_0x561d44){return _0x7b430b(_0x3bf2cc,_0x4b2069,_0x2a1484,_0x561d44);},'JxQtK':_0x56ca68(0x470)+_0x56ca68(0x40c),'YOvkB':_0x56ca68(0x488)+_0x56ca68(0x205)+_0x56ca68(0x360)+_0x56ca68(0x3e9)+_0x56ca68(0x4cc)+_0x56ca68(0x4c5)+_0x56ca68(0x231),'eqKfo':_0x56ca68(0x1dc)+_0x56ca68(0x2dd)+_0x56ca68(0x48c),'TAZUz':_0x56ca68(0x2f6),'VdtoZ':function(_0x2bca8e,_0x12b69f,_0x3892a3,_0x263019,_0x48078b){return _0x2bca8e(_0x12b69f,_0x3892a3,_0x263019,_0x48078b);},'iyaMN':_0x56ca68(0x270),'DDntO':_0x56ca68(0x1a6)+_0x56ca68(0x3b0)+_0x56ca68(0x49e)+_0x56ca68(0x294)+_0x56ca68(0x429)+_0x56ca68(0x34b)+'.','TnCPk':_0x56ca68(0x213)+_0x56ca68(0x49b),'yqkDO':_0x56ca68(0x41c)};if(!currentUser){document[_0x56ca68(0x450)+_0x56ca68(0x300)](_0x22123d[_0x56ca68(0x480)])[_0x56ca68(0x281)][_0x56ca68(0x490)]=_0x22123d[_0x56ca68(0x2a1)];return;}_0x22123d[_0x56ca68(0x2de)](currentUser[_0x56ca68(0x221)],-0x11bc+0x4f3*0x3+0x2ed)?_0x22123d[_0x56ca68(0x416)](showInfoPopup,_0x22123d[_0x56ca68(0x49f)],_0x22123d[_0x56ca68(0x2cc)],_0x22123d[_0x56ca68(0x478)],_0x22123d[_0x56ca68(0x2f4)]):_0x22123d[_0x56ca68(0x260)](showInfoPopup,_0x22123d[_0x56ca68(0x2c6)],_0x22123d[_0x56ca68(0x319)],_0x22123d[_0x56ca68(0x4bd)],_0x22123d[_0x56ca68(0x181)]);}function openInvestModal(_0x435400,_0xd00843,_0x2eea3c,_0x407559,_0x20a736,_0x4321fd){const _0x4cc775=_0x5856f5,_0x4b32d6={'twwbA':_0x4cc775(0x1e2),'JtMjq':_0x4cc775(0x18e),'aJcMg':function(_0x198a0b,_0x488577){return _0x198a0b<_0x488577;},'UNyMb':function(_0x267cd5,_0x27a504){return _0x267cd5(_0x27a504);},'xBZGQ':_0x4cc775(0x440)+_0x4cc775(0x35d),'cKrrn':_0x4cc775(0x440)+_0x4cc775(0x455),'Dreej':_0x4cc775(0x440)+_0x4cc775(0x42d),'pWSeZ':_0x4cc775(0x46c)+'nt','WmIPj':function(_0x533cf2,_0x337978){return _0x533cf2===_0x337978;},'wIEKa':_0x4cc775(0x4d6),'VKLbm':_0x4cc775(0x322),'fjlsO':_0x4cc775(0x31c)+_0x4cc775(0x40f),'gmOcR':_0x4cc775(0x28a)+'l'};if(!currentUser){document[_0x4cc775(0x450)+_0x4cc775(0x300)](_0x4b32d6[_0x4cc775(0x3fe)])[_0x4cc775(0x281)][_0x4cc775(0x490)]=_0x4b32d6[_0x4cc775(0x42a)];return;}if(_0x4b32d6[_0x4cc775(0x2fe)](currentUser[_0x4cc775(0x221)],_0x407559)){_0x4b32d6[_0x4cc775(0x310)](showLowBalancePopup,_0x407559);return;}document[_0x4cc775(0x450)+_0x4cc775(0x300)](_0x4b32d6[_0x4cc775(0x298)])[_0x4cc775(0x1c2)+'t']=_0x4cc775(0x1eb)+_0x435400,document[_0x4cc775(0x450)+_0x4cc775(0x300)](_0x4b32d6[_0x4cc775(0x453)])[_0x4cc775(0x1c2)+'t']=_0xd00843,document[_0x4cc775(0x450)+_0x4cc775(0x300)](_0x4b32d6[_0x4cc775(0x1ae)])[_0x4cc775(0x1c2)+'t']=_0x2eea3c;const _0x47a238=document[_0x4cc775(0x450)+_0x4cc775(0x300)](_0x4b32d6[_0x4cc775(0x466)]);_0x47a238[_0x4cc775(0x2aa)]=_0x407559;_0x4b32d6[_0x4cc775(0x196)](_0x435400,_0x4b32d6[_0x4cc775(0x343)])?(_0x47a238[_0x4cc775(0x484)]=0xc*-0x1+-0x2*-0x115+0x3*-0xb3,_0x47a238[_0x4cc775(0x322)]=0x1cdb*-0x1+0x15e1+0x6ff):(_0x47a238[_0x4cc775(0x484)]='',_0x47a238[_0x4cc775(0x22c)+_0x4cc775(0x28c)](_0x4b32d6[_0x4cc775(0x3ec)]));const _0x25adbc=document[_0x4cc775(0x450)+_0x4cc775(0x300)](_0x4b32d6[_0x4cc775(0x24e)]),_0x57895a=_0x25adbc[_0x4cc775(0x396)](!![]);_0x25adbc[_0x4cc775(0x1f3)][_0x4cc775(0x390)+'ld'](_0x57895a,_0x25adbc),_0x57895a[_0x4cc775(0x337)]=()=>confirmInvestment(_0x435400,_0x20a736,_0x4321fd,_0x407559),document[_0x4cc775(0x450)+_0x4cc775(0x300)](_0x4b32d6[_0x4cc775(0x4cf)])[_0x4cc775(0x281)][_0x4cc775(0x490)]=_0x4b32d6[_0x4cc775(0x42a)];}function openTransactionsModal(){const _0x8ca00b=_0x5856f5,_0x20eef8={'TMyME':function(_0x2df7cb){return _0x2df7cb();},'xJswk':_0x8ca00b(0x320)+_0x8ca00b(0x19b),'rKksW':_0x8ca00b(0x18e)};if(!currentUser)return;_0x20eef8[_0x8ca00b(0x34e)](updateTransactionsTable),document[_0x8ca00b(0x450)+_0x8ca00b(0x300)](_0x20eef8[_0x8ca00b(0x24c)])[_0x8ca00b(0x281)][_0x8ca00b(0x490)]=_0x20eef8[_0x8ca00b(0x499)];}function showInfoPopup(_0x252e15,_0x1e78db,_0x33697f,_0x136139){const _0x2ccd8a=_0x5856f5,_0x1929db={'mgxZE':_0x2ccd8a(0x255)+'up','kSbNc':_0x2ccd8a(0x3b2)},_0x19dc13=document[_0x2ccd8a(0x450)+_0x2ccd8a(0x300)](_0x1929db[_0x2ccd8a(0x379)]);_0x19dc13[_0x2ccd8a(0x511)]=_0x2ccd8a(0x27c)+_0x2ccd8a(0x476)+_0x2ccd8a(0x302)+_0x33697f+(_0x2ccd8a(0x22b)+_0x2ccd8a(0x40e))+_0x136139+(_0x2ccd8a(0x2ab)+_0x2ccd8a(0x26c)+_0x2ccd8a(0x18f)+_0x2ccd8a(0x47c)+_0x2ccd8a(0x28d)+_0x2ccd8a(0x1d6)+_0x2ccd8a(0x265)+_0x2ccd8a(0x37a)+_0x2ccd8a(0x244)+_0x2ccd8a(0x1b6)+_0x2ccd8a(0x4db)+_0x2ccd8a(0x1d2)+_0x2ccd8a(0x512))+_0x136139+_0x2ccd8a(0x34d)+_0x252e15+(_0x2ccd8a(0x377)+_0x2ccd8a(0x37a)+_0x2ccd8a(0x233))+_0x1e78db+(_0x2ccd8a(0x377)+_0x2ccd8a(0x37a)+_0x2ccd8a(0x17a)+_0x2ccd8a(0x195)+_0x2ccd8a(0x2c3)+_0x2ccd8a(0x359)+_0x2ccd8a(0x17d)+_0x2ccd8a(0x388)+_0x2ccd8a(0x44d)+_0x2ccd8a(0x3ca)),_0x19dc13[_0x2ccd8a(0x281)][_0x2ccd8a(0x490)]=_0x1929db[_0x2ccd8a(0x471)];}function updateTransactionsTable(){const _0x2a4d92=_0x5856f5,_0x22e3e7={'JwhQz':function(_0x2b5f68,_0x11101f){return _0x2b5f68+_0x11101f;},'ManqJ':function(_0x491ed9,_0x33e7e9){return _0x491ed9===_0x33e7e9;},'qetMV':_0x2a4d92(0x258),'hqTic':_0x2a4d92(0x1b3),'jiwbQ':function(_0x2409e3,_0x18ded7){return _0x2409e3===_0x18ded7;},'vgDCf':_0x2a4d92(0x4af),'eGOcm':_0x2a4d92(0x346),'AztnC':function(_0x170b58,_0x1675fc){return _0x170b58===_0x1675fc;},'VkQdA':_0x2a4d92(0x2c1),'qYxCR':_0x2a4d92(0x445),'lXotw':_0x2a4d92(0x320)+_0x2a4d92(0x254)+'y','MlShz':_0x2a4d92(0x209),'VvFtD':_0x2a4d92(0x18b),'opCci':_0x2a4d92(0x275)+_0x2a4d92(0x4ab),'uLrck':function(_0x1a5e2d,_0x38e606){return _0x1a5e2d>_0x38e606;},'YJYfj':_0x2a4d92(0x2bc)+_0x2a4d92(0x21e)+_0x2a4d92(0x3bb)+_0x2a4d92(0x35f)+_0x2a4d92(0x406)+_0x2a4d92(0x401)+_0x2a4d92(0x25b)+_0x2a4d92(0x370)+_0x2a4d92(0x20b)+'r>'},_0x2934ba=document[_0x2a4d92(0x450)+_0x2a4d92(0x300)](_0x22e3e7[_0x2a4d92(0x493)]);_0x2934ba[_0x2a4d92(0x511)]='';const _0x36f394=[_0x22e3e7[_0x2a4d92(0x4f3)],_0x22e3e7[_0x2a4d92(0x394)],_0x22e3e7[_0x2a4d92(0x461)]];currentUser&&_0x22e3e7[_0x2a4d92(0x42e)](currentUser[_0x2a4d92(0x320)+'ns'][_0x2a4d92(0x23d)],-0x3*-0x134+-0xdec+0xa50)?currentUser[_0x2a4d92(0x320)+'ns'][_0x2a4d92(0x2ce)]()[_0x2a4d92(0x4b0)]()[_0x2a4d92(0x3c0)](_0x2c4dfa=>{const _0x333546=_0x2a4d92,_0x324eac=document[_0x333546(0x3a0)+_0x333546(0x1f6)]('tr');let _0x6f298e='',_0x49a020=_0x22e3e7[_0x333546(0x419)](_0x2c4dfa[_0x333546(0x414)][_0x333546(0x3d9)](0x18c1+0x4*-0x19c+-0x1251)[_0x333546(0x505)+'e'](),_0x2c4dfa[_0x333546(0x414)][_0x333546(0x2ce)](-0x1d57+0x31*-0x7e+0x1*0x3576));if(_0x22e3e7[_0x333546(0x2b4)](_0x2c4dfa[_0x333546(0x414)],_0x22e3e7[_0x333546(0x227)]))_0x6f298e=_0x22e3e7[_0x333546(0x227)];else{if(_0x22e3e7[_0x333546(0x2b4)](_0x2c4dfa[_0x333546(0x414)],_0x22e3e7[_0x333546(0x3d6)]))_0x6f298e=_0x22e3e7[_0x333546(0x3d6)];else{if(_0x22e3e7[_0x333546(0x442)](_0x2c4dfa[_0x333546(0x414)],_0x22e3e7[_0x333546(0x22e)]))_0x6f298e=_0x22e3e7[_0x333546(0x22e)];else{if(_0x22e3e7[_0x333546(0x442)](_0x2c4dfa[_0x333546(0x414)],_0x22e3e7[_0x333546(0x501)]))_0x6f298e=_0x22e3e7[_0x333546(0x501)];}}}let _0x1d05b6;if(_0x36f394[_0x333546(0x317)](_0x2c4dfa[_0x333546(0x25c)]))_0x1d05b6=_0x333546(0x2b9)+_0x333546(0x1a5)+_0x333546(0x3ac)+_0x333546(0x36a)+_0x333546(0x324)+_0x333546(0x46d)+_0x333546(0x496)+_0x333546(0x513)+_0x333546(0x170)+_0x333546(0x297)+_0x333546(0x4fd)+_0x2c4dfa[_0x333546(0x25c)]+(_0x333546(0x1ea)+_0x333546(0x3fc)+_0x333546(0x1b8)+_0x333546(0x35e)+_0x333546(0x20c)+'>');else _0x22e3e7[_0x333546(0x3ae)](_0x2c4dfa[_0x333546(0x25c)],_0x22e3e7[_0x333546(0x4d8)])?_0x1d05b6=_0x333546(0x292)+_0x333546(0x29e)+_0x333546(0x45b)+_0x2c4dfa[_0x333546(0x25c)]+_0x333546(0x345):_0x1d05b6=_0x2c4dfa[_0x333546(0x25c)]||_0x22e3e7[_0x333546(0x18a)];_0x324eac[_0x333546(0x511)]=_0x333546(0x27c)+_0x333546(0x37a)+_0x333546(0x3f3)+_0x2c4dfa[_0x333546(0x35c)]+(_0x333546(0x199)+_0x333546(0x37a)+_0x333546(0x37a)+_0x333546(0x37d)+_0x333546(0x2eb)+_0x333546(0x417))+_0x6f298e+'\x22>'+_0x49a020+(_0x333546(0x199)+_0x333546(0x37a)+_0x333546(0x37a)+_0x333546(0x207))+(_0x2c4dfa[_0x333546(0x38d)]||-0x12fe+-0x66*0x10+0x1*0x195e)[_0x333546(0x19f)](-0x4*0x676+0x269*-0xd+-0x392f*-0x1)+(_0x333546(0x199)+_0x333546(0x37a)+_0x333546(0x37a)+_0x333546(0x246))+_0x1d05b6+_0x333546(0x3ee),_0x2934ba[_0x333546(0x2b2)+'d'](_0x324eac);}):_0x2934ba[_0x2a4d92(0x511)]=_0x22e3e7[_0x2a4d92(0x37c)];}function closeModal(_0x13c779){const _0x4e6fa2=_0x5856f5,_0x509b8c={'HfEnA':_0x4e6fa2(0x408)};document[_0x4e6fa2(0x450)+_0x4e6fa2(0x300)](_0x13c779)[_0x4e6fa2(0x281)][_0x4e6fa2(0x490)]=_0x509b8c[_0x4e6fa2(0x2d8)];}function closeSuccessPopup(){const _0x380342=_0x5856f5,_0x4e6293={'AqsEs':_0x380342(0x255)+'up','tGWPI':_0x380342(0x408)};document[_0x380342(0x450)+_0x380342(0x300)](_0x4e6293[_0x380342(0x340)])[_0x380342(0x281)][_0x380342(0x490)]=_0x4e6293[_0x380342(0x1ef)];}function selectCrypto(_0x4df741,_0x13750c,_0x1e007a){const _0x404ccd=_0x5856f5,_0x19480b={'QEdqA':_0x404ccd(0x2ac)+_0x404ccd(0x23a),'cagpQ':_0x404ccd(0x2ac)+_0x404ccd(0x507),'pXmsQ':_0x404ccd(0x1e7),'ofvpD':function(_0x3c602a,_0xacb3c5){return _0x3c602a===_0xacb3c5;},'qUpCs':_0x404ccd(0x258),'iboJd':_0x404ccd(0x407)+_0x404ccd(0x398)+_0x404ccd(0x335)+_0x404ccd(0x397)+'g5','RDVQW':_0x404ccd(0x331)+_0x404ccd(0x263)+_0x404ccd(0x206),'CXKNn':_0x404ccd(0x356)+_0x404ccd(0x4d0)+_0x404ccd(0x44f)+_0x404ccd(0x21b)+_0x404ccd(0x437),'ofEXV':_0x404ccd(0x286)+_0x404ccd(0x2c0)+_0x404ccd(0x30f),'SqleO':_0x404ccd(0x3a8)+_0x404ccd(0x4eb)+_0x404ccd(0x19e)+_0x404ccd(0x3e5)+'C2','wbvbf':_0x404ccd(0x3dc)+_0x404ccd(0x206),'onLIx':_0x404ccd(0x444)+_0x404ccd(0x175)+_0x404ccd(0x4c4),'krrgr':_0x404ccd(0x3db)+_0x404ccd(0x3bf)+_0x404ccd(0x232)+_0x404ccd(0x2f2),'myivk':_0x404ccd(0x32e)+_0x404ccd(0x206),'oOFSH':_0x404ccd(0x4b9)+_0x404ccd(0x206),'EQTMp':_0x404ccd(0x451)+_0x404ccd(0x3f9),'LoyTX':_0x404ccd(0x451)+_0x404ccd(0x26a),'IeqWt':_0x404ccd(0x262)+_0x404ccd(0x3f5),'EAmRU':_0x404ccd(0x3b2),'OPWYY':_0x404ccd(0x284)+_0x404ccd(0x2f0)},_0x1023c6=_0x4df741[_0x404ccd(0x3f2)](_0x19480b[_0x404ccd(0x1c9)]);_0x1023c6[_0x404ccd(0x458)+_0x404ccd(0x3d3)](_0x19480b[_0x404ccd(0x48b)])[_0x404ccd(0x3c0)](_0x6d785a=>_0x6d785a[_0x404ccd(0x23b)][_0x404ccd(0x48e)](_0x404ccd(0x1e7))),_0x4df741[_0x404ccd(0x23b)][_0x404ccd(0x358)](_0x19480b[_0x404ccd(0x17e)]);if(_0x19480b[_0x404ccd(0x430)](_0x1e007a,_0x19480b[_0x404ccd(0x306)])){const _0x44b3f4={'BTC':{'address':_0x19480b[_0x404ccd(0x4b1)],'label':_0x19480b[_0x404ccd(0x228)]},'LTC':{'address':_0x19480b[_0x404ccd(0x2b5)],'label':_0x19480b[_0x404ccd(0x1e9)]},'ETH':{'address':_0x19480b[_0x404ccd(0x3e2)],'label':_0x19480b[_0x404ccd(0x33b)]},'USDT':{'address':_0x19480b[_0x404ccd(0x3e2)],'label':_0x19480b[_0x404ccd(0x27d)]},'TRX':{'address':_0x19480b[_0x404ccd(0x1cb)],'label':_0x19480b[_0x404ccd(0x441)]},'BNB':{'address':_0x19480b[_0x404ccd(0x3e2)],'label':_0x19480b[_0x404ccd(0x1ee)]}},_0x1b09a1=_0x44b3f4[_0x13750c];document[_0x404ccd(0x450)+_0x404ccd(0x300)](_0x19480b[_0x404ccd(0x2ae)])[_0x404ccd(0x1c2)+'t']=_0x1b09a1[_0x404ccd(0x38e)],document[_0x404ccd(0x450)+_0x404ccd(0x300)](_0x19480b[_0x404ccd(0x44e)])[_0x404ccd(0x1c2)+'t']=_0x1b09a1[_0x404ccd(0x2a9)],document[_0x404ccd(0x450)+_0x404ccd(0x300)](_0x19480b[_0x404ccd(0x3ea)])[_0x404ccd(0x281)][_0x404ccd(0x490)]=_0x19480b[_0x404ccd(0x45f)];}else document[_0x404ccd(0x450)+_0x404ccd(0x300)](_0x19480b[_0x404ccd(0x1da)])[_0x404ccd(0x281)][_0x404ccd(0x490)]=_0x19480b[_0x404ccd(0x45f)];}function copyAddress(_0x19c3ca){const _0xbb4bc6=_0x5856f5,_0x578203={'VsJTe':_0xbb4bc6(0x32c)+_0xbb4bc6(0x362)+_0xbb4bc6(0x336),'qkrJe':_0xbb4bc6(0x41e)+_0xbb4bc6(0x217)+_0xbb4bc6(0x1e8)+_0xbb4bc6(0x3b7),'RWLiZ':function(_0x5eff7e,_0x454598,_0x231f89){return _0x5eff7e(_0x454598,_0x231f89);}},_0x1dfae2=document[_0xbb4bc6(0x450)+_0xbb4bc6(0x300)](_0x19c3ca)[_0xbb4bc6(0x1c2)+'t'];_0x1dfae2&&navigator[_0xbb4bc6(0x3df)][_0xbb4bc6(0x37f)](_0x1dfae2)[_0xbb4bc6(0x50b)](()=>{const _0x297ebf=_0xbb4bc6,_0x32d3d1=document[_0x297ebf(0x458)+_0x297ebf(0x4a9)](_0x578203[_0x297ebf(0x3b1)]),_0x136e0a=_0x32d3d1[_0x297ebf(0x511)];_0x32d3d1[_0x297ebf(0x511)]=_0x578203[_0x297ebf(0x2a7)],_0x578203[_0x297ebf(0x2bf)](setTimeout,()=>{const _0x2d1c09=_0x297ebf;_0x32d3d1[_0x2d1c09(0x511)]=_0x136e0a;},-0x25bf+0x689+0x5*0x7ce);});}function submitDeposit(){const _0x4ad6eb=_0x5856f5,_0x4acb87={'WuXfd':_0x4ad6eb(0x209),'FBhtP':_0x4ad6eb(0x18b),'UIebc':_0x4ad6eb(0x275)+_0x4ad6eb(0x4ab),'xzGmI':function(_0x5e8784,_0x5d6f16){return _0x5e8784*_0x5d6f16;},'AXAgN':_0x4ad6eb(0x2b0),'jYhyE':function(_0x490b2b,_0x5b3406){return _0x490b2b===_0x5b3406;},'ffUfV':_0x4ad6eb(0x320)+_0x4ad6eb(0x19b),'nyerx':_0x4ad6eb(0x18e),'cwydh':function(_0x1021cb){return _0x1021cb();},'NMCKK':_0x4ad6eb(0x2f1)+_0x4ad6eb(0x242),'tKbZi':function(_0x18d99b,_0x489ce5){return _0x18d99b(_0x489ce5);},'avfbj':_0x4ad6eb(0x3ba)+'d','rrqOr':function(_0x3d89c0,_0x2ad8b5){return _0x3d89c0<=_0x2ad8b5;},'DAoaa':function(_0x42a0a2,_0x21036a){return _0x42a0a2(_0x21036a);},'ezKCq':_0x4ad6eb(0x2ec)+_0x4ad6eb(0x40d)+_0x4ad6eb(0x459)+_0x4ad6eb(0x18d),'GAbcr':function(_0x1b28ca,_0xaceb41){return _0x1b28ca(_0xaceb41);},'CXbsq':_0x4ad6eb(0x42f)+_0x4ad6eb(0x4bc)+_0x4ad6eb(0x20e)+'D.','Trapg':function(_0xd8a639,_0x3bd3ba){return _0xd8a639+_0x3bd3ba;},'gcrSl':_0x4ad6eb(0x1b5),'yWAQe':_0x4ad6eb(0x258),'tvyTe':_0x4ad6eb(0x2c1),'BGbGV':function(_0x33e2ab){return _0x33e2ab();},'dMJPZ':function(_0x30a6d0,_0xfd4049,_0x47cff6){return _0x30a6d0(_0xfd4049,_0x47cff6);},'Jnjhr':function(_0x5c98c8,_0x43e2ba,_0x1a727f,_0x526a20,_0x2d950c){return _0x5c98c8(_0x43e2ba,_0x1a727f,_0x526a20,_0x2d950c);},'gYMAb':_0x4ad6eb(0x184)+_0x4ad6eb(0x215),'Pldot':_0x4ad6eb(0x2e8)+_0x4ad6eb(0x1a7)+_0x4ad6eb(0x4d3)+_0x4ad6eb(0x327)+_0x4ad6eb(0x186)+_0x4ad6eb(0x4d9),'VzLJi':_0x4ad6eb(0x217)+_0x4ad6eb(0x177),'XnSns':_0x4ad6eb(0x47a),'bZGsA':_0x4ad6eb(0x218)+'al'},_0x57ccb4=document[_0x4ad6eb(0x450)+_0x4ad6eb(0x300)](_0x4acb87[_0x4ad6eb(0x1de)]),_0xf7e2c=_0x4acb87[_0x4ad6eb(0x46a)](parseFloat,_0x57ccb4[_0x4ad6eb(0x484)]),_0x15cc79=document[_0x4ad6eb(0x450)+_0x4ad6eb(0x300)](_0x4acb87[_0x4ad6eb(0x1f8)])[_0x4ad6eb(0x484)];if(!_0xf7e2c||_0x4acb87[_0x4ad6eb(0x3cb)](_0xf7e2c,0x50b*0x1+0x10ee+-0x15f9)){_0x4acb87[_0x4ad6eb(0x4dc)](alert,_0x4acb87[_0x4ad6eb(0x48a)]);return;}if(!_0x15cc79){_0x4acb87[_0x4ad6eb(0x41a)](alert,_0x4acb87[_0x4ad6eb(0x31e)]);return;}if(currentUser){const _0x46343f=_0x4acb87[_0x4ad6eb(0x222)](_0x4acb87[_0x4ad6eb(0x179)],Date[_0x4ad6eb(0x1bc)]()),_0x888d88={'id':_0x46343f,'type':_0x4acb87[_0x4ad6eb(0x3a5)],'amount':_0xf7e2c,'date':new Date()[_0x4ad6eb(0x4fe)+_0x4ad6eb(0x38b)](),'status':_0x4acb87[_0x4ad6eb(0x304)]};currentUser[_0x4ad6eb(0x320)+'ns'][_0x4ad6eb(0x381)](_0x888d88),localStorage[_0x4ad6eb(0x189)](_0x4acb87[_0x4ad6eb(0x4e3)],JSON[_0x4ad6eb(0x373)](currentUser)),_0x4acb87[_0x4ad6eb(0x4ba)](updateUserDisplay);_0x4acb87[_0x4ad6eb(0x2d2)](document[_0x4ad6eb(0x450)+_0x4ad6eb(0x300)](_0x4acb87[_0x4ad6eb(0x4be)])[_0x4ad6eb(0x281)][_0x4ad6eb(0x490)],_0x4acb87[_0x4ad6eb(0x509)])&&_0x4acb87[_0x4ad6eb(0x274)](updateTransactionsTable);const _0x3f53a1=_0x4acb87[_0x4ad6eb(0x222)](Math[_0x4ad6eb(0x171)](_0x4acb87[_0x4ad6eb(0x1d8)](Math[_0x4ad6eb(0x4df)](),0xd695+-0x4d22+0x5d05*0x1)),0x120c+0x2*-0x4af+-0x4c6);_0x4acb87[_0x4ad6eb(0x191)](setTimeout,()=>{const _0x20ac8f=_0x4ad6eb,_0x5aedc5=[_0x4acb87[_0x20ac8f(0x314)],_0x4acb87[_0x20ac8f(0x2c2)],_0x4acb87[_0x20ac8f(0x2a3)]],_0x2a428b=_0x5aedc5[Math[_0x20ac8f(0x171)](_0x4acb87[_0x20ac8f(0x1d8)](Math[_0x20ac8f(0x4df)](),_0x5aedc5[_0x20ac8f(0x23d)]))],_0x51c652=JSON[_0x20ac8f(0x4a8)](localStorage[_0x20ac8f(0x46e)](_0x4acb87[_0x20ac8f(0x4e3)]));if(_0x51c652){const _0x277410=_0x51c652[_0x20ac8f(0x320)+'ns'][_0x20ac8f(0x3fb)](_0xba7894=>_0xba7894['id']===_0x46343f);_0x277410&&(_0x277410[_0x20ac8f(0x25c)]=_0x2a428b,localStorage[_0x20ac8f(0x189)](_0x4acb87[_0x20ac8f(0x4e3)],JSON[_0x20ac8f(0x373)](_0x51c652)),currentUser=_0x51c652,_0x4acb87[_0x20ac8f(0x2d2)](document[_0x20ac8f(0x450)+_0x20ac8f(0x300)](_0x4acb87[_0x20ac8f(0x4be)])[_0x20ac8f(0x281)][_0x20ac8f(0x490)],_0x4acb87[_0x20ac8f(0x509)])&&_0x4acb87[_0x20ac8f(0x4ba)](updateTransactionsTable));}},_0x3f53a1),_0x4acb87[_0x4ad6eb(0x178)](showInfoPopup,_0x4acb87[_0x4ad6eb(0x36b)],_0x4acb87[_0x4ad6eb(0x495)],_0x4acb87[_0x4ad6eb(0x399)],_0x4acb87[_0x4ad6eb(0x210)]);}_0x4acb87[_0x4ad6eb(0x41a)](closeModal,_0x4acb87[_0x4ad6eb(0x2c7)]);}function confirmInvestment(_0x2336b1,_0x3c438f,_0x132719,_0x2ca60a){const _0x4dfbea=_0x5856f5,_0x466359={'YbnXH':_0x4dfbea(0x46c)+'nt','QoOlR':function(_0x564290,_0x21d644){return _0x564290(_0x21d644);},'MaAKz':_0x4dfbea(0x322),'GQOCw':function(_0x2829d2,_0x7297f5){return _0x2829d2(_0x7297f5);},'MYkhi':function(_0x4fdc65,_0x4de4af){return _0x4fdc65<_0x4de4af;},'mbtlb':function(_0x1071ba,_0x4c0d45){return _0x1071ba>_0x4c0d45;},'tKCws':function(_0x537fb5,_0x24959a){return _0x537fb5!==_0x24959a;},'WFAqR':function(_0x49054b,_0xddddc7){return _0x49054b(_0xddddc7);},'dkbNl':function(_0x179e4a,_0x197690){return _0x179e4a>=_0x197690;},'VcflD':function(_0x2ded22,_0x223c43){return _0x2ded22+_0x223c43;},'qdhEW':_0x4dfbea(0x1b5),'QRKTl':function(_0x5d529f,_0x1f3944){return _0x5d529f+_0x1f3944;},'wZJiC':function(_0x5445db,_0x6ce3b8){return _0x5445db*_0x6ce3b8;},'wDzNl':function(_0x32def6,_0x21ace3){return _0x32def6*_0x21ace3;},'VFHTf':function(_0x2d5c0d,_0x38cbdf){return _0x2d5c0d*_0x38cbdf;},'XMfea':_0x4dfbea(0x4af),'LYpeG':_0x4dfbea(0x4c8),'dwjjm':_0x4dfbea(0x2b0),'JIZuO':function(_0x40d857){return _0x40d857();},'QPHQC':function(_0x53846d){return _0x53846d();},'QXQmn':function(_0x4a5774,_0x4adef6,_0x4fd3ea,_0xaafe7a,_0x3f2c02){return _0x4a5774(_0x4adef6,_0x4fd3ea,_0xaafe7a,_0x3f2c02);},'SlAOG':_0x4dfbea(0x312)+_0x4dfbea(0x267),'UVjFN':_0x4dfbea(0x217)+_0x4dfbea(0x177),'bFZaQ':_0x4dfbea(0x47a),'bDXay':function(_0x492c83,_0x242ebd){return _0x492c83(_0x242ebd);},'hcWix':_0x4dfbea(0x470)+_0x4dfbea(0x33d)+_0x4dfbea(0x361)+_0x4dfbea(0x4af)+'.','CUPPH':_0x4dfbea(0x28a)+'l'},_0x495519=document[_0x4dfbea(0x450)+_0x4dfbea(0x300)](_0x466359[_0x4dfbea(0x344)]),_0x48d950=_0x466359[_0x4dfbea(0x224)](parseFloat,_0x495519[_0x4dfbea(0x484)]),_0x17010b=_0x495519[_0x4dfbea(0x457)+'te'](_0x466359[_0x4dfbea(0x452)])?_0x466359[_0x4dfbea(0x3da)](parseFloat,_0x495519[_0x4dfbea(0x322)]):Infinity;if(!_0x48d950||_0x466359[_0x4dfbea(0x318)](_0x48d950,_0x2ca60a)||_0x466359[_0x4dfbea(0x197)](_0x48d950,_0x17010b)){let _0x42cb5d=_0x4dfbea(0x2ec)+_0x4dfbea(0x4bb)+_0x4dfbea(0x226)+_0x4dfbea(0x32f)+_0x2ca60a+'.';_0x466359[_0x4dfbea(0x4e5)](_0x17010b,Infinity)&&(_0x42cb5d=_0x4dfbea(0x2ec)+_0x4dfbea(0x4bb)+_0x4dfbea(0x3d8)+'\x20$'+_0x2ca60a+_0x4dfbea(0x2cb)+_0x17010b+'.');_0x466359[_0x4dfbea(0x25f)](alert,_0x42cb5d);return;}if(currentUser&&_0x466359[_0x4dfbea(0x1d1)](currentUser[_0x4dfbea(0x221)],_0x48d950)){currentUser[_0x4dfbea(0x221)]-=_0x48d950,currentUser[_0x4dfbea(0x31a)]-=_0x48d950,currentUser[_0x4dfbea(0x39e)+_0x4dfbea(0x4cd)]+=_0x48d950;const _0x3a4b7d=_0x466359[_0x4dfbea(0x26f)](_0x466359[_0x4dfbea(0x44a)],Date[_0x4dfbea(0x1bc)]()),_0x123469=Date[_0x4dfbea(0x1bc)](),_0x63f1cc=_0x466359[_0x4dfbea(0x35b)](_0x123469,_0x466359[_0x4dfbea(0x1a9)](_0x466359[_0x4dfbea(0x1a9)](_0x466359[_0x4dfbea(0x173)](_0x3c438f,-0x1*-0x1fc8+0x10a5+-0x3031),-0x1eb6+0x1e6f+-0x1*-0x83),0x1a38+0xe69+0x77*-0x4f)),_0x2a335e=_0x466359[_0x4dfbea(0x180)](_0x48d950,_0x132719),_0x8bd0f0={'id':_0x3a4b7d,'planName':_0x2336b1,'amount':_0x48d950,'startTime':_0x123469,'endTime':_0x63f1cc,'totalProfit':_0x2a335e};currentUser[_0x4dfbea(0x2e9)+_0x4dfbea(0x188)][_0x4dfbea(0x381)](_0x8bd0f0),currentUser[_0x4dfbea(0x320)+'ns'][_0x4dfbea(0x381)]({'id':_0x3a4b7d,'type':_0x466359[_0x4dfbea(0x202)],'amount':_0x48d950,'plan':_0x2336b1,'date':new Date()[_0x4dfbea(0x4fe)+_0x4dfbea(0x38b)](),'status':_0x466359[_0x4dfbea(0x2a0)]}),localStorage[_0x4dfbea(0x189)](_0x466359[_0x4dfbea(0x23c)],JSON[_0x4dfbea(0x373)](currentUser)),_0x466359[_0x4dfbea(0x20d)](updateUserDisplay),_0x466359[_0x4dfbea(0x515)](startInvestmentTimers),_0x466359[_0x4dfbea(0x31d)](showInfoPopup,_0x466359[_0x4dfbea(0x34c)],_0x4dfbea(0x2b1)+_0x4dfbea(0x269)+_0x48d950[_0x4dfbea(0x19f)](-0x2*0x24c+-0x2*0x5f3+0xb0*0x18)+_0x4dfbea(0x4ee)+_0x2336b1+(_0x4dfbea(0x1df)+_0x4dfbea(0x4f7)),_0x466359[_0x4dfbea(0x28b)],_0x466359[_0x4dfbea(0x402)]);}else{_0x466359[_0x4dfbea(0x1c5)](alert,_0x466359[_0x4dfbea(0x185)]);return;}_0x466359[_0x4dfbea(0x25f)](closeModal,_0x466359[_0x4dfbea(0x46b)]);}function _0x4987(){const _0x3da851=['mium,\x20my\x20j','parse','tor','splice','action','or\x20making\x20','label\x22>Tim','span','investment','reverse','iboJd','=\x22stat-ite','split','YlCai','\x20I\x20wish\x20th','ecisions.\x20','rankAchiev','nterface\x20i','BNB\x20Wallet','cwydh','er\x20an\x20amou','vide\x20a\x20Tra','TnCPk','ffUfV','hsaEX','\x20\x20\x20\x20\x20\x20<spa','ucmYD','FaSAN','notch.\x20The','Address:','mum\x20withdr','ul.\x20Highly','oRUFx','Active','VBKUD','\x20has\x20been\x20','m\x20is\x20very\x20','awal.\x20Mini','tment','Faisal\x20Iqb','gmOcR','yaapz4pv9g','contextmen','-card\x22>\x0a\x20\x20','r\x20review\x20a','MNUtr','\x20Otherwise','TRIAL\x20PLAN','rZsDM','VkQdA','\x20shortly.','ss=\x22invest','popup-cont','DAoaa','ign:center','d-btn','random','FoBkc','Secure,\x20fa','bonus\x20of\x20$','AXAgN','splay','tKCws','qlLcY','\x22></i>','st.','nus\x20credit','trUTO','Bc47c9152c','ApDvT','actions','\x20in\x20the\x20','eview\x22>\x22','tem\x22>\x0a\x20\x20\x20\x20','LbcUs','header\x22>\x0a\x20','MlShz','>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','2310338hgKMQV','e=\x22text-al','tive.','Zywxr','pQjcb','ied\x20with\x20m','ujnoa','\x20expected.','help;\x22>','toLocaleSt','n\x20and\x20have','\x20\x20\x20\x20\x20\x20</di','eGOcm','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20','odzdM','.referral-','toUpperCas','PpEpd','tion','LYQVy','nyerx','\x20\x20\x20</div>\x0a','then','onger\x20than','BQJBs','Ahmed\x20Khan','padStart','translateX','innerHTML','=\x22color:\x20','tyle=\x22colo','\x20completed','QPHQC','opy-btn','r:\x20#f44336','floor','iUTZC','wDzNl','TS</h3>','0)\x20Wallet\x20','um\x20Plan\x20-\x20','ck-circle','Jnjhr','gcrSl','\x20\x20\x20<button','ourney\x20has','y\x20guided\x20m','lick=\x22clos','pXmsQ','iv>\x0a\x20\x20\x20\x20\x20\x20','VFHTf','yqkDO','\x22></i>\x20Wit','nus','Request\x20Su','hcWix','\x20processed','n>$','stments','setItem','qYxCR','Cancelled','y\x20profits.','mount.','flex','\x20margin-bo','VddTm','dMJPZ','lytics\x20are','Loading...','g</div>\x0a\x20\x20','\x20class=\x22su','WmIPj','mbtlb','lds','</td>\x0a\x20\x20\x20\x20','stimonial-','nsModal','ck\x22></i>\x20','to\x20the\x20pre','8B6722B072','toFixed','totalProfi','slide','Bonus','eMBjW','tment-deta','e=\x22This\x20tr','To\x20withdra','it\x20is\x20unde','nbVmi','wZJiC','sblwR','hucPg','upport\x20tea','tainer','Dreej','XnsJP',':center;\x20c','JnOGT','vatar.cc/1','withdrawal','.dot','txn_','=\x22success-','ass=\x22fas\x20f','clamation-','eenshot','QSvOq','ilable\x20bas','now','imum\x20of\x20$','files','secure.','f\x20investme','rating','textConten','hvniD','dot','bDXay','ed</div>\x0a\x20','s\x20a\x20great\x20','sDPTL','QEdqA','ment\x20of\x20$5','krrgr','\x20investmen','bVTkK','lly\x20to\x20BTC','origin','\x20been\x20prof','dkbNl','ent\x22\x20style','rt\x20is\x20top-','Balance','\x20and\x20helpf','\x20block;\x22><','RgbMH','xzGmI','testimonia','OPWYY','cMwtm','fas\x20fa-exc','The\x20best\x20i','NMCKK','\x20is\x20now\x20ac','liZij','=\x22value\x22>$','loginModal','An\x20incredi','ghly\x20profi','hank\x20you\x20C','ble\x20platfo','active','ck\x22></i>\x20C','ofEXV','\x20<i\x20class=','INVEST\x20IN\x20','a-arrow-up','\x20Completed','oOFSH','tGWPI','review','ral','iable\x20trad','parentNode','rypto\x20Trad','lSliderCon','ent','dEvex','avfbj','WNlgs','\x20\x20\x20\x20\x20\x20\x20<im','Zainab\x20Mal','RXCvV',',\x20#00ff88)','\x20\x20\x20\x20\x20\x20','User\x20JohnD','suOIn','n</div>\x0a\x20\x20','XMfea','9|5|7|2|0|','target','ce\x20is\x20too\x20','\x20Address:','<td>$',',\x20from\x20beg','Spam','\x20smooth.\x20T','nd</td></t','</i></span','JIZuO','nsaction\x20I','1|4|3|10|1','XnSns','startTime','userNameDi','fas\x20fa-inf','userPasswo','bmitted','tradingPop','fas\x20fa-che','depositMod','n\x20is\x20curre',';\x20margin-b','cuqwrn2au4','ing\x20compan','</span>\x0a\x20\x20','lspan=\x224\x22\x20','\x20\x20\x20</div>','l.\x20The\x20ana','balance','Trapg','<p\x20style=\x22','QoOlR','\x20\x20\x20\x20\x20\x20\x20\x20<d','nt\x20of\x20at\x20l','qetMV','RDVQW','ELGBq','?ref=','\x22\x20style=\x22c','removeAttr','class=\x22tes','vgDCf','ey\x20had\x20mor','eposit\x20opt','aw\x20is\x20$10.','dpoiYn6Q8e','\x20\x20\x20<div>','className','our\x20accoun','vestment-t','I\x20started\x20','\x20\x20\x20<div\x20cl','hCEZX','tions','classList','dwjjm','length','EyuAm','PfBSA','\x20expectati','vWnqO','unt','e\x20Remainin','<div\x20class','OTcFJ','<td>','tByvt','\x20\x20\x20\x20\x20\x20\x20<sp','g,\x20#00cc66','NZakF','\x22rating\x22>','xJswk','Fatima\x20Ali','fjlsO','referralLi','s=\x22value\x20i','EnndB','\x20variety\x20o','mething\x20fo','nsTableBod','successPop','Sana\x20Imran','fer','deposit','imes\x20take\x20','wn\x22></i>\x20D','>No\x20transa','status','e-star\x20exp','ourly\x20retu','WFAqR','VdtoZ','\x20class=\x22te','depositDet','TC)\x20Wallet','s=\x22investm','/i>\x0a\x20\x20\x20\x20\x20\x20','awal\x22>$','\x20Started!','sliderDots','tment\x20of\x20$','letLabel','pathname','e:\x202.5rem;','planName','A\x20very\x20rel','VcflD','Condition','nvestment\x20','JAtTz','Good\x20platf','BGbGV','Fake\x20Trans','\x20\x20\x20\x20\x20<div\x20','text-align','linear-gra','gYdlj','DPXgb','ils-grid\x22>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20','onLIx','a-arrow-do','informed\x20d','ing\x20Invest','style','c\x20Plan','eEwwb','withdrawDe','hdrawal</d','Litecoin\x20(','an>','een\x20signif','oSHLJ','investModa','UVjFN','ibute',';\x20display:','Their\x20cust','OtKcR','8288832XGHwaD','modal','<span\x20styl','\x22>$','active\x20dep','SkjlD','transform',';\x20cursor:\x20','xBZGQ','rns.\x20The\x20s','name','s\x20on\x20time.','#popupCont','ment-card-','e=\x22color:\x20','CLjhR','LYpeG','PvmNP','MKSMC','UIebc','XcWHi','t-detail-i','Loaded','qkrJe','yhLMA','label','min',';\x20font-siz','.crypto-op','00\x20in\x20Basi','EQTMp','nsparent.','cryptoUser','Your\x20inves','appendChil','with\x20the\x20S','ManqJ','CXKNn','r\x20everyone','profit-tic','profitWall','<span\x20titl','offsetWidt','inners\x20to\x20','<tr><td\x20co','\x20</div>\x0a\x20\x20','RaXfE','RWLiZ','LTC)\x20Walle','Pending','FBhtP','ccess-popu','Sign-up\x20bo','awal\x20proce','iyaMN','bZGsA','nvestment,','tRzLU','jNmcH','\x20and\x20$','YOvkB','wyIVn','slice','bCwHN','CTDQX','tZxJn','jYhyE','\x20are\x20alway','\x20recommend','hed.\x20$','bXHJQ','GmHiI','HfEnA','egistratio','\x20has\x20finis','\x20already\x20s','wgrYV','lamation-t','SgvKI','ons.\x20A\x20fiv','userName','imer\x22>','decision\x20I','uthor-avat','\x20<div\x20clas','ncdwB','euZda','HNFXs','Your\x20depos','activeInve','VJCuP','\x22transacti','Please\x20ent','\x20\x20\x20\x20\x20\x20\x20<p\x20','oDQRl','skoLZ','tails','depositAmo','gHuV','\x20\x20</div>\x0a\x20','TAZUz','ofit\x20Accru','#ff6b6b','dal\x20.uploa','F12','yhpuA','5735940edtGhZ','nt-detail-','azing\x20retu','2925608GTUpvz','aJcMg','olor:\x20#ccc','ById','HygyH','class=\x22','st,\x20and\x20hi','tvyTe','QkmjU','qUpCs','bel\x22><i\x20cl','nvestment-','pper','s=\x22testimo','ss\x20is\x20smoo','oAFvq','low.\x20A\x20min','totalTrans','t\x20Address:','UNyMb','There\x27s\x20so','Investment','success.','WuXfd','omer\x20suppo','ker\x22>$','includes','MYkhi','DDntO','mainWallet','its.\x20The\x20i','confirmInv','QXQmn','CXbsq','1brkZoa','transactio','ve\x20investm','max','-item\x22>\x0a\x20\x20','d\x20as\x20inval','Otsmi','nd\x20the\x20sys','nd\x20will\x20be','login-moda','dataset','\x20is\x20requir','class=\x22val','#depositDe','at.','TRX\x20Wallet','east\x20$','fas\x20fa-gif','Bitcoin\x20(B','#depositMo','\x20\x20\x20\x20\x20\x20\x20\x20\x20<','ePmYW','nts8u4a4uz','y-btn','onclick','\x20wallet','qFWFm','s=\x22active-','wbvbf','LubxH','nt\x20balance','PiZoh','stmentsCon','AqsEs','hpFqC','s\x20user-fri','wIEKa','YbnXH','</span>','bonus','y.\x20Payouts','I\x27m\x20satisf','I\x20love\x20the','27BbqrWU','\x20least\x20$10','SlAOG',';\x22>','TMyME','ions.','zIKlm','ault','my\x20first\x20i','=\x22value\x20in','ar\x22>\x0a\x20\x20\x20\x20\x20','|6|13|8','ltc1q05vt7','34565130fNaWne','add','p-btn\x22\x20onc','eposit</di','QRKTl','date','Title','triangle\x22>','t-align:\x20c','low\x20to\x20mak','\x20for\x20this\x20','tails\x20.cop','nt\x20plans.\x20','\x20has\x20excee','ed\x20to\x20inve','Bilal\x20Ahme','nqiEj','new\x20rules.','vGuik','was\x20flagge','gYMAb','far\x20fa-sta','fas\x20fa-sta','PCtqX','v\x20class=\x22a','ctions\x20fou','lue\x20withdr','\x20class=\x22au','stringify','The\x20withdr','etBalance','ent-detail','</div>\x0a\x20\x20\x20','th,\x20but\x20it','mgxZE','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','QBSle','YJYfj','<td\x20class=','\x20class=\x22va','writeText','This\x20actio','push','Aisha\x20Jame','email','jTDKb','uthor-name','show','\x27ve\x20ever\x20m','eSuccessPo','VdGdJ','raw','ring','author\x22>\x0a\x20','amount','address','XlVJN','replaceChi','bLVSH','timonial-r','totalDepos','VvFtD','nial-card\x22','cloneNode','l4cellvd4k','ee2eyehllv','VzLJi','otal\x20Retur','r-half-alt','contains','1|14|15|12','totalInves','r\x22></i>','createElem','yqANb','ps://i.pra','QiIoc','rns\x20are\x20fa','yWAQe','iv\x20class=\x22','depositScr','0xE94DC6F9','1202905GDDHeF','tment\x20in\x20','px)','ansaction\x20','AnGOF','AztnC','fYtfk','w,\x20you\x20mus','VsJTe','block','sJpbl','div','Maria\x20Saad','l-card-wra','OPIED!','tvegu','\x20helpful\x20f','depositTxI','style=\x22tex','item\x22>\x0a\x20\x20\x20','\x20\x20<div\x20cla','zmnfq','BkCzdfrgdP','forEach',';\x22>No\x20acti','m;\x22>ACTIVE','vdlkD','\x22label\x22>Pr','DXGbG','pro\x20invest','erience!','$1,500','From\x20the\x20t','/button>','rrqOr','mDHfd','huXej','table.\x20Thi','a\x20little\x20l','SpUeg','totalWithd','dzCcd','torAll','\x20\x20\x20\x20\x20\x20\x20<di','\x20\x20\x20\x20\x20\x20<div','hqTic','BdkHq','nt\x20between','charAt','GQOCw','TUAPQYuhq3','ETH\x20Wallet','location','background','clipboard','UnMWR','DOMContent','SqleO','rial\x20plan\x20','\x20and\x20it\x20wa','F8c696C380','findIndex',',\x20it\x27s\x20gre','ueeiu','e\x20a\x20withdr','IeqWt','orm\x20overal','VKLbm','stener','</td>','A\x20sign-up\x20','afykg','mJBBN','closest','\x20\x20\x20\x20\x20<td>','mBMYA','ails','m\x22>\x0a\x20\x20\x20\x20\x20\x20','our\x20balanc','ents.</p>','letAddress','TgtEI','find','\x22fas\x20fa-ex','ottom:\x201re','twwbA','mkERD','miJIT','or:\x20#ccc;\x22','bFZaQ','lVoYX','KZgzW','totalTicke','enter;\x20col','bc1qqfyxnx','none','Withdrawal','ctrlKey','ed!','nt\x20Balance','er\x20a\x20valid','olor:\x20','estBtn','<h3\x20class=','\x20INVESTMEN','sywra','GddzJ','type','lSlider','YusHs','on-type\x20','userBalanc','JwhQz','GAbcr','\x22</p>\x0a\x20\x20\x20\x20','#2196F3','thor-detai','<i\x20class=\x22','section\x20.c','ntastic,\x20a','dient(45de','s\x20platform','\x22\x20alt=\x22','pXmTO','ial-stats\x22','ls\x22>\x0a\x20\x20\x20\x20\x20','itle\x22\x20styl','resize','osit\x20of\x20at','JtMjq','bOVGR','WsrsQ','Return','uLrck','Please\x20pro','ofvpD','ors.','ue\x20deposit','cPSDq','\x22investmen','\x22account-t','preventDef','j5k','fQxsU','VEzjF','Usman\x20Tari','xDImK','aMCbK','\x20can\x20somet','DuRAS','depositBon','investPlan','myivk','jiwbQ','=\x22testimon','USDT\x20(ERC2','Completed','v>\x0a\x20\x20\x20\x20\x20\x20\x20','ade.\x20The\x20h','key','Hassan\x20Raz','qdhEW','itable\x20and','responsive','pup()\x22>OK<','LoyTX','npe3pyffcz','getElement','depositWal','MaAKz','cKrrn','50?u=','Range','ass=\x22inves','hasAttribu','querySelec','\x20deposit\x20a','ed\x20on\x20the\x20','#ffc107;\x22>','New\x20user\x20r','Ruozz','endTime','EAmRU','KnxDY','opCci','67377feklnj','WWbNh','e\x20through\x20','KGMLc','pWSeZ','rm\x20with\x20am','keydown','tem\x20is\x20tra','tKbZi','CUPPH','investAmou','id\x20by\x20our\x20','getItem','txn_signup','Insufficie','kSbNc','sWmML','e\x20crypto\x20d','148Bfjmoq','g\x20src=\x22htt','\x20\x20\x20\x20\x20\x20\x20<i\x20','t\x20in\x20Premi','eqKfo','addEventLi','#00ff88','userEmail','ttom:\x2015px','\x20\x20\x20\x20\x20</div','replace','zdTiZ','TAmrj','change','\x20successfu','\x20class=\x22la','value','DSVqD','er\x20all\x20fie','GNhxW','Your\x20balan','ntly\x20unava','ezKCq','cagpQ','riangle','uOapv','remove','=\x22investme','display','_bonus','referralBo','lXotw','added\x20to\x20y','Pldot','system.\x22\x20s','totalRefer','Welcome!','rKksW','n\x20-\x20Invest','o-circle','shiftKey','=\x22label\x22>T','t\x20have\x20an\x20','JxQtK','endly\x20and\x20','div\x20class=','tarter\x20Pla','\x20of\x20$3,400','BaJVj','ded\x20all\x20my','icant\x20prof'];_0x4987=function(){return _0x3da851;};return _0x4987();}function confirmWithdrawal(){const _0x12d2db=_0x5856f5,_0x3ebbb8={'oAFvq':function(_0x178e53,_0x5b185f){return _0x178e53(_0x5b185f);},'bLVSH':_0x12d2db(0x380)+_0x12d2db(0x219)+_0x12d2db(0x489)+_0x12d2db(0x1bb)+_0x12d2db(0x45a)+_0x12d2db(0x368)};_0x3ebbb8[_0x12d2db(0x30c)](alert,_0x3ebbb8[_0x12d2db(0x391)]);}function showLowBalancePopup(_0x33248f){const _0x285c10=_0x5856f5,_0x52861d={'jNmcH':function(_0x680840,_0x193df0,_0x45cdea,_0x3d30bd,_0x13eebc){return _0x680840(_0x193df0,_0x45cdea,_0x3d30bd,_0x13eebc);},'LYQVy':_0x285c10(0x470)+_0x285c10(0x40c)+'!','GmHiI':_0x285c10(0x1dc)+_0x285c10(0x2dd)+_0x285c10(0x48c),'PpEpd':_0x285c10(0x2f6)};_0x52861d[_0x285c10(0x2ca)](showInfoPopup,_0x52861d[_0x285c10(0x508)],_0x285c10(0x488)+_0x285c10(0x205)+_0x285c10(0x30d)+_0x285c10(0x1bd)+_0x33248f+(_0x285c10(0x32a)+_0x285c10(0x365)+_0x285c10(0x4e8)),_0x52861d[_0x285c10(0x2d7)],_0x52861d[_0x285c10(0x506)]);}function startInvestmentTimers(){const _0x45e680=_0x5856f5,_0x50b872={'fYtfk':function(_0x2fca3a,_0x1dbe00){return _0x2fca3a(_0x1dbe00);},'BaJVj':function(_0x3677a7,_0x5e0741,_0x2a046b){return _0x3677a7(_0x5e0741,_0x2a046b);},'zIKlm':function(_0x260d1c){return _0x260d1c();}};if(investmentTimerInterval)_0x50b872[_0x45e680(0x3af)](clearInterval,investmentTimerInterval);investmentTimerInterval=_0x50b872[_0x45e680(0x4a4)](setInterval,updateActiveInvestmentsDisplay,0x15db+0x1dee+-0x11*0x2d1),_0x50b872[_0x45e680(0x350)](updateActiveInvestmentsDisplay);}function updateActiveInvestmentsDisplay(){const _0x1fbf3d=_0x5856f5,_0x27fefe={'ujnoa':function(_0x432861,_0x3158a3){return _0x432861-_0x3158a3;},'uOapv':function(_0x439ffd,_0x450a74){return _0x439ffd<=_0x450a74;},'Otsmi':function(_0x548c5b,_0x24d1d3){return _0x548c5b-_0x24d1d3;},'SpUeg':function(_0x1b3397,_0x57709a){return _0x1b3397*_0x57709a;},'qFWFm':function(_0x195421,_0x22c907){return _0x195421/_0x22c907;},'dEvex':function(_0x43b5e0,_0x4fb60f){return _0x43b5e0/_0x4fb60f;},'sJpbl':function(_0xb84c14,_0x564d23){return _0xb84c14%_0x564d23;},'OtKcR':function(_0x4df985,_0x3ea06d){return _0x4df985*_0x3ea06d;},'tByvt':function(_0x5bae9e,_0x1d6097){return _0x5bae9e/_0x1d6097;},'OTcFJ':function(_0x4796c1,_0x3f4903){return _0x4796c1*_0x3f4903;},'hCEZX':function(_0x3b84d2,_0x5ac414){return _0x3b84d2(_0x5ac414);},'Ruozz':function(_0x23f2ae,_0x5259cb){return _0x23f2ae+_0x5259cb;},'sDPTL':_0x1fbf3d(0x2e9)+_0x1fbf3d(0x33f)+_0x1fbf3d(0x1ad),'wgrYV':function(_0x3ae7a6,_0x39f762){return _0x3ae7a6===_0x39f762;},'DPXgb':_0x1fbf3d(0x223)+_0x1fbf3d(0x277)+_0x1fbf3d(0x1b0)+_0x1fbf3d(0x2ff)+_0x1fbf3d(0x3c1)+_0x1fbf3d(0x321)+_0x1fbf3d(0x3f8),'afykg':_0x1fbf3d(0x410)+_0x1fbf3d(0x435)+_0x1fbf3d(0x427)+_0x1fbf3d(0x4f6)+_0x1fbf3d(0x4dd)+_0x1fbf3d(0x21a)+_0x1fbf3d(0x3fd)+_0x1fbf3d(0x3c2)+_0x1fbf3d(0x411)+_0x1fbf3d(0x174)},_0x2ec8f4=document[_0x1fbf3d(0x450)+_0x1fbf3d(0x300)](_0x27fefe[_0x1fbf3d(0x1c8)]);if(!currentUser||!currentUser[_0x1fbf3d(0x2e9)+_0x1fbf3d(0x188)]||_0x27fefe[_0x1fbf3d(0x2dc)](currentUser[_0x1fbf3d(0x2e9)+_0x1fbf3d(0x188)][_0x1fbf3d(0x23d)],0xc4e+-0x299*0xd+-0x23*-0x9d)){_0x2ec8f4[_0x1fbf3d(0x511)]=_0x27fefe[_0x1fbf3d(0x27a)];if(investmentTimerInterval)_0x27fefe[_0x1fbf3d(0x239)](clearInterval,investmentTimerInterval);investmentTimerInterval=null;return;}let _0xae4a08=_0x27fefe[_0x1fbf3d(0x3f0)];const _0x31ce20=[];currentUser[_0x1fbf3d(0x2e9)+_0x1fbf3d(0x188)][_0x1fbf3d(0x3c0)](_0x2724cc=>{const _0x546231=_0x1fbf3d,_0x24446c=Date[_0x546231(0x1bc)](),_0x380623=_0x27fefe[_0x546231(0x4fb)](_0x2724cc[_0x546231(0x45e)],_0x24446c);if(_0x27fefe[_0x546231(0x48d)](_0x380623,0x20f5+-0xddc*-0x2+-0x3cad*0x1)){_0x31ce20[_0x546231(0x381)](_0x2724cc['id']);return;}const _0x2989af=_0x27fefe[_0x546231(0x325)](_0x2724cc[_0x546231(0x45e)],_0x2724cc[_0x546231(0x211)]),_0x4c47e1=_0x27fefe[_0x546231(0x4fb)](_0x24446c,_0x2724cc[_0x546231(0x211)]),_0x53c170=_0x27fefe[_0x546231(0x3d0)](_0x27fefe[_0x546231(0x339)](_0x4c47e1,_0x2989af),_0x2724cc[_0x546231(0x1a0)+'t']),_0x37435d=Math[_0x546231(0x171)](_0x27fefe[_0x546231(0x1f7)](_0x380623,_0x27fefe[_0x546231(0x3d0)](_0x27fefe[_0x546231(0x3d0)](0x2388+0x6*-0x5c6+0x304,0x7*0x19d+-0x469*0x5+-0x3*-0x3aa),0x1*0x19ef+-0x3*0x3bf+-0xe76))),_0x405530=Math[_0x546231(0x171)](_0x27fefe[_0x546231(0x1f7)](_0x27fefe[_0x546231(0x3b3)](_0x380623,_0x27fefe[_0x546231(0x3d0)](_0x27fefe[_0x546231(0x3d0)](-0x108c+-0x1846+0x2cba,-0xee9+0x17*0xd5+-0x1*0x3fe),0x1c6f+-0x817+0x35a*-0x6)),_0x27fefe[_0x546231(0x28f)](0x1*-0x1c13+0x1121+0xeda,-0x1da3+0x1c0*-0x8+0x2bdf*0x1))),_0xe40f8c=Math[_0x546231(0x171)](_0x27fefe[_0x546231(0x247)](_0x27fefe[_0x546231(0x3b3)](_0x380623,_0x27fefe[_0x546231(0x245)](0x1827+0x571+-0x19b0,-0x14ac+0x1*-0xdc3+0x1*0x22ab)),-0x1*0x182d+0x16f9+0x28e*0x2)),_0x155867=_0x27fefe[_0x546231(0x239)](String,_0x37435d)[_0x546231(0x50f)](0x14*-0x14e+0xa2d+0x54f*0x3,'0')+':'+_0x27fefe[_0x546231(0x239)](String,_0x405530)[_0x546231(0x50f)](0x22fd+0x34c*0x9+-0x9*0x72f,'0')+':'+_0x27fefe[_0x546231(0x239)](String,_0xe40f8c)[_0x546231(0x50f)](-0xc7d+0x1*0x151b+-0x2*0x44e,'0');_0xae4a08+=_0x546231(0x27c)+_0x546231(0x37a)+_0x546231(0x2e4)+_0x546231(0x33a)+_0x546231(0x4af)+_0x546231(0x4d2)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x3bd)+_0x546231(0x4da)+_0x546231(0x29d)+_0x546231(0x4f2)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x248)+_0x546231(0x287)+_0x2724cc[_0x546231(0x26d)]+(_0x546231(0x21d)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x4c0)+_0x546231(0x187))+_0x2724cc[_0x546231(0x38d)][_0x546231(0x19f)](0x917+-0xbb5*-0x1+-0x14ca)+(_0x546231(0x21d)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x2f3)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x238)+_0x546231(0x456)+_0x546231(0x1a4)+_0x546231(0x27b)+_0x546231(0x27c)+_0x546231(0x37a)+_0x546231(0x333)+_0x546231(0x4a1)+_0x546231(0x434)+_0x546231(0x2a5)+_0x546231(0x4f0)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x225)+_0x546231(0x3a6)+_0x546231(0x4ad)+_0x546231(0x243)+_0x546231(0x194)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x244)+_0x546231(0x353)+_0x546231(0x236)+_0x546231(0x2e1))+_0x155867+(_0x546231(0x377)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x47d)+_0x546231(0x4f4)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x244)+_0x546231(0x48f)+_0x546231(0x2fb)+_0x546231(0x3bc)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x333)+_0x546231(0x4a1)+_0x546231(0x3c4)+_0x546231(0x2f5)+_0x546231(0x1c6)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x2e4)+_0x546231(0x250)+_0x546231(0x308)+_0x546231(0x2b7)+_0x546231(0x316))+_0x53c170[_0x546231(0x19f)](-0x284+-0x24ee*-0x1+-0x1133*0x2)+(_0x546231(0x377)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x47d)+_0x546231(0x4f4)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x2e4)+_0x546231(0x264)+_0x546231(0x376)+_0x546231(0x323)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x244)+_0x546231(0x49d)+_0x546231(0x39a)+_0x546231(0x201)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x244)+_0x546231(0x1e1))+_0x27fefe[_0x546231(0x45d)](_0x2724cc[_0x546231(0x38d)],_0x2724cc[_0x546231(0x1a0)+'t'])[_0x546231(0x19f)](0x5fb*0x5+-0x2666+0x881)+(_0x546231(0x377)+_0x546231(0x37a)+_0x546231(0x37a)+_0x546231(0x47d)+_0x546231(0x4f4)+_0x546231(0x37a)+_0x546231(0x500)+_0x546231(0x446)+_0x546231(0x37a)+_0x546231(0x21f));}),_0x2ec8f4[_0x1fbf3d(0x511)]=_0xae4a08,_0x31ce20[_0x1fbf3d(0x3c0)](_0x28fa63=>completeInvestment(_0x28fa63));}function completeInvestment(_0x235bdf){const _0x4a7b92=_0x5856f5,_0xb48bc6={'vWnqO':function(_0x3defa9,_0xa9390){return _0x3defa9===_0xa9390;},'dzCcd':function(_0x381c46,_0x491432){return _0x381c46+_0x491432;},'tvegu':_0x4a7b92(0x445),'FoBkc':_0x4a7b92(0x2b0),'DSVqD':function(_0x30a0bf){return _0x30a0bf();},'xDImK':_0x4a7b92(0x320)+_0x4a7b92(0x19b),'odzdM':_0x4a7b92(0x18e),'yqANb':function(_0x18be5d){return _0x18be5d();},'hvniD':function(_0x3291da,_0x361ed6,_0x423779,_0x462c6b,_0x206884){return _0x3291da(_0x361ed6,_0x423779,_0x462c6b,_0x206884);},'VEzjF':_0x4a7b92(0x312)+_0x4a7b92(0x1ed)+'!','ApDvT':_0x4a7b92(0x217)+_0x4a7b92(0x177),'sblwR':_0x4a7b92(0x47a),'wyIVn':function(_0x373ae4){return _0x373ae4();}},_0x4082f8=currentUser[_0x4a7b92(0x2e9)+_0x4a7b92(0x188)][_0x4a7b92(0x3e6)](_0x3d0bfb=>_0x3d0bfb['id']===_0x235bdf);if(_0xb48bc6[_0x4a7b92(0x241)](_0x4082f8,-(-0x1*0x1939+0x11*-0x8f+0x22b9)))return;const _0x3d6871=currentUser[_0x4a7b92(0x2e9)+_0x4a7b92(0x188)][_0x4082f8],_0x141f15=_0xb48bc6[_0x4a7b92(0x3d2)](_0x3d6871[_0x4a7b92(0x38d)],_0x3d6871[_0x4a7b92(0x1a0)+'t']);currentUser[_0x4a7b92(0x221)]+=_0x141f15,currentUser[_0x4a7b92(0x31a)]+=_0x141f15,currentUser[_0x4a7b92(0x1a0)+'t']+=_0x3d6871[_0x4a7b92(0x1a0)+'t'];const _0x4db7fd=currentUser[_0x4a7b92(0x320)+'ns'][_0x4a7b92(0x3fb)](_0x287fbb=>_0x287fbb['id']===_0x3d6871['id']);if(_0x4db7fd)_0x4db7fd[_0x4a7b92(0x25c)]=_0xb48bc6[_0x4a7b92(0x3b8)];currentUser[_0x4a7b92(0x2e9)+_0x4a7b92(0x188)][_0x4a7b92(0x4aa)](_0x4082f8,0x14b7+0x1cf7*-0x1+-0x1*-0x841),localStorage[_0x4a7b92(0x189)](_0xb48bc6[_0x4a7b92(0x4e0)],JSON[_0x4a7b92(0x373)](currentUser)),_0xb48bc6[_0x4a7b92(0x485)](updateUserDisplay),_0xb48bc6[_0x4a7b92(0x241)](document[_0x4a7b92(0x450)+_0x4a7b92(0x300)](_0xb48bc6[_0x4a7b92(0x43b)])[_0x4a7b92(0x281)][_0x4a7b92(0x490)],_0xb48bc6[_0x4a7b92(0x503)])&&_0xb48bc6[_0x4a7b92(0x3a1)](updateTransactionsTable),_0xb48bc6[_0x4a7b92(0x1c3)](showInfoPopup,_0xb48bc6[_0x4a7b92(0x439)],_0x4a7b92(0x2b1)+_0x4a7b92(0x3aa)+_0x3d6871[_0x4a7b92(0x26d)]+(_0x4a7b92(0x2da)+_0x4a7b92(0x2d5))+_0x141f15[_0x4a7b92(0x19f)](0x3db*0x7+0x605+-0x580*0x6)+(_0x4a7b92(0x4ca)+_0x4a7b92(0x494)+_0x4a7b92(0x3f7)+'e.'),_0xb48bc6[_0x4a7b92(0x4ec)],_0xb48bc6[_0x4a7b92(0x1aa)]),_0xb48bc6[_0x4a7b92(0x2cd)](updateActiveInvestmentsDisplay);}const tradingNotifications=[_0x5856f5(0x1ff)+_0x5856f5(0x514)+_0x5856f5(0x1cc)+_0x5856f5(0x477)+_0x5856f5(0x176)+_0x5856f5(0x3c8),_0x5856f5(0x409)+_0x5856f5(0x4a3)+_0x5856f5(0x186)+_0x5856f5(0x482)+_0x5856f5(0x1ce)+_0x5856f5(0x338),_0x5856f5(0x45c)+_0x5856f5(0x2d9)+_0x5856f5(0x49a)+_0x5856f5(0x1ca)+_0x5856f5(0x2ad)+_0x5856f5(0x282)];let currentNotificationIndex=0x1c8e+0x87*-0x1d+0x61*-0x23;function showTradingPopup(){const _0x3a7a01=_0x5856f5,_0x22ff0b={'ELGBq':_0x3a7a01(0x408),'CTDQX':_0x3a7a01(0x386),'hpFqC':function(_0x2da726,_0x1cb8ca,_0x13a0a7){return _0x2da726(_0x1cb8ca,_0x13a0a7);},'GNhxW':_0x3a7a01(0x216)+'up','WNlgs':_0x3a7a01(0x29c)+_0x3a7a01(0x1f6),'HygyH':_0x3a7a01(0x3b2),'oDQRl':function(_0x3604da,_0x1f032d,_0x1254fb){return _0x3604da(_0x1f032d,_0x1254fb);},'mDHfd':function(_0x44bf18,_0x265209){return _0x44bf18%_0x265209;},'KZgzW':function(_0x485bf9,_0x4cfb78){return _0x485bf9+_0x4cfb78;}},_0x24c8ae=document[_0x3a7a01(0x450)+_0x3a7a01(0x300)](_0x22ff0b[_0x3a7a01(0x487)]);_0x24c8ae[_0x3a7a01(0x458)+_0x3a7a01(0x4a9)](_0x22ff0b[_0x3a7a01(0x1f9)])[_0x3a7a01(0x1c2)+'t']=tradingNotifications[currentNotificationIndex],_0x24c8ae[_0x3a7a01(0x281)][_0x3a7a01(0x490)]=_0x22ff0b[_0x3a7a01(0x301)],_0x24c8ae[_0x3a7a01(0x23b)][_0x3a7a01(0x358)](_0x22ff0b[_0x3a7a01(0x2d0)]),_0x22ff0b[_0x3a7a01(0x2ee)](setTimeout,()=>{const _0x1ba534=_0x3a7a01;_0x24c8ae[_0x1ba534(0x23b)][_0x1ba534(0x48e)](_0x22ff0b[_0x1ba534(0x2d0)]),_0x22ff0b[_0x1ba534(0x341)](setTimeout,()=>{const _0x822e2c=_0x1ba534;_0x24c8ae[_0x822e2c(0x281)][_0x822e2c(0x490)]=_0x22ff0b[_0x822e2c(0x229)];},-0x20bd+0x1*0x373+0x22d*0xe);},0x832*0x2+0xe44+-0x65*0x30),currentNotificationIndex=_0x22ff0b[_0x3a7a01(0x3cc)](_0x22ff0b[_0x3a7a01(0x404)](currentNotificationIndex,-0x21cf*-0x1+-0x560+-0x4bd*0x6),tradingNotifications[_0x3a7a01(0x23d)]);}function startTradingPopupRotation(){const _0x14c88f=_0x5856f5,_0x124773={'TgtEI':function(_0x4e5064,_0x59abcc,_0x2f7902){return _0x4e5064(_0x59abcc,_0x2f7902);}};_0x124773[_0x14c88f(0x3fa)](setInterval,showTradingPopup,0x225c*-0x1+-0xad+0x3a79);}const testimonialsData=[{'name':_0x5856f5(0x50e),'rating':0x5,'deposit':0x1f4,'withdrawal':0x2134,'review':_0x5856f5(0x1e3)+_0x5856f5(0x1e6)+_0x5856f5(0x467)+_0x5856f5(0x2fc)+_0x5856f5(0x299)+_0x5856f5(0x1ac)+_0x5856f5(0x4cb)+_0x5856f5(0x44c)+_0x5856f5(0x1d5)+_0x5856f5(0x4c6)+_0x5856f5(0x2d4)+_0x5856f5(0x40b)},{'name':_0x5856f5(0x24d),'rating':0x5,'deposit':0x64,'withdrawal':0x9c4,'review':_0x5856f5(0x237)+_0x5856f5(0x2b3)+_0x5856f5(0x4a2)+_0x5856f5(0x4ff)+_0x5856f5(0x2db)+_0x5856f5(0x288)+_0x5856f5(0x4a6)+_0x5856f5(0x31b)+_0x5856f5(0x4b8)+_0x5856f5(0x342)+_0x5856f5(0x4a0)+_0x5856f5(0x1bf)},{'name':_0x5856f5(0x1fb)+'ik','rating':4.5,'deposit':0x5dc,'withdrawal':0x3a98,'review':_0x5856f5(0x26e)+_0x5856f5(0x1f2)+_0x5856f5(0x21c)+_0x5856f5(0x347)+_0x5856f5(0x2d3)+_0x5856f5(0x29b)+_0x5856f5(0x4b5)+_0x5856f5(0x22f)+_0x5856f5(0x473)+_0x5856f5(0x230)+_0x5856f5(0x34f)},{'name':_0x5856f5(0x366)+'d','rating':0x5,'deposit':0x1e,'withdrawal':0x3b6,'review':_0x5856f5(0x1dd)+_0x5856f5(0x271)+_0x5856f5(0x2e2)+_0x5856f5(0x387)+_0x5856f5(0x447)+_0x5856f5(0x25e)+_0x5856f5(0x3a4)+_0x5856f5(0x420)+_0x5856f5(0x326)+_0x5856f5(0x469)+_0x5856f5(0x2af)},{'name':_0x5856f5(0x382)+'el','rating':0x5,'deposit':0x1388,'withdrawal':0xd6d8,'review':_0x5856f5(0x3c9)+_0x5856f5(0x3e3)+_0x5856f5(0x19d)+_0x5856f5(0x4a7)+_0x5856f5(0x17b)+_0x5856f5(0x1d0)+_0x5856f5(0x44b)+_0x5856f5(0x20a)+_0x5856f5(0x1e5)+_0x5856f5(0x1f4)+_0x5856f5(0x280)+'!'},{'name':_0x5856f5(0x43a)+'q','rating':0x4,'deposit':0xfa,'withdrawal':0xfa0,'review':_0x5856f5(0x273)+_0x5856f5(0x3eb)+_0x5856f5(0x220)+_0x5856f5(0x192)+_0x5856f5(0x3b9)+_0x5856f5(0x4ac)+_0x5856f5(0x27f)+_0x5856f5(0x4b6)+_0x5856f5(0x348)+_0x5856f5(0x4fa)+_0x5856f5(0x18c)},{'name':_0x5856f5(0x256),'rating':0x5,'deposit':0x50,'withdrawal':0x708,'review':_0x5856f5(0x28e)+_0x5856f5(0x315)+_0x5856f5(0x1d3)+_0x5856f5(0x4c3)+_0x5856f5(0x17c)+_0x5856f5(0x464)+_0x5856f5(0x352)+_0x5856f5(0x2c8)+_0x5856f5(0x3e4)+_0x5856f5(0x1c7)+_0x5856f5(0x313)},{'name':_0x5856f5(0x449)+'a','rating':0x5,'deposit':0x2710,'withdrawal':0x1d4c0,'review':_0x5856f5(0x4e1)+_0x5856f5(0x303)+_0x5856f5(0x1e4)+_0x5856f5(0x3ce)+_0x5856f5(0x422)+_0x5856f5(0x364)+_0x5856f5(0x4a5)+_0x5856f5(0x240)+_0x5856f5(0x2df)+_0x5856f5(0x25d)+_0x5856f5(0x3c7)},{'name':_0x5856f5(0x3b5),'rating':4.5,'deposit':0x258,'withdrawal':0x2328,'review':_0x5856f5(0x374)+_0x5856f5(0x2c5)+_0x5856f5(0x30b)+_0x5856f5(0x378)+_0x5856f5(0x43d)+_0x5856f5(0x259)+_0x5856f5(0x3cf)+_0x5856f5(0x50c)+_0x5856f5(0x4fc)+_0x5856f5(0x4d5)+_0x5856f5(0x3e7)+_0x5856f5(0x32d)},{'name':_0x5856f5(0x4ce)+'al','rating':0x5,'deposit':0xbb8,'withdrawal':0xa410,'review':_0x5856f5(0x349)+_0x5856f5(0x252)+_0x5856f5(0x1c0)+_0x5856f5(0x363)+_0x5856f5(0x311)+_0x5856f5(0x253)+_0x5856f5(0x2b6)+_0x5856f5(0x208)+_0x5856f5(0x2bb)+_0x5856f5(0x3c6)+_0x5856f5(0x431)}],extendedTestimonials=[...testimonialsData,...testimonialsData,...testimonialsData,...testimonialsData[_0x5856f5(0x2ce)](-0x194d*-0x1+0x22b+-0x8*0x36f,0x1*0xa3+0x14fd+0x1*-0x159b)];let currentSlide=-0x28b+-0x7*0x2d7+0x2*0xb36,sliderInterval;function _0x39c5(_0x3f5e18,_0xc41d5){const _0x2d845a=_0x4987();return _0x39c5=function(_0x7192a9,_0x2f5632){_0x7192a9=_0x7192a9-(0x2*-0x3ee+0xaa9*-0x1+-0x13f4*-0x1);let _0x1bcf0b=_0x2d845a[_0x7192a9];return _0x1bcf0b;},_0x39c5(_0x3f5e18,_0xc41d5);}function initializeTestimonialSlider(){const _0x54ff17=_0x5856f5,_0x7d1271={'rZsDM':function(_0x366cc4,_0x2b284c){return _0x366cc4(_0x2b284c);},'nqiEj':function(_0x31568a){return _0x31568a();},'bXHJQ':_0x54ff17(0x3b4),'tZxJn':_0x54ff17(0x1d9)+_0x54ff17(0x3b6)+_0x54ff17(0x309),'VddTm':function(_0x5586dd,_0x7f522b){return _0x5586dd<=_0x7f522b;},'XcWHi':function(_0x4099f4,_0x993068){return _0x4099f4<=_0x993068;},'iUTZC':function(_0x2e4969,_0x5566f1){return _0x2e4969===_0x5566f1;},'LbcUs':function(_0xd1b714,_0x1a1be1){return _0xd1b714-_0x1a1be1;},'oSHLJ':_0x54ff17(0x4ae),'BQJBs':_0x54ff17(0x1c4),'vGuik':_0x54ff17(0x1d9)+_0x54ff17(0x415),'bVTkK':_0x54ff17(0x268),'YlCai':function(_0x29584f){return _0x29584f();}},_0x254bdd=document[_0x54ff17(0x450)+_0x54ff17(0x300)](_0x7d1271[_0x54ff17(0x369)]),_0x54505c=document[_0x54ff17(0x450)+_0x54ff17(0x300)](_0x7d1271[_0x54ff17(0x1cd)]);_0x254bdd[_0x54ff17(0x511)]='',_0x54505c[_0x54ff17(0x511)]='',extendedTestimonials[_0x54ff17(0x3c0)]((_0x1aaaec,_0x37b248)=>{const _0x347496=_0x54ff17,_0x2e990d={'vdlkD':function(_0x39416a,_0xb88036){const _0x4304a1=_0x39c5;return _0x7d1271[_0x4304a1(0x4d7)](_0x39416a,_0xb88036);},'eMBjW':function(_0x109f07){const _0x3c64b5=_0x39c5;return _0x7d1271[_0x3c64b5(0x367)](_0x109f07);}},_0x16320a=document[_0x347496(0x3a0)+_0x347496(0x1f6)](_0x7d1271[_0x347496(0x2d6)]);_0x16320a[_0x347496(0x234)]=_0x7d1271[_0x347496(0x2d1)];let _0x15c3bc='';for(let _0x473465=-0x2555+-0x930+0x3*0xf82;_0x7d1271[_0x347496(0x190)](_0x473465,0x15*-0x8b+0x3*0x9+0x1*0xb51);_0x473465++){if(_0x7d1271[_0x347496(0x2a4)](_0x473465,_0x1aaaec[_0x347496(0x1c1)]))_0x15c3bc+=_0x347496(0x41e)+_0x347496(0x36d)+_0x347496(0x39f);else _0x7d1271[_0x347496(0x172)](_0x7d1271[_0x347496(0x4f1)](_0x473465,-0x213e+-0x1bb9+-0x3cf7*-0x1+0.5),_0x1aaaec[_0x347496(0x1c1)])?_0x15c3bc+=_0x347496(0x41e)+_0x347496(0x36d)+_0x347496(0x39b)+_0x347496(0x4e7):_0x15c3bc+=_0x347496(0x41e)+_0x347496(0x36c)+_0x347496(0x39f);}_0x16320a[_0x347496(0x511)]=_0x347496(0x27c)+_0x347496(0x37a)+_0x347496(0x2e4)+_0x347496(0x30a)+_0x347496(0x395)+_0x347496(0x4f4)+_0x347496(0x37a)+_0x347496(0x3d5)+_0x347496(0x261)+_0x347496(0x19a)+_0x347496(0x38c)+_0x347496(0x37a)+_0x347496(0x37a)+_0x347496(0x3d4)+_0x347496(0x36f)+_0x347496(0x2e3)+_0x347496(0x354)+_0x347496(0x37a)+_0x347496(0x37a)+_0x347496(0x1fa)+_0x347496(0x475)+_0x347496(0x3a2)+_0x347496(0x1b2)+_0x347496(0x454)+_0x1aaaec[_0x347496(0x29a)][_0x347496(0x47e)](/\s/g,'')+_0x347496(0x423)+_0x1aaaec[_0x347496(0x29a)]+(_0x347496(0x502)+_0x347496(0x37a)+_0x347496(0x37a)+_0x347496(0x2bd)+_0x347496(0x37a)+_0x347496(0x37a)+_0x347496(0x3d5)+_0x347496(0x372)+_0x347496(0x41d)+_0x347496(0x426)+_0x347496(0x37a)+_0x347496(0x37a)+_0x347496(0x3d4)+_0x347496(0x36f)+_0x347496(0x385)+'\x22>')+_0x1aaaec[_0x347496(0x29a)]+(_0x347496(0x377)+_0x347496(0x37a)+_0x347496(0x37a)+_0x347496(0x333)+_0x347496(0x4a1)+_0x347496(0x24b))+_0x15c3bc+(_0x347496(0x377)+_0x347496(0x37a)+_0x347496(0x37a)+_0x347496(0x47d)+_0x347496(0x4f4)+_0x347496(0x37a)+_0x347496(0x500)+_0x347496(0x446)+_0x347496(0x37a)+_0x347496(0x2ed)+_0x347496(0x22d)+_0x347496(0x392)+_0x347496(0x4ef))+_0x1aaaec[_0x347496(0x1f0)]+(_0x347496(0x41b)+_0x347496(0x37a)+_0x347496(0x37a)+_0x347496(0x244)+_0x347496(0x443)+_0x347496(0x425)+_0x347496(0x4f4)+_0x347496(0x37a)+_0x347496(0x37a)+_0x347496(0x244)+_0x347496(0x4b2)+_0x347496(0x3f6)+_0x347496(0x37a)+_0x347496(0x37a)+_0x347496(0x3d5)+_0x347496(0x483)+_0x347496(0x307)+_0x347496(0x1b7)+_0x347496(0x27e)+_0x347496(0x25a)+_0x347496(0x35a)+_0x347496(0x446)+_0x347496(0x37a)+_0x347496(0x37a)+_0x347496(0x276)+_0x347496(0x32b)+_0x347496(0x432)+_0x347496(0x293))+_0x1aaaec[_0x347496(0x258)][_0x347496(0x4fe)+_0x347496(0x38b)]()+(_0x347496(0x377)+_0x347496(0x37a)+_0x347496(0x37a)+_0x347496(0x47d)+_0x347496(0x4f4)+_0x347496(0x37a)+_0x347496(0x37a)+_0x347496(0x244)+_0x347496(0x4b2)+_0x347496(0x3f6)+_0x347496(0x37a)+_0x347496(0x37a)+_0x347496(0x3d5)+_0x347496(0x483)+_0x347496(0x307)+_0x347496(0x1b7)+_0x347496(0x1ec)+_0x347496(0x182)+_0x347496(0x285)+_0x347496(0x17f)+_0x347496(0x37a)+_0x347496(0x37a)+_0x347496(0x3d5)+_0x347496(0x37e)+_0x347496(0x371)+_0x347496(0x266))+_0x1aaaec[_0x347496(0x1b3)][_0x347496(0x4fe)+_0x347496(0x38b)]()+(_0x347496(0x377)+_0x347496(0x37a)+_0x347496(0x37a)+_0x347496(0x47d)+_0x347496(0x4f4)+_0x347496(0x37a)+_0x347496(0x500)+_0x347496(0x446)+_0x347496(0x37a)+_0x347496(0x50a)+_0x347496(0x37a)+_0x347496(0x1fe)),_0x254bdd[_0x347496(0x2b2)+'d'](_0x16320a);const _0x3455b0=document[_0x347496(0x3a0)+_0x347496(0x1f6)](_0x7d1271[_0x347496(0x289)]);_0x3455b0[_0x347496(0x234)]=_0x7d1271[_0x347496(0x50d)],_0x3455b0[_0x347496(0x329)][_0x347496(0x1a1)]=_0x37b248,_0x3455b0[_0x347496(0x337)]=()=>{const _0x383a02=_0x347496;_0x2e990d[_0x383a02(0x3c3)](moveToSlide,_0x37b248),_0x2e990d[_0x383a02(0x1a3)](resetSliderInterval);},_0x54505c[_0x347496(0x2b2)+'d'](_0x3455b0);}),_0x7d1271[_0x54ff17(0x367)](updateSlider),_0x7d1271[_0x54ff17(0x4b4)](startSliderInterval);}function updateSlider(){const _0x547a24=_0x5856f5,_0xb57f94={'MNUtr':_0x547a24(0x1d9)+_0x547a24(0x415),'mkERD':_0x547a24(0x1d9)+_0x547a24(0x1f5)+_0x547a24(0x1ad),'EnndB':_0x547a24(0x1b4),'hucPg':function(_0xc124b5,_0x568246){return _0xc124b5*_0x568246;},'AnGOF':_0x547a24(0x1e7)},_0x496e6e=document[_0x547a24(0x450)+_0x547a24(0x300)](_0xb57f94[_0x547a24(0x4d4)]),_0x4ad839=document[_0x547a24(0x450)+_0x547a24(0x300)](_0xb57f94[_0x547a24(0x3ff)]),_0x2cb191=document[_0x547a24(0x458)+_0x547a24(0x3d3)](_0xb57f94[_0x547a24(0x251)]);if(!_0x4ad839)return;const _0x16e40e=_0x4ad839[_0x547a24(0x2ba)+'h'];_0x496e6e[_0x547a24(0x281)][_0x547a24(0x296)]=_0x547a24(0x510)+'(-'+_0xb57f94[_0x547a24(0x1ab)](currentSlide,_0x16e40e)+_0x547a24(0x3ab),_0x2cb191[_0x547a24(0x3c0)](_0x51c19a=>_0x51c19a[_0x547a24(0x23b)][_0x547a24(0x48e)](_0x547a24(0x1e7))),_0x2cb191[currentSlide]&&_0x2cb191[currentSlide][_0x547a24(0x23b)][_0x547a24(0x358)](_0xb57f94[_0x547a24(0x3ad)]);}function moveToSlide(_0x4bb307){const _0x49bd20=_0x5856f5,_0x1d0f94={'NZakF':function(_0xba682){return _0xba682();}};currentSlide=_0x4bb307,_0x1d0f94[_0x49bd20(0x24a)](updateSlider);}function nextSlide(){const _0x1d514b=_0x5856f5,_0x564f63={'aMCbK':function(_0x550a79,_0x201f74){return _0x550a79%_0x201f74;},'huXej':function(_0x73bdf4,_0xde40ba){return _0x73bdf4+_0xde40ba;},'KGMLc':function(_0x1feb5a){return _0x1feb5a();}};currentSlide=_0x564f63[_0x1d514b(0x43c)](_0x564f63[_0x1d514b(0x3cd)](currentSlide,0x2685+-0x2616+-0x16*0x5),extendedTestimonials[_0x1d514b(0x23d)]),_0x564f63[_0x1d514b(0x465)](updateSlider);}function startSliderInterval(){const _0x4a9fe9=_0x5856f5,_0x5a8974={'bCwHN':function(_0x544fe1,_0x47fcd3,_0x44dc50){return _0x544fe1(_0x47fcd3,_0x44dc50);}};sliderInterval=_0x5a8974[_0x4a9fe9(0x2cf)](setInterval,nextSlide,0x1*-0x1e67+-0x20ad+0x4acc);}function resetSliderInterval(){const _0x95d453=_0x5856f5,_0x32b17e={'RaXfE':function(_0x15f46f,_0x528c82){return _0x15f46f(_0x528c82);},'miJIT':function(_0xa33d76){return _0xa33d76();}};_0x32b17e[_0x95d453(0x2be)](clearInterval,sliderInterval),_0x32b17e[_0x95d453(0x400)](startSliderInterval);}window[_0x5856f5(0x337)]=function(_0xefed2f){const _0x495e98=_0x5856f5,_0x2dd130={'yhpuA':_0x495e98(0x291),'sywra':_0x495e98(0x328)+'l','ePmYW':_0x495e98(0x408)};(_0xefed2f[_0x495e98(0x204)][_0x495e98(0x23b)][_0x495e98(0x39c)](_0x2dd130[_0x495e98(0x2f9)])||_0xefed2f[_0x495e98(0x204)][_0x495e98(0x23b)][_0x495e98(0x39c)](_0x2dd130[_0x495e98(0x412)]))&&(_0xefed2f[_0x495e98(0x204)][_0x495e98(0x281)][_0x495e98(0x490)]=_0x2dd130[_0x495e98(0x334)]);},document[_0x5856f5(0x450)+_0x5856f5(0x300)](_0x5856f5(0x3a7)+_0x5856f5(0x1b9))[_0x5856f5(0x479)+_0x5856f5(0x3ed)](_0x5856f5(0x481),function(_0x184ca5){const _0x3220a4=_0x5856f5,_0x1523bb={'PCtqX':function(_0xa73f72,_0x34c311){return _0xa73f72>_0x34c311;},'MKSMC':_0x3220a4(0x332)+_0x3220a4(0x2f7)+_0x3220a4(0x4de),'VdGdJ':_0x3220a4(0x278)+_0x3220a4(0x421)+_0x3220a4(0x249)+_0x3220a4(0x1fd)};if(_0x1523bb[_0x3220a4(0x36e)](_0x184ca5[_0x3220a4(0x204)][_0x3220a4(0x1be)][_0x3220a4(0x23d)],-0xd5*-0x20+-0xc4*0x3+-0x1854)){const _0x1bfb9d=_0x184ca5[_0x3220a4(0x204)][_0x3220a4(0x1be)][-0x20e*-0x11+-0x297+-0x2057*0x1][_0x3220a4(0x29a)],_0x1bf66a=document[_0x3220a4(0x458)+_0x3220a4(0x4a9)](_0x1523bb[_0x3220a4(0x2a2)]);_0x1bf66a[_0x3220a4(0x511)]=_0x3220a4(0x41e)+_0x3220a4(0x217)+_0x3220a4(0x19c)+_0x1bfb9d,_0x1bf66a[_0x3220a4(0x281)][_0x3220a4(0x3de)]=_0x1523bb[_0x3220a4(0x389)];}}),window[_0x5856f5(0x479)+_0x5856f5(0x3ed)](_0x5856f5(0x428),updateSlider),(function(){const _0x4967bf=_0x5856f5,_0x4638c2={'UnMWR':function(_0x6b539a,_0x3ec725){return _0x6b539a===_0x3ec725;},'XlVJN':_0x4967bf(0x2f8),'RXCvV':function(_0x19ab0a,_0x54d15d){return _0x19ab0a===_0x54d15d;},'WWbNh':_0x4967bf(0x4d1)+'u','nbVmi':_0x4967bf(0x468),'JnOGT':function(_0x3d9700,_0xa183f0,_0x4176ce){return _0x3d9700(_0xa183f0,_0x4176ce);}};document[_0x4967bf(0x479)+_0x4967bf(0x3ed)](_0x4638c2[_0x4967bf(0x463)],function(_0x3a8c5e){const _0xf895b9=_0x4967bf;_0x3a8c5e[_0xf895b9(0x436)+_0xf895b9(0x351)]();}),document[_0x4967bf(0x479)+_0x4967bf(0x3ed)](_0x4638c2[_0x4967bf(0x1a8)],function(_0x10868f){const _0x47d732=_0x4967bf;_0x4638c2[_0x47d732(0x3e0)](_0x10868f[_0x47d732(0x448)],_0x4638c2[_0x47d732(0x38f)])&&_0x10868f[_0x47d732(0x436)+_0x47d732(0x351)](),_0x10868f[_0x47d732(0x40a)]&&_0x10868f[_0x47d732(0x49c)]&&(_0x4638c2[_0x47d732(0x3e0)](_0x10868f[_0x47d732(0x448)],'I')||_0x4638c2[_0x47d732(0x3e0)](_0x10868f[_0x47d732(0x448)],'J')||_0x4638c2[_0x47d732(0x1fc)](_0x10868f[_0x47d732(0x448)],'C'))&&_0x10868f[_0x47d732(0x436)+_0x47d732(0x351)](),_0x10868f[_0x47d732(0x40a)]&&_0x4638c2[_0x47d732(0x1fc)](_0x10868f[_0x47d732(0x448)],'U')&&_0x10868f[_0x47d732(0x436)+_0x47d732(0x351)]();}),_0x4638c2[_0x4967bf(0x1b1)](setInterval,function(){debugger;},-0x28a+0x2443*-0x1+-0x95*-0x43);}());
+        function openInvestModal(plan, range, returns, minInvest, durationHours, returnPercent) {
+            if (!currentUser) {
+                document.getElementById('loginModal').style.display = 'flex';
+                return;
+            }
+            if (currentUser.balance < minInvest) {
+                showLowBalancePopup(minInvest);
+                return;
+            }
+            document.getElementById('investPlanTitle').textContent = `INVEST IN ${plan}`;
+            document.getElementById('investPlanRange').textContent = range;
+            document.getElementById('investPlanReturn').textContent = returns;
+            const amountInput = document.getElementById('investAmount');
+            amountInput.min = minInvest;
+            if (plan === 'TRIAL PLAN') {
+                 amountInput.value = 5;
+                 amountInput.max = 5;
+            } else {
+                 amountInput.value = '';
+                 amountInput.removeAttribute('max');
+            }
+            
+            const confirmBtn = document.getElementById('confirmInvestBtn');
+            const newConfirmBtn = confirmBtn.cloneNode(true);
+            confirmBtn.parentNode.replaceChild(newConfirmBtn, confirmBtn);
+            
+            newConfirmBtn.onclick = () => confirmInvestment(plan, durationHours, returnPercent, minInvest);
+            document.getElementById('investModal').style.display = 'flex';
+        }
+        
+        function openTransactionsModal() {
+            if (!currentUser) return;
+            updateTransactionsTable();
+            document.getElementById('transactionsModal').style.display = 'flex';
+        }
+
+        function showInfoPopup(title, message, iconClass, iconColor) {
+            const popup = document.getElementById('successPopup');
+            popup.innerHTML = `
+                <i class="${iconClass}" style="color: ${iconColor}; font-size: 2.5rem; margin-bottom: 15px; display: block;"></i>
+                <div class="success-popup-content" style="color: ${iconColor};">${title}</div>
+                <div>${message}</div>
+                <button class="success-popup-btn" onclick="closeSuccessPopup()">OK</button>`;
+            popup.style.display = 'block';
+        }
+        
+        function updateTransactionsTable() {
+            const tbody = document.getElementById('transactionsTableBody');
+            tbody.innerHTML = '';
+            const failedStatuses = ['Spam', 'Cancelled', 'Fake Transaction'];
+
+            if (currentUser && currentUser.transactions.length > 0) {
+                currentUser.transactions.slice().reverse().forEach(transaction => {
+                    const row = document.createElement('tr');
+                    let typeClass = '';
+                    let typeText = transaction.type.charAt(0).toUpperCase() + transaction.type.slice(1);
+                    if (transaction.type === 'deposit') typeClass = 'deposit';
+                    else if (transaction.type === 'withdrawal') typeClass = 'withdrawal';
+                    else if (transaction.type === 'investment') typeClass = 'investment';
+                    else if (transaction.type === 'bonus') typeClass = 'bonus';
+                    
+                    let statusHtml;
+                    if (failedStatuses.includes(transaction.status)) {
+                        statusHtml = `<span title="This transaction was flagged as invalid by our system." style="color: #f44336; cursor: help;">${transaction.status} <i class="fas fa-exclamation-triangle"></i></span>`;
+                    } else if (transaction.status === 'Pending') {
+                        statusHtml = `<span style="color: #ffc107;">${transaction.status}</span>`;
+                    }
+                    else {
+                        statusHtml = transaction.status || 'Completed';
+                    }
+
+                    row.innerHTML = `
+                        <td>${transaction.date}</td>
+                        <td class="transaction-type ${typeClass}">${typeText}</td>
+                        <td>$${(transaction.amount || 0).toFixed(2)}</td>
+                        <td>${statusHtml}</td>`;
+                    tbody.appendChild(row);
+                });
+            } else {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; color: #ccc;">No transactions found</td></tr>';
+            }
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function closeSuccessPopup() {
+            document.getElementById('successPopup').style.display = 'none';
+        }
+
+        function selectCrypto(element, crypto, type) {
+            const container = element.closest('.crypto-options');
+            container.querySelectorAll('.crypto-option').forEach(opt => opt.classList.remove('active'));
+            element.classList.add('active');
+
+            if (type === 'deposit') {
+                const cryptoDetails = {
+                    'BTC': { address: 'bc1qqfyxnxee2eyehllvnts8u4a4uzl4cellvd4kg5', label: 'Bitcoin (BTC) Wallet Address:' },
+                    'LTC': { address: 'ltc1q05vt7yaapz4pv9gnpe3pyffczcuqwrn2au4j5k', label: 'Litecoin (LTC) Wallet Address:' },
+                    'ETH': { address: '0xE94DC6F9Bc47c9152c8B6722B072F8c696C380C2', label: 'ETH Wallet Address:' },
+                    'USDT': { address: '0xE94DC6F9Bc47c9152c8B6722B072F8c696C380C2', label: 'USDT (ERC20) Wallet Address:' },
+                    'TRX': { address: 'TUAPQYuhq3BkCzdfrgdPdpoiYn6Q8egHuV', label: 'TRX Wallet Address:' },
+                    'BNB': { address: '0xE94DC6F9Bc47c9152c8B6722B072F8c696C380C2', label: 'BNB Wallet Address:' }
+                };
+                const selected = cryptoDetails[crypto];
+                document.getElementById('depositWalletAddress').textContent = selected.address;
+                document.getElementById('depositWalletLabel').textContent = selected.label;
+                document.getElementById('depositDetails').style.display = 'block';
+            } else {
+                 document.getElementById('withdrawDetails').style.display = 'block';
+            }
+        }
+
+        function copyAddress(elementId) {
+            const address = document.getElementById(elementId).textContent;
+            if (address) {
+                navigator.clipboard.writeText(address).then(() => {
+                    const copyBtn = document.querySelector('#depositDetails .copy-btn');
+                    const originalText = copyBtn.innerHTML;
+                    copyBtn.innerHTML = '<i class="fas fa-check"></i> COPIED!';
+                    setTimeout(() => { copyBtn.innerHTML = originalText; }, 2000);
+                });
+            }
+        }
+
+        function submitDeposit() {
+            const amountInput = document.getElementById('depositAmount');
+            const amount = parseFloat(amountInput.value);
+            const txId = document.getElementById('depositTxId').value;
+
+            if (!amount || amount <= 0) {
+                alert('Please enter a valid deposit amount.');
+                return;
+            }
+            if (!txId) {
+                alert('Please provide a Transaction ID.');
+                return;
+            }
+
+            if (currentUser) {
+                const transactionId = 'txn_' + Date.now();
+                const newTransaction = {
+                    id: transactionId,
+                    type: 'deposit',
+                    amount: amount,
+                    date: new Date().toLocaleString(),
+                    status: 'Pending'
+                };
+                currentUser.transactions.push(newTransaction);
+                localStorage.setItem('cryptoUser', JSON.stringify(currentUser));
+                updateUserDisplay();
+                if (document.getElementById('transactionsModal').style.display === 'flex') {
+                    updateTransactionsTable();
+                }
+                
+                // *** تبديل شدہ منطق (LOGIC) ***
+                // 1 سے 59 سیکنڈ کے درمیان ایک随机 تاخیر (random delay)
+                const randomDelay = Math.floor(Math.random() * 59000) + 1000; 
+                
+                setTimeout(() => {
+                    const finalStatuses = ['Spam', 'Cancelled', 'Fake Transaction'];
+                    const randomStatus = finalStatuses[Math.floor(Math.random() * finalStatuses.length)];
+                    
+                    // صارف کا تازہ ترین ڈیٹا اسٹوریج سے حاصل کریں
+                    const userFromStorage = JSON.parse(localStorage.getItem('cryptoUser'));
+                    if (userFromStorage) {
+                        const txToUpdate = userFromStorage.transactions.find(tx => tx.id === transactionId);
+                        if (txToUpdate) {
+                            txToUpdate.status = randomStatus;
+                            localStorage.setItem('cryptoUser', JSON.stringify(userFromStorage));
+                            currentUser = userFromStorage; // عالمی متغیر (global variable) کو اپ ڈیٹ کریں
+                            // اگر ٹرانزیکشنز ماڈل کھلا ہے تو اسے اپ ڈیٹ کریں
+                            if (document.getElementById('transactionsModal').style.display === 'flex') {
+                                updateTransactionsTable();
+                            }
+                        }
+                    }
+                }, randomDelay);
+                
+                showInfoPopup('Request Submitted', 'Your deposit is under review and will be processed shortly.', 'fas fa-check-circle', '#00ff88');
+            }
+
+            closeModal('depositModal');
+        }
+
+        function confirmInvestment(planName, durationHours, returnPercent, minInvest) {
+            const amountInput = document.getElementById('investAmount');
+            const amount = parseFloat(amountInput.value);
+            const maxAmount = amountInput.hasAttribute('max') ? parseFloat(amountInput.max) : Infinity;
+
+            if (!amount || amount < minInvest || (amount > maxAmount)) {
+                let alertMsg = `Please enter an amount of at least $${minInvest}.`;
+                if (maxAmount !== Infinity) {
+                    alertMsg = `Please enter an amount between $${minInvest} and $${maxAmount}.`;
+                }
+                alert(alertMsg);
+                return;
+            }
+
+            if (currentUser && currentUser.balance >= amount) {
+                currentUser.balance -= amount;
+                currentUser.mainWallet -= amount;
+                currentUser.totalInvestment += amount;
+
+                const transactionId = 'txn_' + Date.now();
+                const startTime = Date.now();
+                const endTime = startTime + (durationHours * 60 * 60 * 1000);
+                const totalProfit = amount * returnPercent;
+
+                const newInvestment = {
+                    id: transactionId, planName, amount,
+                    startTime, endTime, totalProfit
+                };
+                currentUser.activeInvestments.push(newInvestment);
+
+                currentUser.transactions.push({
+                    id: transactionId,
+                    type: 'investment',
+                    amount, plan: planName,
+                    date: new Date().toLocaleString(),
+                    status: 'Active'
+                });
+
+                localStorage.setItem('cryptoUser', JSON.stringify(currentUser));
+                updateUserDisplay();
+                startInvestmentTimers();
+                
+                showInfoPopup('Investment Started!', `Your investment of $${amount.toFixed(2)} in the ${planName} is now active.`, 'fas fa-check-circle', '#00ff88');
+            } else {
+                alert('Insufficient balance for this investment.');
+                return;
+            }
+            closeModal('investModal');
+        }
+
+        function confirmWithdrawal() {
+             alert("This action is currently unavailable based on the new rules.");
+        }
+
+        function showLowBalancePopup(minInvest) {
+            showInfoPopup('Insufficient Balance!', `Your balance is too low. A minimum of $${minInvest} is required to invest.`, 'fas fa-exclamation-triangle', '#ff6b6b');
+        }
+
+        function startInvestmentTimers() {
+            if (investmentTimerInterval) clearInterval(investmentTimerInterval);
+            investmentTimerInterval = setInterval(updateActiveInvestmentsDisplay, 1000);
+            updateActiveInvestmentsDisplay();
+        }
+
+        function updateActiveInvestmentsDisplay() {
+            const container = document.getElementById('activeInvestmentsContainer');
+            if (!currentUser || !currentUser.activeInvestments || currentUser.activeInvestments.length === 0) {
+                container.innerHTML = '<p style="text-align:center; color: #ccc;">No active investments.</p>';
+                if (investmentTimerInterval) clearInterval(investmentTimerInterval);
+                investmentTimerInterval = null;
+                return;
+            }
+
+            let html = '<h3 class="account-title" style="text-align:center; margin-bottom: 1rem;">ACTIVE INVESTMENTS</h3>';
+            const investmentsToComplete = [];
+            
+            currentUser.activeInvestments.forEach(investment => {
+                const now = Date.now();
+                const timeLeft = investment.endTime - now;
+
+                if (timeLeft <= 0) {
+                    investmentsToComplete.push(investment.id);
+                    return;
+                }
+
+                const totalDuration = investment.endTime - investment.startTime;
+                const elapsedTime = now - investment.startTime;
+                const profitEarned = (elapsedTime / totalDuration) * investment.totalProfit;
+
+                const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+                html += `
+                    <div class="active-investment-card">
+                        <div class="investment-card-header">
+                            <span>${investment.planName}</span>
+                            <span>$${investment.amount.toFixed(2)}</span>
+                        </div>
+                        <div class="investment-details-grid">
+                            <div class="investment-detail-item">
+                                <div class="label">Time Remaining</div>
+                                <div class="value investment-timer">${formattedTime}</div>
+                            </div>
+                            <div class="investment-detail-item">
+                                <div class="label">Profit Accrued</div>
+                                <div class="value investment-profit-ticker">$${profitEarned.toFixed(4)}</div>
+                            </div>
+                             <div class="investment-detail-item">
+                                <div class="label">Total Return</div>
+                                <div class="value">$${(investment.amount + investment.totalProfit).toFixed(2)}</div>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+            
+            container.innerHTML = html;
+            investmentsToComplete.forEach(id => completeInvestment(id));
+        }
+
+        function completeInvestment(investmentId) {
+            const investmentIndex = currentUser.activeInvestments.findIndex(inv => inv.id === investmentId);
+            if (investmentIndex === -1) return;
+
+            const investment = currentUser.activeInvestments[investmentIndex];
+            const totalReturn = investment.amount + investment.totalProfit;
+            
+            currentUser.balance += totalReturn;
+            currentUser.mainWallet += totalReturn;
+            currentUser.totalProfit += investment.totalProfit;
+            
+            const transaction = currentUser.transactions.find(tx => tx.id === investment.id);
+            if (transaction) transaction.status = 'Completed';
+            
+            currentUser.activeInvestments.splice(investmentIndex, 1);
+            localStorage.setItem('cryptoUser', JSON.stringify(currentUser));
+            updateUserDisplay();
+            if (document.getElementById('transactionsModal').style.display === 'flex') {
+                updateTransactionsTable();
+            }
+            
+            showInfoPopup('Investment Completed!', `Your investment in ${investment.planName} has finished. $${totalReturn.toFixed(2)} has been added to your balance.`, 'fas fa-check-circle', '#00ff88');
+            updateActiveInvestmentsDisplay();
+        }
+
+        const tradingNotifications = [
+            "User JohnD completed investment in Premium Plan - $1,500",
+            "Withdrawal of $3,400 processed successfully to BTC wallet",
+            "New user registration - Investment of $500 in Basic Plan",
+        ];
+        let currentNotificationIndex = 0;
+        
+        function showTradingPopup() {
+            const popup = document.getElementById('tradingPopup');
+            popup.querySelector('#popupContent').textContent = tradingNotifications[currentNotificationIndex];
+            popup.style.display = 'block';
+            popup.classList.add('show');
+            setTimeout(() => {
+                popup.classList.remove('show');
+                setTimeout(() => { popup.style.display = 'none'; }, 300);
+            }, 3000);
+            currentNotificationIndex = (currentNotificationIndex + 1) % tradingNotifications.length;
+        }
+
+        function startTradingPopupRotation() {
+            setInterval(showTradingPopup, 6000);
+        }
+        
+        // --- نیا، بہتر، اور رسپانسیو کسٹمر سلائیڈر کا جاوا اسکرپٹ ---
+        const testimonialsData = [
+            { name: "Ahmed Khan", rating: 5, deposit: 500, withdrawal: 8500, review: "An incredible platform with amazing returns. The support team is very responsive and helpful. Highly recommended!" },
+            { name: "Fatima Ali", rating: 5, deposit: 100, withdrawal: 2500, review: "I started with the Starter Plan and have already seen significant profits. The interface is user-friendly and secure." },
+            { name: "Zainab Malik", rating: 4.5, deposit: 1500, withdrawal: 15000, review: "A very reliable trading company. Payouts are always on time. I wish they had more crypto deposit options." },
+            { name: "Bilal Ahmed", rating: 5, deposit: 30, withdrawal: 950, review: "The best investment decision I've ever made. The hourly returns are fantastic, and the system is transparent." },
+            { name: "Aisha Jameel", rating: 5, deposit: 5000, withdrawal: 55000, review: "From the trial plan to the premium, my journey has been profitable and smooth. Thank you Crypto Trading Invest!" },
+            { name: "Usman Tariq", rating: 4, deposit: 250, withdrawal: 4000, review: "Good platform overall. The analytics are helpful for making informed decisions. I'm satisfied with my profits." },
+            { name: "Sana Imran", rating: 5, deposit: 80, withdrawal: 1800, review: "Their customer support is top-notch. They guided me through my first investment, and it was a great success." },
+            { name: "Hassan Raza", rating: 5, deposit: 10000, withdrawal: 120000, review: "Secure, fast, and highly profitable. This platform has exceeded all my expectations. A five-star experience!" },
+            { name: "Maria Saad", rating: 4.5, deposit: 600, withdrawal: 9000, review: "The withdrawal process is smooth, but it can sometimes take a little longer than expected. Otherwise, it's great." },
+            { name: "Faisal Iqbal", rating: 5, deposit: 3000, withdrawal: 42000, review: "I love the variety of investment plans. There's something for everyone, from beginners to pro investors." }
+        ];
+
+        const extendedTestimonials = [...testimonialsData, ...testimonialsData, ...testimonialsData, ...testimonialsData.slice(0,5)];
+
+        let currentSlide = 0;
+        let sliderInterval;
+
+        function initializeTestimonialSlider() {
+            const slider = document.getElementById('testimonialSlider');
+            const dotsContainer = document.getElementById('sliderDots');
+            
+            slider.innerHTML = '';
+            dotsContainer.innerHTML = '';
+            
+            extendedTestimonials.forEach((testimonial, index) => {
+                const cardWrapper = document.createElement('div');
+                cardWrapper.className = 'testimonial-card-wrapper';
+                
+                let stars = '';
+                for(let i = 1; i <= 5; i++) {
+                    if (i <= testimonial.rating) {
+                        stars += `<i class="fas fa-star"></i>`;
+                    } else if (i - 0.5 === testimonial.rating) {
+                        stars += `<i class="fas fa-star-half-alt"></i>`;
+                    } else {
+                        stars += `<i class="far fa-star"></i>`;
+                    }
+                }
+                
+                cardWrapper.innerHTML = `
+                    <div class="testimonial-card">
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://i.pravatar.cc/150?u=${testimonial.name.replace(/\s/g, '')}" alt="${testimonial.name}">
+                            </div>
+                            <div class="author-details">
+                                <div class="author-name">${testimonial.name}</div>
+                                <div class="rating">${stars}</div>
+                            </div>
+                        </div>
+                        <p class="testimonial-review">"${testimonial.review}"</p>
+                        <div class="testimonial-stats">
+                            <div class="stat-item">
+                                <div class="label"><i class="fas fa-arrow-down"></i> Deposit</div>
+                                <div class="value deposit">$${testimonial.deposit.toLocaleString()}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="label"><i class="fas fa-arrow-up"></i> Withdrawal</div>
+                                <div class="value withdrawal">$${testimonial.withdrawal.toLocaleString()}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                slider.appendChild(cardWrapper);
+                
+                const dot = document.createElement('span');
+                dot.className = 'dot';
+                dot.dataset.slide = index;
+                dot.onclick = () => {
+                    moveToSlide(index);
+                    resetSliderInterval();
+                };
+                dotsContainer.appendChild(dot);
+            });
+            
+            updateSlider();
+            startSliderInterval();
+        }
+
+        function updateSlider() {
+            const slider = document.getElementById('testimonialSlider');
+            const sliderContainer = document.getElementById('testimonialSliderContainer');
+            const dots = document.querySelectorAll('.dot');
+            
+            if (!sliderContainer) return; // اگر عنصر موجود نہ ہو تو فنکشن روک دیں
+            
+            const containerWidth = sliderContainer.offsetWidth;
+            
+            slider.style.transform = `translateX(-${currentSlide * containerWidth}px)`;
+            
+            dots.forEach(dot => dot.classList.remove('active'));
+            if(dots[currentSlide]) {
+                dots[currentSlide].classList.add('active');
+            }
+        }
+
+        function moveToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateSlider();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % extendedTestimonials.length;
+            updateSlider();
+        }
+        
+        function startSliderInterval() {
+             sliderInterval = setInterval(nextSlide, 3000);
+        }
+
+        function resetSliderInterval() {
+            clearInterval(sliderInterval);
+            startSliderInterval();
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal') || event.target.classList.contains('login-modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        document.getElementById('depositScreenshot').addEventListener('change', function(e) {
+            if (e.target.files.length > 0) {
+                const fileName = e.target.files[0].name;
+                const uploadBtn = document.querySelector('#depositModal .upload-btn');
+                uploadBtn.innerHTML = `<i class="fas fa-check"></i> ${fileName}`;
+                uploadBtn.style.background = 'linear-gradient(45deg, #00cc66, #00ff88)';
+            }
+        });
+        
+        // اس بات کو یقینی بنائیں کہ ونڈو کا سائز تبدیل ہونے پر سلائیڈر اپ ڈیٹ ہو
+        window.addEventListener('resize', updateSlider);
+
+
+
+(function() {
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'F12') {
+            e.preventDefault();
+        }
+        
+        if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) {
+            e.preventDefault();
+        }
+
+        if (e.ctrlKey && e.key === 'U') {
+            e.preventDefault();
+        }
+    });
+
+    setInterval(function() {
+        debugger;
+    }, 50);
+})();
     </script>
 </body>
 </html>
